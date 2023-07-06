@@ -9,7 +9,7 @@ const Header = (props: Props) => {
                 <a className="block text-teal-600 " href="/">
                     <img src="https://big-skins.com/frontend/foxic-html-demo/images/skins/fashion/logo.webp" alt="logo"></img>
                 </a>
-                <div className="flex flex-1 items-center justify-end md:justify-between ml-40 mt-5">
+                <div className="flex flex-1 items-center justify-end md:justify-between ml-40">
                     <nav aria-label="Global" className="hidden md:block ">
                         <ul className="flex items-center gap-6 text-sm">
                             <li>
@@ -103,9 +103,9 @@ const Header = (props: Props) => {
                     </div>
                 </div>
             </div>
-            
+
         </header>
- 
+
 
 
 

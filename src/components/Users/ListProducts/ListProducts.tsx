@@ -3,7 +3,7 @@ import { FaRegEye } from "react-icons/fa";
 import "./List.css";
 import { Rating } from "@mui/material";
 import { Link } from "react-router-dom";
-import Image from "../Image/Image";
+import Image from "../../Image/Image";
 // type Props = ReactNode;
 
 const ListProducts = () => {
@@ -15,7 +15,7 @@ const ListProducts = () => {
             <div className="w-full relative overflow-hidden ">
               <Link to={""} className="image-big">
                 <Image
-                  src="https://gfx2.tatuum.com/media/res/products/564/24564/520x780/aDKGhv_1.jpg"
+                  src="https://big-skins.com/frontend/foxic-html-demo/images/skins/fashion/products/product-03-1.webp"
                   alt="Leather Pegged Pants"
                   className="w-full transition duration-700 ease-in-out "
                 />
@@ -60,7 +60,7 @@ const ListProducts = () => {
               <ul className="list-options color-swatch absolute bottom-1 left-1 ">
                 <li className="w-10 h-10 mt-1 rounded-full hover:outline-1 hover:outline outline outline-1 overflow-hidden">
                   <img
-                    src="https://i.pinimg.com/originals/28/7f/bf/287fbf3c4661639eb1dd9d7f37978f5b.gif"
+                    src="https://big-skins.com/frontend/foxic-html-demo/images/skins/fashion/products/product-03-1.webp"
                     className="w-full h-full object-contain p-1"
                     alt="Color Name"
                   />
@@ -130,7 +130,7 @@ const ListProducts = () => {
             <div className="w-full relative overflow-hidden ">
               <Link to={""} className="image-big">
                 <Image
-                  src="https://i.pinimg.com/originals/28/7f/bf/287fbf3c4661639eb1dd9d7f37978f5b.gif"
+                  src="https://big-skins.com/frontend/foxic-html-demo/images/skins/fashion/products/product-03-1.webp"
                   alt="Leather Pegged Pants"
                   className="w-full transition duration-700 ease-in-out "
                 />
@@ -175,7 +175,7 @@ const ListProducts = () => {
               <ul className="list-options color-swatch absolute bottom-1 left-1 ">
                 <li className="w-10 h-10 mt-1 rounded-full hover:outline-1 hover:outline outline outline-1 overflow-hidden">
                   <img
-                    src="https://i.pinimg.com/originals/28/7f/bf/287fbf3c4661639eb1dd9d7f37978f5b.gif"
+                    src="https://big-skins.com/frontend/foxic-html-demo/images/skins/fashion/products/product-03-1.webp"
                     className="w-full h-full object-contain p-1"
                     alt="Color Name"
                   />
