@@ -9,7 +9,7 @@ const Footer = (props: Props) => {
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
           <div>
             <div className="text-teal-600">
-             <img src="https://big-skins.com/frontend/foxic-html-demo/images/logo-footer.webp" alt="" />
+              <img src="https://big-skins.com/frontend/foxic-html-demo/images/logo-footer.webp" alt="" />
             </div>
 
             <p className="mt-4 max-w-xs text-gray-500">
@@ -254,35 +254,31 @@ const Footer = (props: Props) => {
               </ul>
             </div>
             <div className="flex flex-col items-center">
-  <p className="text-base font-bold tracking-wide text-gray-900">
-    Thanh Toan
-  </p>
-  <div className="flex items-center gap-1 px-2">
-  <a href="#" className="w-full min-w-2xl">
-    <img
-      src="https://www.panspermia-theory.com/wp-content/uploads/2022/02/loi-ich-vay-tien-momo-1.png"
-      alt="Playstore Button"
-      className="h-15 w-500 "
-    />
-  </a>
+              <p className="text-base font-bold tracking-wide text-gray-900">
+                Pay
+              </p>
+              <div className="flex items-center gap-1 px-2">
+                <a href="#" className="w-full min-w-2xl">
+                  <img
+                    src="https://www.panspermia-theory.com/wp-content/uploads/2022/02/loi-ich-vay-tien-momo-1.png"
+                    alt="Playstore Button"
+                    className="h-15 w-500 "
+                  />
+                </a>
 
-  <a className="w-full min-w-2xl ml-5" href="">
-    <img
-      src="https://inkythuatso.com/uploads/images/2021/12/vnpay-logo-inkythuatso-01-13-16-26-42.jpg"
-      alt="Youtube Button"
-      className="h-15 w-500 "
-    />
-  </a>
-</div>
+                <a className="w-full min-w-2xl ml-5" href="">
+                  <img
+                    src="https://inkythuatso.com/uploads/images/2021/12/vnpay-logo-inkythuatso-01-13-16-26-42.jpg"
+                    alt="Youtube Button"
+                    className="h-15 w-500 "
+                  />
+                </a>
+              </div>
 
-</div>
+            </div>
 
           </div>
         </div>
-
-        <p className="text-xs text-gray-500">
-          &copy; 2022. Company Name. All rights reserved.
-        </p>
       </div>
     </footer>
   );

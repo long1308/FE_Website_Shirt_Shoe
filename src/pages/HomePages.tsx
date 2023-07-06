@@ -18,7 +18,7 @@
 import ListProducts from "../components/Users/ListProducts/ListProducts";
 import { BannerHome } from "../components";
 import Container from "./Container";
-import Header_home from "./header_home";
+import Header_home from "../components/Users/HeaderHomeInfo";
 
 type Props = object;
 const HomePages = (props: Props) => {
@@ -26,9 +26,6 @@ const HomePages = (props: Props) => {
     <div>
       <BannerHome></BannerHome>
       <Container />
-      
-      <ListProducts />
-      <Header_home  />
     </div>
   );
 };
