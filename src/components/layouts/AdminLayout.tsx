@@ -1,6 +1,6 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
-import BannerHome from "../Users/BannerHome";
+import BannerHome from "../Users/Banner/BannerHome";
 import Sidebar from "../../partials/Admin/Sidebar";
 
 
