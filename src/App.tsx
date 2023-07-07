@@ -1,17 +1,15 @@
 import { Routes, Route } from "react-router-dom"
 import { BaseLayout } from "./components"
-import { HomePages } from "./pages"
-
-
+import { HomePages, NotFound, Signin, Signup } from "./pages"
+// import "antd/dist/antd.css";
 function App() {
-
   return (
     <div className="App">
       <Routes>
         {/* client */}
-        {/* <Route path="*" element={<NotFound />} /> */}
-        {/* <Route path="signin" element={<Signin />} />
-        <Route path="signup" element={<Signup />} /> */}
+        <Route path="*" element={<NotFound />} />
+        <Route path="signin" element={<Signin />} />
+        <Route path="signup" element={<Signup />} />
         <Route path="/" element={<BaseLayout />}>
           <Route index element={<HomePages />} />
           {/* <Route path="products/:id" element={<ProductDetail />} /> */}

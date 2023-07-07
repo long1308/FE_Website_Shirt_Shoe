@@ -1,7 +1,7 @@
 const HeaderHomeInfo = () => {
   return (
     <section className="bg-white">
-      <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
+      <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 sm:py-10 lg:px-8">
 
 
         <div className="mt-12 grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-8">
