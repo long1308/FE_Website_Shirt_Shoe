@@ -10,7 +10,7 @@ function App() {
         {/* client */}
         <Route path="*" element={<NotFound />} />
         <Route path="signin" element={<Signin />} />
-        <Route path="signin" element={<Signin />} />
+        <Route path="signup" element={<Signup />} />
         <Route path="/" element={<BaseLayout />}>
           <Route index element={<HomePages />} />
           <Route path="order" element={<Order />} />
