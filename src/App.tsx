@@ -1,6 +1,7 @@
-import { Routes, Route } from "react-router-dom"
-import { BaseLayout } from "./components"
-import { Cart, HomePages, NotFound, Signin, Signup } from "./pages"
+import { Routes, Route } from "react-router-dom";
+import { BaseLayout } from "./components";
+import { HomePages, NotFound, Order, Signin, Signup } from "./pages";
+import Detail_Product from "./pages/User/Detail-Product/Detail_Product";
 // import "antd/dist/antd.css";
 function App() {
   return (
@@ -12,8 +13,9 @@ function App() {
         <Route path="signup" element={<Signup />} />
         <Route path="/" element={<BaseLayout />}>
           <Route index element={<HomePages />} />
-          {/* <Route path="products/:id" element={<ProductDetail />} /> */}
-          <Route path="/cart" element={<Cart />} />
+          <Route path="order" element={<Order />} />
+          <Route path="products/:id" element={<Detail_Product />} />
+          {/* <Route path="/cart" element={<Cart />} /> */}
         </Route>
         {/* admin */}
         {/* <Route path="/admin" element={
@@ -40,7 +42,7 @@ function App() {
         </Route> */}
       </Routes>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
