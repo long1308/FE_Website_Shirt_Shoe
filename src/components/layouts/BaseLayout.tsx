@@ -16,6 +16,7 @@ const BaseLayout = (props: Props) => {
       <footer>
         <Footer />
       </footer>
+     
     </div>
   )
 }
