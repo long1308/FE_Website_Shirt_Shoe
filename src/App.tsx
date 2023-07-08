@@ -1,9 +1,16 @@
+import { useEffect } from 'react';
 import { Routes, Route } from "react-router-dom";
 import { BaseLayout } from "./components";
-import { HomePages, NotFound, Order, Signin, Signup } from "./pages";
-import Detail_Product from "./pages/User/Detail-Product/Detail_Product";
-// import "antd/dist/antd.css";
+import { HomePages, NotFound, Order, Signin, Signup, Detail_Product } from "./pages";
+import { getProducts, addProduct, updateProduct, deleteProduct } from "./store/actions/actionProduct";
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from "./store/store";
 function App() {
+  const dispatch = useDispatch();
+  const products = useSelector((state: RootState) => state.products.products);
+  useEffect(() => {
+    dispatch(getProducts() as never); // Dispatch the action to get the products
+  }, [dispatch]);
   return (
     <div className="App">
       <Routes>
