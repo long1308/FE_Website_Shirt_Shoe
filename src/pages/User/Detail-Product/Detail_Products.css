@@ -1,0 +1,18 @@
+.active-bg-size{
+background-color: black;
+color: white;
+}
+.prd-sale{
+    transition: all 0.3s ;
+    transform: translateY(0);
+}
+.slider:hover .prd-sale{
+    transform: translateY(-150%);
+}
+.slider:hover .icon-arrow-left{
+    transform: translateX(0) translateY(-50%);
+}
+.slider:hover .icon-arrow-right{
+    transform: translateX(0) translateY(-50%);
+
+}

@@ -1,6 +1,5 @@
 import React from 'react'
 import { HeaderHomeInfo, ListProducts } from '../components'
-
 type Props = object
 
 const Container = (props: Props) => {
