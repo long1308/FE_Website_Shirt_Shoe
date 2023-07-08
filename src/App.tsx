@@ -1,10 +1,9 @@
-import { Routes, Route } from "react-router-dom"
-import { BaseLayout } from "./components"
-import { HomePages } from "./pages"
-
+import { Routes, Route } from "react-router-dom";
+import { BaseLayout } from "./components";
+import { HomePages } from "./pages";
+import Detail_Product from "./pages/User/Detail-Product/Detail_Product";
 
 function App() {
-
   return (
     <div className="App">
       <Routes>
@@ -14,7 +13,7 @@ function App() {
         <Route path="signup" element={<Signup />} /> */}
         <Route path="/" element={<BaseLayout />}>
           <Route index element={<HomePages />} />
-          {/* <Route path="products/:id" element={<ProductDetail />} /> */}
+          <Route path="products/:id" element={<Detail_Product />} />
           {/* <Route path="/cart" element={<Cart />} /> */}
         </Route>
         {/* admin */}
@@ -42,7 +41,7 @@ function App() {
         </Route> */}
       </Routes>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
