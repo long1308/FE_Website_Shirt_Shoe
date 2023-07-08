@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom"
 import { BaseLayout } from "./components"
-import { HomePages, NotFound, Signin, Signup } from "./pages"
+import { Cart, HomePages, NotFound, Signin, Signup } from "./pages"
 // import "antd/dist/antd.css";
 function App() {
   return (
@@ -13,7 +13,7 @@ function App() {
         <Route path="/" element={<BaseLayout />}>
           <Route index element={<HomePages />} />
           {/* <Route path="products/:id" element={<ProductDetail />} /> */}
-          {/* <Route path="/cart" element={<Cart />} /> */}
+          <Route path="/cart" element={<Cart />} />
         </Route>
         {/* admin */}
         {/* <Route path="/admin" element={
