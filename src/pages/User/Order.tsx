@@ -6,9 +6,9 @@ type Props = object
 const Order = (props: Props) => {
     return (
         <div className='mx-5'>
-            <h3 className="text-xl text-[#222] text-center font-bold tracking-wider my-5">Checkout page</h3>
-            <div className='flex'>
-                <div className='border w-6/12 p-10 mr-5'>
+            <h3 className="text-x text-[#222] text-center font-bold tracking-wider my-5">Checkout page</h3>
+            <div className='sm:flex sm:flex-row'>
+                <div className='border sm:w-6/12 p-10 mr-5 w-full mb-5'>
                     <h4 className="text-xl text-[#222]  font-bold tracking-wider my-2">Shipping Address</h4>
                     <p>Login or Register for faster payment.</p>
                     <div className='flex'>
@@ -26,7 +26,7 @@ const Order = (props: Props) => {
                         <Input placeholder="Phone" className=' p-3 w-full' />
                     </div>
                     <div className='my-3'>
-                        <label  htmlFor="">Address:</label>
+                        <label htmlFor="">Address:</label>
                         <fieldset className="grid grid-cols-2 gap-4">
                             <legend className="sr-only">Delivery</legend>
 
@@ -78,7 +78,7 @@ const Order = (props: Props) => {
                         </fieldset>
                     </div>
                 </div>
-                <div className='border w-6/12 p-10'>
+                <div className='border sm:w-6/12 p-10 w-full'>
                     <h3 className="text-xl text-[#222] font-bold tracking-wider my-2">Devivery Methods
                     </h3>
                     <fieldset className="space-y-4">
