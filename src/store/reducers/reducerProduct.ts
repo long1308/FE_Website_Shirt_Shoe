@@ -1,7 +1,6 @@
 // productReducer.ts
 import { Reducer } from "redux";
 import { ProductActionTypes, ProductState } from "../../interface/product";
-import productService from "../../api/product/productService"; 
 const initialState: ProductState = {
   products: [],
 };
@@ -10,8 +9,10 @@ const productReducer: Reducer<ProductState, ProductActionTypes> = (
   state = initialState,
   action
 ) => {
+
   switch (action.type) {
     case "GET_PRODUCTS":
+      console.log("state", state, "action", action);
       return {
         ...state,
         products: action.payload,
