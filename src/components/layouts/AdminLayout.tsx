@@ -1,6 +1,5 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
-import BannerHome from "../Users/Banner/BannerHome";
 import Sidebar from "../../partials/Admin/Sidebar";
 
 
@@ -12,7 +11,6 @@ const AdminLayout = (props: Props) => {
             <aside>
                 <Sidebar />
             </aside>
-            <BannerHome />
         </div>
     );
 };
