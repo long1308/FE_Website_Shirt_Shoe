@@ -1,18 +1,20 @@
-
-
-import ListProducts from "../components/Users/ListProducts/ListProducts";
 import { BannerHome } from "../components";
+import { Iproduct } from "../interface/product";
 import Container from "./Container";
-import Header_home from "../components/Users/Banner/HeaderHomeInfo";
-
-type Props = object;
-const HomePages = (props: Props) => {
-  return (
-    <div>
-      <BannerHome></BannerHome>
-      <Container />
-    </div>
-  );
+import { useEffect } from 'react';
+type Props = {
+    products: Iproduct[];
+}
+const HomePages = ({ products }: Props) => {
+    useEffect(() => {
+        console.log(products);
+    }, [products])
+    return (
+        <div>
+            <BannerHome></BannerHome>
+            <Container />
+        </div>
+    );
 };
 
 export default HomePages;
