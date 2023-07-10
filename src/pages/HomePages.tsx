@@ -1,4 +1,4 @@
-import { BannerHome } from "../components";
+import { BannerHome , BannerCaption , BannerCategory} from "../components";
 import { Iproduct } from "../interface/product";
 import Container from "./Container";
 import { useEffect } from 'react';
@@ -12,7 +12,9 @@ const HomePages = ({ products }: Props) => {
     return (
         <div>
             <BannerHome></BannerHome>
+            <BannerCategory></BannerCategory>
             <Container />
+            <BannerCaption></BannerCaption>
         </div>
     );
 };
