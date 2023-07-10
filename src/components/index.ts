@@ -7,6 +7,8 @@ import ListProducts from "./Users/ListProducts/ListProducts";
 import Item from "./item/item";
 import CustomTabs from "./Tabs/Taps";
 import ListProductNew from "./Users/ListProducts/ListProductNew";
+import BannerCaption from "./Users/Banner/BannerCaption";
+import BannerCategory from "./Users/Banner/BannerCategory";
 export {
   DashBoardPage,
   AdminLayout,
@@ -17,4 +19,6 @@ export {
   Item,
   CustomTabs,
   ListProductNew,
+  BannerCaption,
+  BannerCategory
 };
