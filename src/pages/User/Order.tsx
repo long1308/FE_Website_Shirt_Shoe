@@ -1,9 +1,11 @@
-import React from 'react'
-import { Input } from 'antd';
+import React, { useState } from 'react'
+import { Input, InputNumber } from 'antd';
+import { BsFillTrash3Fill } from 'react-icons/bs';
 
 type Props = object
 
 const Order = (props: Props) => {
+    const [isIconHovered, setIsIconHovered] = useState(false);
     return (
         <div className='mx-5'>
             <h3 className="text-x text-[#222] text-center font-bold tracking-wider my-5">Checkout page</h3>
@@ -189,8 +191,180 @@ const Order = (props: Props) => {
                             <label htmlFor="bordered-radio-2" className="w-full py-4 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Paypal</label>
                         </div>
                     </div>
+
+                </div>
+
+            </div>
+            <h3 className="text-3xl text-[#17c6aa] font-bold tracking-wider my-5 mx-20">Order Summary</h3>
+           {/* <div className='grid grid-cols-4'>
+           <div className="mt-10 col-span-3 ">
+                <div className="overflow-x-auto  px-1 md:px-10 ">
+                <hr></hr>
+                    <table className="w-full divide-y-2 divide-gray-200 bg-white text-sm">
+                        <thead>
+                            <tr>
+        
+                                <th className="px-10 py-3 font-medium text-gray-900 text-base">
+                                    <div className="flex items-center">Img</div>
+                                </th>
+                                <th className="whitespace-nowrap px-4 py-3 font-medium text-gray-900 ">
+                                    Name
+                                </th>
+                                <th className="whitespace-nowrap px-4 py-3 font-medium text-gray-900 ">
+                                    Qty
+                                </th>
+                                <th className="whitespace-nowrap px-4 py-3 font-medium text-gray-900  ">
+                                    Price
+                                </th>
+                            </tr>
+                        </thead>
+
+                        <tbody className="divide-y divide-gray-200">
+                            <tr>
+                                <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 text-center">
+                                    <div className="flex items-center md:w-4/5 relative">
+                                        <img className="w-full" src="https://big-skins.com/frontend/foxic-html-demo/images/skins/fashion/products/product-01-1.webp" alt="" />
+                                        <span className="text-xs flex gap-3 absolute right-0 top-2 bg-green-400 p-1 text-white rounded-full">
+                                            50% OFF</span>
+                                    </div>
+                                </td>
+                                <td className="whitespace-nowrap px-4 py-2 text-gray-700 text-base">
+                                    <div className=" items-center gap-1">
+                                        <p className="text-xl ">Sản Phẩm 1</p>
+                                        <div className="flex items-center gap-1">
+                                            <span className="text-base  ">Color:</span>
+                                            <span className=" bg-yellow-500 flex  gap-3 rounded-full w-4 h-4 opacity-70"></span></div>
+                                    </div>
+                                    <span className="  gap-3 text-base">Size: S</span>
+                                </td>
+                                <td className="whitespace-nowrap px-4 py-2 text-gray-700 pl-40">
+                                    <div className="flex items-center">
+                                        <input min={1} max={10} defaultValue={3} />
+                                        <div className="flex flex-col">
+                                        </div>
+                                    </div>
+                                </td>
+                                <td className="whitespace-nowrap px-4 py-2 text-gray-700 pl-10 text-xl ">
+                                    $120.000
+                                </td>
+                            </tr>
+                            <tr>
+                                <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 text-center">
+                                    <div className="flex items-center md:w-4/5 relative">
+                                        <img className="w-full" src="https://big-skins.com/frontend/foxic-html-demo/images/skins/fashion/products/product-01-1.webp" alt="" />
+                                        <span className="text-xs flex gap-3 absolute right-0 top-2 bg-green-400 p-1 text-white rounded-full">
+                                            50% OFF</span>
+                                    </div>
+                                </td>
+                                <td className="whitespace-nowrap px-4 py-2 text-gray-700 text-base">
+                                    <div className=" items-center gap-1">
+                                        <p className="text-xl ">Sản Phẩm 1</p>
+                                        <div className="flex items-center gap-1">
+                                            <span className="text-base  ">Color:</span>
+                                            <span className=" bg-yellow-500 flex  gap-3 rounded-full w-4 h-4 opacity-70"></span></div>
+                                    </div>
+                                    <span className="  gap-3 text-base">Size: S</span>
+                                </td>
+                                <td className="whitespace-nowrap px-4 py-2 text-gray-700 pl-40">
+                                    <div className="flex items-center">
+                                        <input min={1} max={10} defaultValue={3} />
+                                        <div className="flex flex-col">
+                                        </div>
+                                    </div>
+                                </td>
+                                <td className="whitespace-nowrap px-4 py-2 text-gray-700 pl-10 text-xl ">
+                                    $120.000
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div >
+            <div className="col-span-1 mt-10 ">
+                <div className="">
+                    <div className='border-2 p-2'>
+                        <h3 className='font-bold px-3'>Apply Promocode</h3>
+                        <div className='m-5 flex-col'>Got a promo code? Then you're a few randomly combined numbers & letters away from fab savings!</div>
+                    </div>
+                    <div className="mb-4 mt-20 flex justify-between ">
+                        <span className="font-bold text-2xl">Total</span>
+                        <span className="text-2xl ml-auto">$120.00</span>
+                    </div>
+                    <button className="text-xl mb-2 bg-[#17c6aa] text-white h-[60px] w-full flex items-center justify-center font-sans hover:bg-black hover:text-white">
+                        PLACE ORDER
+                    </button>
                 </div>
             </div>
+           </div> */}
+           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 ">
+        <div className="md:col-span-2 ">
+          <div className="overflow-x-auto mx-10">
+            <table className=" table min-w-full divide-y-2 divide-gray-200 bg-white text-sm ">
+              <thead className="ltr:text-left rtl:text-right  ">
+                <tr>
+                  <th className="whitespace-nowrap py-4 px-1 font-medium text-gray-900 text-left text:xs lg:text-xl">
+                    Image
+                  </th>
+                  <th className="whitespace-nowrap py-4  px-1  font-medium text-gray-900 text-left text:xs lg:text-xl">
+                    Name
+                  </th>
+                  <th className="whitespace-nowrap py-4 px-1  font-medium text-gray-900 text-left text:xs lg:text-xl">
+                    Qty
+                  </th>
+                  <th className="whitespace-nowrap py-4 px-1  font-medium text-gray-900 text-left text:xs lg:text-xl">
+                    Price
+                  </th>
+                </tr>
+              </thead>
+
+              <tbody className="divide-y divide-gray-200 ">
+                <tr className="">
+                   <td className="whitespace-nowrap font-medium text-gray-900 flex text-left py-4">
+                    <div className="relative">
+                      <img className="w-full h-auto lg:w-40 object-cover md:w-40" src="https://big-skins.com/frontend/foxic-html-demo/images/skins/fashion/products/product-01-1.webp" alt="" />
+                      <span className="text-xs absolute top-0 right-0 bg-green-400 p-1 text-white rounded-full hidden sm:block">
+                        50% OFF
+                      </span>
+                    </div>
+                  </td>
+                  <td className="whitespace-nowrap  text-gray-700 py-4 ">
+                    <div className=" items-center ">
+                      <p className="text-xs lg:text-xl md:text-xl">Sản Phẩm 1</p>
+                      <div className="flex items-center gap-1">
+                        <span className="text-xs lg:text-base md:text-xl ">Color:</span>
+                        <span className=" bg-yellow-500 flex  gap-3 rounded-full w-4 h-4 opacity-70"></span></div>
+                    </div>
+                    <span className="  gap-3 text-xs lg:text-base md:text-xl">Size: S</span>
+                  </td>
+                  <td className="whitespace-nowrap text-gray-700 py-4 px-4">
+                    <div className="flex items-center text-xs lg:text-xl">
+                      <input  min={1} max={10} defaultValue={3}  className="text-xs lg:text-xl w-10"/>
+                    </div>
+                  </td>
+                  <td className=" whitespace-nowrap  text-gray-700  text-xs lg:text-xl md:text-xl py-4 px-1 ">$120,000</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div >
+        <div className="col-span-1 mx-10 ">
+        <div className="col-span-1 mt-10 ">
+                <div className="">
+                    <div className='border-2 p-2'>
+                        <h3 className='font-bold px-3'>Apply Promocode</h3>
+                        <div className='m-5 flex-col'>Got a promo code? Then you're a few randomly combined numbers & letters away from fab savings!</div>
+                    </div>
+                    <div className="mb-4 mt-20 flex justify-between ">
+                        <span className="font-bold text-2xl">Total</span>
+                        <span className="text-2xl ml-auto">$120.00</span>
+                    </div>
+                    <button className="text-xl mb-2 bg-[#17c6aa] text-white h-[60px] w-full flex items-center justify-center font-sans hover:bg-black hover:text-white">
+                        PLACE ORDER
+                    </button>
+                </div>
+            </div>
+        </div>
+      </div >
         </div>
     )
 }

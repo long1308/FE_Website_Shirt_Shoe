@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import { BaseLayout } from "./components";
 import { HomePages, NotFound, Order, Signin, Signup } from "./pages";
 import Detail_Product from "./pages/User/Detail-Product/Detail_Product";
+import Cart from "./components/cart/cart";
 // import "antd/dist/antd.css";
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
           <Route index element={<HomePages />} />
           <Route path="order" element={<Order />} />
           <Route path="products/:id" element={<Detail_Product />} />
-          {/* <Route path="/cart" element={<Cart />} /> */}
+          <Route path="/cart" element={<Cart />} />
         </Route>
         {/* admin */}
         {/* <Route path="/admin" element={

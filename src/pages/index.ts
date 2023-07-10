@@ -4,4 +4,5 @@ import Signin from "./User/Signin";
 import Signup from "./User/Signup";
 import NotFound from "./User/NotFound";
 import Order from "./User/Order";
-export { Container, HomePages, Signin, Signup, NotFound, Order };
+import Cart from "../components/cart/cart";
+export { Container, HomePages, Signin, Signup, NotFound, Order,Cart };
