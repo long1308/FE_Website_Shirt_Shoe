@@ -36,12 +36,11 @@ function App() {
           <Route path="products/:id" element={<Detail_Product />} />
           {/* <Route path="/cart" element={<Cart />} /> */}
         </Route>
-        <Route path="/ListGroup" element={<Layout/>}>
-          <Route index element={<ListGroup />} />
+        <Route path="/" element={<Layout/>}>
           <Route path="wishlist" element={<Wishlist />} />
-          <Route path="Account" element={<Account />} />
-          <Route path="History" element={<History />} />
-          <Route path="Addresses" element={<Addresses />} />
+          <Route path="account" element={<Account />} />
+          <Route path="history" element={<History />} />
+          <Route path="addresses" element={<Addresses />} />
 
 
 
