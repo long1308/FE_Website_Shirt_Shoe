@@ -1,6 +1,7 @@
 import React from "react";
 import ListGroup from "../ListGroup";
 import { useState } from "react";
+import Addresses_Edit from "./From/Addresses_Edit";
 
 const Addresses = () => {
   const [displayText, setDisplayText] = useState(false);
@@ -67,98 +68,10 @@ const Addresses = () => {
             </button>
           </div>
         </div>
-        {displayText && (
-          <section>
-            <div className=" px-4 py-16 sm:px-6 lg:px-8">
-              <div className="grid grid-cols-1 gap-x-16 gap-y-8 lg:grid-cols-5">
-                <div className="rounded-lg bg-white p-8 shadow-lg lg:col-span-3 lg:p-12">
-                  <h1 className="text-xl normal-case font-bold my-5 text-blue-500">
-                    From Edit Address
-                  </h1>
-                  <form action="" className="space-y-4">
-                    <div>
-                      <label
-                        className="sr-only"
-                        htmlFor="City ​​Name
-"
-                      >
-                        City ​​Name
-                      </label>
-                      <input
-                        className="w-full rounded-lg border border-gray-300 p-3 text-sm"
-                        placeholder="City ​​Name
-                            "
-                        type="text"
-                        id="City ​​Name
-"
-                      />
-                    </div>
-
-                    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                      <div>
-                        <label className="sr-only" htmlFor="Nation">
-                          Nation
-                        </label>
-                        <select
-                          id="countries"
-                          className=" border border-white text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-white dark:border-gray-300 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        >
-                          <option selected>Choose a country</option>
-                          <option value="VN">Vietnamese</option>
-                          <option value="US">America</option>
-                          <option value="FR">France</option>
-                          <option value="DE">Germany</option>
-                        </select>
-                      </div>
-
-                      <div>
-                        <label className="sr-only" htmlFor="phone">
-                          Phone
-                        </label>
-                        <input
-                          className="w-full rounded-lg border border-gray-300 p-3 text-sm"
-                          placeholder="Phone Number"
-                          type="tel"
-                          id="phone"
-                        />
-                      </div>
-                    </div>
-                    <div>
-                      <label
-                        className="sr-only"
-                        htmlFor="Specific Address
-
-"
-                      >
-                      Specific Address
-
-                      </label>
-                      <input
-                        className="w-full rounded-lg border border-gray-300 p-3 text-sm"
-                        placeholder="Specific Address
-
-                            "
-                        type="text"
-                        id="Specific Address
-
-"
-                      />
-                    </div>
-
-                    <div className="mt-4">
-                      <button
-                        type="submit"
-                        className="inline-block w-full rounded-lg bg-blue-400 px-5 py-3 font-medium text-white sm:w-auto"
-                      >
-                        Edit
-                      </button>
-                    </div>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </section>
-        )}
+        {displayText &&  <div className="mt-10">
+      
+      <Addresses_Edit />
+    </div>}
       </div>
     </div>
   );

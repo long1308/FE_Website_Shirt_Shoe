@@ -75,7 +75,7 @@ const Header = (props: Props) => {
                     </div>
 
                     <div className="flex items-center gap-2">
-                        <Link to={''}>
+                        <Link to={'/account'}>
                             <li
                                 className="block shrink-0 rounded-full bg-white p-2.5 text-gray-600 shadow-sm hover:text-gray-700 text-xl sm:text-sm">
                                 <BsHeart className="cart-icon" />

@@ -8,7 +8,7 @@ const Layout = () => {
     <div>
       <header>
         <Header />
-        <div className="breadcrumbs">
+        <div className="breadcrumbs ">
           <ul className="flex items-center gap-2">
             <Link to={''}>
               <li className="underline underline-offset-4 hover:text-[#17c6aa] ml-44 ">
@@ -20,10 +20,10 @@ const Layout = () => {
           </ul>
         </div>
       </header>
-      <main className="mt-8 sm:mt-16">
+      <main >
         <Outlet />
       </main>
-      <footer>
+      <footer className='mt-4'>
         <Footer />
       </footer>
     </div>
