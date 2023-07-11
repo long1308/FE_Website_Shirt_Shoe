@@ -31,14 +31,15 @@ const Item = ({ icon, buttonAdd }: Props) => {
                         </span>
                     </div>
                     <div className="prd-circle-labels absolute flex flex-col top-1 right-1 ">
-                        <a
-                            className="heart bg-white flex justify-centItems-center rounded-full shadow-md mt-2 cursor-pointer"
-                            title="Add To Wishlist"
-                        >
-                            <i className="icon-heart-stroke text-2xl p-1">
-                                <Icon name={icon} />
+                        <span className="eye bg-white flex justify-center items-center rounded-full shadow-md mt-2  cursor-pointer">
+                            <i className="icon-eye text-2xl p-1 ">
+                                <Tooltip title={"ADD TO WISHLIST"} placement="left">
+                                    <span>
+                                        <Icon name={"BsHeart"} />
+                                    </span>
+                                </Tooltip>
                             </i>
-                        </a>
+                        </span>
                         <span className="eye bg-white flex justify-center items-center rounded-full shadow-md mt-2  cursor-pointer">
                             <i className="icon-eye text-2xl p-1   ">
                                 <Tooltip title={"QUICK VIEW"} placement="left">
