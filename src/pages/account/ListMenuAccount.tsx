@@ -3,13 +3,13 @@ import { Link, Outlet } from "react-router-dom";
 
 const ListMenuAccount = () => {
   const [activeLink, setActiveLink] = useState("/account");
-  const handleClick = (link: any) => {
+  const handleClick = (link:string) => {
     setActiveLink(link);
   };
 
   return (
-    <div className="flex px-20">
-      <div className="w-2/12 mr-7">
+    <div className="flex flex-col md:flex-row px-5 md:px-20">
+      <div className="md:w-2/12 mr-7">
         <nav className="border">
           <ul>
             <Link to="/account">
@@ -56,7 +56,7 @@ const ListMenuAccount = () => {
           </ul>
         </nav>
       </div>
-      <div className="w-10/12">
+      <div className="md:w-10/12">
         <Outlet />
       </div>
     </div>
