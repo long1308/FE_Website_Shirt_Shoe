@@ -1,10 +1,11 @@
-import { AiOutlineHeart, AiOutlineShoppingCart } from "react-icons/ai";
+import { AiOutlineHeart, AiOutlineShoppingCart, AiFillEdit, AiOutlinePlus } from "react-icons/ai";
 import { FaRegEye } from "react-icons/fa";
 import { RiDeleteBin6Line } from "react-icons/ri";
 type Props = {
   name: string;
+  className?: string;
 };
-const Icon = ({ name }: Props) => {
+const Icon = ({ name, className }: Props) => {
   let IconComponent: any = null;
   switch (name) {
     case "AiOutlineHeart":
@@ -19,10 +20,16 @@ const Icon = ({ name }: Props) => {
     case "AiOutlineShoppingCart":
       IconComponent = AiOutlineShoppingCart;
       break;
+    case "AiFillEdit":
+      IconComponent = AiFillEdit;
+      break;
+    case "AiOutlinePlus":
+      IconComponent = AiOutlinePlus;
+      break;
     default:
       return null;
   }
-  return <IconComponent />;
+  return <IconComponent className={className} />;
 };
 
 export default Icon;
