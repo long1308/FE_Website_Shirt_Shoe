@@ -19,10 +19,10 @@ const Address = () => {
                 <p className="text-base mb-1">+876-432-4323</p>
               </div>
               <p>Số 2 ngách 40 ngõ 71 phương canh</p>
-              <div className="flex gap-1">
-                <p className="text-base mb-1">Phường Xuân Phương,</p>
-                <p className="text-base mb-1">Quận Nam Từ Liên,</p>
-                <p className="text-base mb-1">Hà Nội</p>
+              <div className="flex gap-1 flex-wrap">
+                <p className="text-base ">Phường Xuân Phương,</p>
+                <p className="text-base ">Quận Nam Từ Liên,</p>
+                <p className="text-base ">Hà Nội</p>
               </div>
 
               <div className=" flex justify-between items-end">
@@ -40,12 +40,11 @@ const Address = () => {
                 <p className="text-base mb-1">+876-432-4323</p>
               </div>
               <p>Số 2 ngách 40 ngõ 71 phương canh</p>
-              <div className="flex gap-1">
-                <p className="text-base mb-1">Phường Xuân Phương,</p>
-                <p className="text-base mb-1">Quận Nam Từ Liên,</p>
-                <p className="text-base mb-1">Hà Nội</p>
+              <div className="flex gap-1 flex-wrap">
+                <p className="text-base ">Phường Xuân Phương,</p>
+                <p className="text-base ">Quận Nam Từ Liên,</p>
+                <p className="text-base ">Hà Nội</p>
               </div>
-
               <div className=" flex justify-between items-end">
                 <button onClick={handleClick} className="mt-5 flex gap-1 cursor-pointer">
                   <Icon name={'AiFillEdit'} className={"text-2xl"} />
