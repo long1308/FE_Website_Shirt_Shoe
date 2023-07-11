@@ -10,7 +10,6 @@ import ListProductNew from "./Users/ListProducts/ListProductNew";
 import BannerCaption from "./Users/Banner/BannerCaption";
 import BannerCategory from "./Users/Banner/BannerCategory";
 import Cart from "./cart/cart";
-import AccountLayout from "./layouts/Accountlayout";
 export {
   DashBoardPage,
   AdminLayout,
@@ -24,5 +23,4 @@ export {
   BannerCaption,
   BannerCategory,
   Cart,
-  AccountLayout
 };
