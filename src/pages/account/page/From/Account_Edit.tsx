@@ -1,68 +1,37 @@
-import React, { useState } from "react";
-
+import { Input } from "antd";
 const Account_Edit = () => {
   return (
-    <section>
-      <div className="mt-10">
-        <div className="px-4 py-16 sm:px-6 border-3 rounded bg-gradient-to-r from-green-200 via-green-300 to-blue-500 mr-10 md:w-[62%] ">
-          <div className="flex justify-center">
-            <div className="rounded-lg bg-white p-8 shadow-lg lg:p-12 w-full sm:w-auto">
-              <h1 className="text-xl normal-case font-bold my-5 text-blue-500 justify-center flex">
-                From Edit
-              </h1>
-              <form action="" className="space-y-4">
-                <div>
-                  <label className="sr-only" htmlFor="name">
-                    Name
-                  </label>
-                  <input
-                    className="w-full rounded-lg border border-gray-300 p-3 text-sm"
-                    placeholder="Name"
-                    type="text"
-                    id="name"
-                  />
-                </div>
-
-                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                  <div>
-                    <label className="sr-only" htmlFor="email">
-                      Email
-                    </label>
-                    <input
-                      className="w-full rounded-lg border border-gray-300 p-3 text-sm"
-                      placeholder="Email address"
-                      type="email"
-                      id="email"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="sr-only" htmlFor="phone">
-                      Phone
-                    </label>
-                    <input
-                      className="w-full rounded-lg border border-gray-300 p-3 text-sm"
-                      placeholder="Phone Number"
-                      type="tel"
-                      id="phone"
-                    />
-                  </div>
-                </div>
-
-                <div className="mt-4">
-                  <button
-                    type="submit"
-                    className="inline-block w-full rounded-lg bg-blue-400 px-5 py-3 font-medium text-white sm:w-auto"
-                  >
-                    Edit
-                  </button>
-                </div>
-              </form>
-            </div>
-          </div>
+    <div className="border mt-6 p-3 rounded-lg">
+    <form action="">
+      <h3 className="text-xl font-medium mb-3">Update Account Details</h3>
+      <div className="flex mb-6">
+        <div className="w-2/4 mr-4">
+          <label htmlFor="">FIRST NAME:</label>
+          <Input size="large" placeholder="First name" />
+        </div>
+        <div className="w-2/4">
+          <label htmlFor="">LAST NAME:</label>
+          <Input size="large" placeholder="Last name" />
         </div>
       </div>
-    </section>
+      <div className="flex">
+        <div className="w-2/4 mr-4">
+          <label htmlFor="">E-MAIL:</label>
+          <Input size="large" placeholder="First name" />
+        </div>
+        <div className="w-2/4">
+          <label htmlFor="">PHONE:</label>
+          <Input size="large" placeholder="Last name" />
+        </div>
+      </div>
+      <button className="btn js-prd-addtocart text-white bg-[#17c6aa] hover:bg-[#1b1a1a] rounded-md font-medium px-8 py-2 mt-5 mr-5">
+      CANCEL
+      </button>
+      <button className="btn js-prd-addtocart text-white bg-[#17c6aa] hover:bg-[#1b1a1a] rounded-md font-medium px-8 py-2 mt-5 ">
+        UPDATE
+      </button>
+    </form>
+  </div>
   );
 };
 

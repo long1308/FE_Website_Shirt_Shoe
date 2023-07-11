@@ -6,8 +6,9 @@ import { Tooltip } from "antd";
 // type Props = ReactNode;
 type Props = {
     icon: string;
+    buttonAdd?: string;
 }
-const Item = ({ icon }: Props) => {
+const Item = ({ icon, buttonAdd }: Props) => {
     const colors = [
         { name: "Red", className: "bg-red-500", color: "#ff0000" },
         { name: "Blue", className: "bg-blue-500", color: "#0000ff" },
@@ -51,7 +52,7 @@ const Item = ({ icon }: Props) => {
                             <i className="icon-palette  ">
                                 <img
                                     src="colorfiter.webp"
-                                    className="w-full rounded-full "
+                                    className="w-full rounded-full"
                                     alt=""
                                 />
                             </i>
@@ -128,7 +129,7 @@ const Item = ({ icon }: Props) => {
                         <div className="mt-1 prd-action text-center btn-add  ">
                             <form action="#">
                                 <button className="btn js-prd-addtocart text-white bg-[#17c6aa] hover:bg-[#1b1a1a] rounded-sm px-4 py-2 font-semibold ">
-                                    Add To Cart
+                                    {buttonAdd ? buttonAdd : "ADD TO CART"}
                                 </button>
                             </form>
                         </div>

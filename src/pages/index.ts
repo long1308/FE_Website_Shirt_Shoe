@@ -5,6 +5,11 @@ import Signup from "./User/Signup";
 import NotFound from "./User/NotFound";
 import Order from "./User/Order";
 import Detail_Product from "./User/Detail-Product/Detail_Product";
+import ListMenuAccount from "./account/ListMenuAccount";
+import Wishlist from "./account/page/Wishlist";
+import OrderHistory from "./account/page/OrderHistory";
+import Account from "./account/page/Account";
+import Address from "./account/page/Address";
 export {
   Container,
   HomePages,
@@ -13,4 +18,9 @@ export {
   NotFound,
   Order,
   Detail_Product,
+  ListMenuAccount,
+  Wishlist,
+  OrderHistory,
+  Account,
+  Address,
 };
