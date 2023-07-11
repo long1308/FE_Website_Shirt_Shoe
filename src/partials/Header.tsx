@@ -9,9 +9,9 @@ const Header = (props: Props) => {
                 <div className="flex items-center justify-between sm:justify-end gap-4">
                     <div className="flex items-center gap-4">
                         <div className="flex h-16 max-w-screen-xl items-center gap-8 px-4 sm:px-6 lg:px-8">
-                            <div className=' '>
+                            <a href="/" className=''>
                                 <img src="https://big-skins.com/frontend/foxic-html-demo/images/skins/fashion/logo.webp" alt="Logo" className=' lg:w-40 object-cover  md:w-60 w-20' />
-                            </div>
+                            </a>
                             <div className="hidden md:flex flex-1 items-center justify-end ">
                                 <nav aria-label="Global">
                                     <ul className="flex items-center gap-4 text-sm">

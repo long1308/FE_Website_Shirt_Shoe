@@ -2,10 +2,10 @@ import "./Detail_Products.css";
 import { ImageList, ImageListItem, Rating } from "@mui/material";
 import { Link } from "react-router-dom";
 import { Carousel, IconButton } from "@material-tailwind/react";
-import { AiOutlineHeart } from "react-icons/ai";
 import { TbTruckDelivery } from "react-icons/tb";
 import { FcConferenceCall } from "react-icons/fc";
 import { FiArrowRightCircle, FiArrowLeftCircle } from "react-icons/fi";
+import Icon from "../../../components/Icon/icon";
 
 const Detail_Product = () => {
   const itemData = [
@@ -248,9 +248,9 @@ const Detail_Product = () => {
                       Add to cart
                     </button>
                     <button className="btn-wishlist">
-                      <i className="far fa-heart text-3xl">
-                        <AiOutlineHeart />
-                      </i>
+                      <span>
+                        <Icon name={"BsHeart"} className="text-2xl" />
+                      </span>
                     </button>
                   </div>
                 </div>
