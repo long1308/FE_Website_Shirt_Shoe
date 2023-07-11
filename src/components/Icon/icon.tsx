@@ -1,4 +1,5 @@
 import { AiOutlineHeart, AiOutlineShoppingCart, AiFillEdit, AiOutlinePlus } from "react-icons/ai";
+import { BsHeart } from "react-icons/bs";
 import { FaRegEye } from "react-icons/fa";
 import { RiDeleteBin6Line } from "react-icons/ri";
 type Props = {
@@ -8,8 +9,8 @@ type Props = {
 const Icon = ({ name, className }: Props) => {
   let IconComponent: any = null;
   switch (name) {
-    case "AiOutlineHeart":
-      IconComponent = AiOutlineHeart;
+    case "BsHeart":
+      IconComponent = BsHeart;
       break;
     case "FaRegEye":
       IconComponent = FaRegEye;
