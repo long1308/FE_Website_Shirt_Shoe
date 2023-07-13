@@ -10,7 +10,7 @@ const BaseLayout = (props: Props) => {
       <header>
         <Header />
       </header>
-      <main className='mt-55'> 
+      <main> 
         <Outlet />
       </main>
       <footer>
