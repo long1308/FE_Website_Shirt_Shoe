@@ -40,7 +40,7 @@ const items: MenuItem[] = [
   {
     key: '2',
     label: (
-      <Link to={"/admin/users"} className="flex items-center">
+      <Link to={"/admin/customers"} className="flex items-center">
         <DesktopOutlined />
         <span>Users</span>
       </Link>
