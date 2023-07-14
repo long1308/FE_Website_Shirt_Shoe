@@ -6,6 +6,7 @@ import { getProducts, addProduct, updateProduct, deleteProduct } from "./store/a
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from "./store/store";
 import ListMenuAccount from './pages/account/ListMenuAccount';
+import Customers from './pages/Admin/Custo/Customers'
 function App() {
   const dispatch = useDispatch();
   const [isProductsLoaded, setProductsLoaded] = useState(false);
@@ -44,6 +45,8 @@ function App() {
           <AdminLayout />
         }>
           <Route index element={<DashBoardPage />} />
+          <Route path="customers" element={<Customers />} />
+
 
           {/* <Route
             path="products"
