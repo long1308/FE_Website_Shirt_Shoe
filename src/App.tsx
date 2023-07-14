@@ -6,6 +6,7 @@ import { getProducts, addProduct, updateProduct, deleteProduct } from "./store/a
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from "./store/store";
 import ListMenuAccount from './pages/account/ListMenuAccount';
+import ProductAdd from './components/Admin/ProductAdd';
 import Customers from './pages/Admin/Custo/Customers'
 function App() {
   const dispatch = useDispatch();
@@ -41,10 +42,9 @@ function App() {
         {/* admin */}
 
         <Route path="/admin/signin" element={<SigninAdmin />} />
-        <Route path="/admin" element={
-          <AdminLayout />
-        }>
+        <Route path="/admin" element={ <AdminLayout />}>
           <Route index element={<DashBoardPage />} />
+          <Route path="products/add" element={<ProductAdd />} />
           <Route path="customers" element={<Customers />} />
 
 
