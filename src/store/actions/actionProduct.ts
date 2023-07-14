@@ -3,18 +3,24 @@ import { ProductActionTypes, Iproduct } from "../../interface/product";
 import productService from "../../api/product/productService";
 
 export const getProducts = () => {
-    return async (dispatch: Dispatch<ProductActionTypes>) => {
-      try {
-        const products = await productService.getAllProducts();
-        dispatch({
-          type: "GET_PRODUCTS",
-          payload: products,
-        });
-      } catch (error) {
-        // Handle error if needed
-      }
-    };
+  return async (dispatch: Dispatch<ProductActionTypes>) => {
+    try {
+      dispatch({ type: "PRODUCT_LIST_REQUEST" });
+
+      const products = await productService.getAllProducts();
+
+      dispatch({
+        type: "PRODUCT_LIST_SUCCESS",
+        payload: products,
+      });
+    } catch (error: any) {
+      dispatch({
+        type: "PRODUCT_LIST_FAIL",
+        payload: error.message,
+      });
+    }
   };
+};
 export const addProduct = (product: Iproduct) => {
   return (dispatch: Dispatch<ProductActionTypes>) => {
     dispatch({
