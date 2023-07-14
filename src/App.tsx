@@ -8,6 +8,7 @@ import { RootState } from "./store/store";
 import ListMenuAccount from './pages/account/ListMenuAccount';
 import ProductAdd from './components/Admin/ProductAdd';
 import Customers from './pages/Admin/Custo/Customers'
+import ProductEdit from './components/Admin/ProductEdit';
 function App() {
   const dispatch = useDispatch();
   const [isProductsLoaded, setProductsLoaded] = useState(false);
@@ -45,6 +46,7 @@ function App() {
         <Route path="/admin" element={ <AdminLayout />}>
           <Route index element={<DashBoardPage />} />
           <Route path="products/add" element={<ProductAdd />} />
+          <Route path="products/:id" element={<ProductEdit />} />
           <Route path="customers" element={<Customers />} />
 
 
