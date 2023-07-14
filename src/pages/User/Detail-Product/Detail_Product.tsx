@@ -6,7 +6,11 @@ import { TbTruckDelivery } from "react-icons/tb";
 import { FcConferenceCall } from "react-icons/fc";
 import { FiArrowRightCircle, FiArrowLeftCircle } from "react-icons/fi";
 import Icon from "../../../components/Icon/icon";
-
+import { Item } from "../../../components";
+import Comment from "../../../components/Comment/Comment";
+import Rating_star from "../../../components/Rating/Rating_star";
+import Image from "../../../components/Image/Image";
+import { Image as AntdImage } from "antd";
 const Detail_Product = () => {
   const itemData = [
     {
@@ -34,7 +38,7 @@ const Detail_Product = () => {
   return (
     <>
       <div className="w-screen min-h-[300px] mt-10">
-        <div className="big-content w-full px-10 md:w-3/4 md:px-7 mx-auto">
+        <div className="big-content w-full px-2 md:w-4/5  mx-auto">
           {/* menu */}
           <div className="breadcrumbs">
             <ul className="flex items-center gap-2">
@@ -73,6 +77,7 @@ const Detail_Product = () => {
             {/* slider */}
             <div className="slider w-full md:w-2/5 relative overflow-hidden">
               <Carousel
+                loop={true}
                 transition={{ duration: 1 }}
                 className="rounded-xl"
                 prevArrow={({ handlePrev }) => (
@@ -102,10 +107,15 @@ const Detail_Product = () => {
                   </IconButton>
                 )}
               >
-                <img
+                <AntdImage
+                  preview={{ mask: false }}
                   src="https://big-skins.com/frontend/foxic-html-demo/images/skins/fashion/product-page/product-01.webp"
-                  alt="image 1"
                   className="h-full w-full object-cover"
+
+                />
+                <img
+                  src=""
+                  alt="image 1"
                 />
                 <img
                   src="https://big-skins.com/frontend/foxic-html-demo/images/skins/fashion/product-page/product-04.webp"
@@ -312,11 +322,122 @@ const Detail_Product = () => {
               </div>
             </div>
           </div>
+          {/* Đánh giá */}
+          <div className="rating-user">
+            <h1 className="my-5 text-xl font-medium">Đánh giá và Nhận xét Xiaomi Redmi Note 12 Pro 5G</h1>
+            <div className="shadow-rating-user  min-h-[200px] w-full rounded-lg p-5 ">
+              <div className="content-rating min-h-[200px]  border-2 border-gray-300 rounded-2xl flex items-center">
+                <div className="rating-big border-r-2 p-2 text-center w-1/3 ">
+                  <p>4.5/5</p>
+                  <div className="rating-star">
+                    <i>  <Rating
+                      name="half-rating-read"
+                      defaultValue={2.5}
+                      precision={0.5}
+                      readOnly
+                    /></i>
+                  </div>
+                  <p>4 đánh giá và nhận xét</p>
+                </div>
+                <div className="rating-big-item w-full">
+                  <Rating_star value={2} />
+                  <Rating_star value={4} />
+                  <Rating_star value={3} />
+                  <Rating_star value={0} />
+                  <Rating_star value={1} />
+
+                </div>
+              </div>
+              {/* button đánh giá */}
+              <div className="button-rating-and-commnet mt-5 w-full mx-auto flex justify-center items-center ">
+                <button className="btn-rating-and-commnet text-base bg-[#17c6aa] text-white hover:bg-black py-2 px-20 rounded-xl">
+                  Đánh giá ngay
+                </button>
+              </div>
+              {/* user-rating và đánh giá */}
+              <div className="user-rating-evaluate ">
+                <div className="user-rating-evaluate-item mt-5">
+                  <div className="flex items-center gap-3">
+                    <div className="user-rating-evaluate-item-img w-8 h-8">
+                      <Image className={"w-full h-full rounded-full object-cover"} src={"https://pbs.twimg.com/media/E5XTyGpVkAAXNTp.jpg:large"} />
+
+                    </div>
+                    <span className="font-semibold text-base">Đỗ Thành Long</span>
+                  </div>
+
+                  <div className="user-rating-evaluate-item-content ml-10">
+
+                    <div className="rating-star bg-blue-gray-50 p-2 rounded-lg">
+                      <div className="flex items-center h-8 ">
+                        <span className="font-semibold text-sm">Đánh giá: </span>
+                        <i className="flex items-center ">  <Rating style={{ fontSize: "18px" }}
+                          name="half-rating-read"
+                          defaultValue={2.5}
+                          precision={0.5}
+                          readOnly
+                        /></i>
+                      </div>
+                      <div className="flex items-center">
+                        <span className=" font-semibold text-sm">Nhận xét: </span>
+                        <p className="flex items-center text-xs">Sản phẩm rất là ok</p>
+                      </div>
+                    </div>
+
+                  </div>
+
+
+                </div>
+              </div>
+
+
+              <div className="user-rating-evaluate ">
+                <div className="user-rating-evaluate-item mt-5">
+                  <div className="flex items-center gap-3">
+                    <div className="user-rating-evaluate-item-img w-8 h-8">
+                      <Image className={"w-full h-full rounded-full object-cover"} src={"https://pbs.twimg.com/media/E5XTyGpVkAAXNTp.jpg:large"} />
+
+                    </div>
+                    <span className="font-semibold text-base">Đỗ Thành Long</span>
+                  </div>
+
+                  <div className="user-rating-evaluate-item-content ml-10">
+
+                    <div className="rating-star bg-blue-gray-50 p-2 rounded-lg">
+                      <div className="flex items-center h-8 ">
+                        <span className="font-semibold text-sm">Đánh giá: </span>
+                        <i className="flex items-center ">  <Rating style={{ fontSize: "18px" }}
+                          name="half-rating-read"
+                          defaultValue={2.5}
+                          precision={0.5}
+                          readOnly
+                        /></i>
+                      </div>
+                      <div className="flex items-center">
+                        <span className=" font-semibold text-sm">Nhận xét: </span>
+                        <p className="flex items-center text-xs">Sản phẩm rất là ok</p>
+                      </div>
+                    </div>
+
+                  </div>
+
+
+                </div>
+              </div>
+            </div>
+
+
+
+          </div>
+          {/* Coment user */}
+          <div className="comment">
+            <Comment />
+          </div>
           {/* Sản phẩm cùng loại */}
           <div className="prd-cate mt-8 md:mt-10">
             <h1 className="text-center text-3xl font-medium my-5">
               Similar products
             </h1>
+            {/* <Item /> */}
           </div>
         </div>
       </div>
