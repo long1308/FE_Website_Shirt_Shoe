@@ -9,45 +9,69 @@ import {
 } from "@material-tailwind/react";
 import { Item } from "..";
 import { RootState } from "../../store/store";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Skeleton } from "antd";
+import Loading from "../Loading/Loading";
+
 export default function CustomTabs() {
   const dispatch = useDispatch();
   const dataCategorys = useSelector((state: RootState) => state.categorys);
-  const { categorys, isLoading, error } = dataCategorys
+  const { categorys, isLoading, error, category } = dataCategorys;
   useEffect(() => {
-    dispatch(getCategorys() as never)
+    dispatch(getCategorys() as never);
   }, [dispatch]);
+  useEffect(() => {
+
+    if (categorys && categorys.length > 0) {
+      const firstCategoryId = categorys[0]._id;
+      dispatch(getOneCategory(firstCategoryId!) as never);
+    }
+  }, [categorys, dispatch]);
   const handleTabChange = (id: string) => {
-    console.log(id);
+    dispatch(getOneCategory(id) as never);
   };
+
   return (
-    <Tabs value={"Women"} >
+    <Tabs value={"Women"}>
       <TabsHeader className="w-3/5 mx-auto">
-        {
-          isLoading ? (
-            <Skeleton />
-          ) : error ? (
-            "Error....."
-          ) : (
-            categorys ? (
-              categorys.map(cate => (
-                <Tab onClick={() => handleTabChange(cate._id || "")} key={cate.name} value={cate.name}>
-                  {cate.name}
-                </Tab>
-              ))
-            ) : null
-          )
-        }
+        {isLoading ? (
+          <Skeleton />
+        ) : error ? (
+          "Error"
+        ) : categorys ? (
+          categorys.map((cate) => (
+            <Tab
+              onClick={() => handleTabChange(cate._id || "")}
+              key={cate._id}
+              value={cate.name}
+            >
+              {cate.name}
+            </Tab>
+          ))
+        ) : null}
       </TabsHeader>
-      {/* <TabsBody>
-        {table.map(({ value }: any) => (
-          <TabPanel key={value} value={value} className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5  gap-4 px-4 mt-5">
-            <Item icon={"AiOutlineHeart"} />
-            <Item icon={"AiOutlineHeart"} />
+      <TabsBody>
+        {isLoading ? (
+          <Skeleton />
+        ) : error ? (
+          "Error....."
+        ) : category && category.products && category.products.length > 0 ? (
+
+          <TabPanel
+            key={category._id}
+            value={category.name}
+            className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5  gap-4 px-4 mt-5"
+          >
+            {category.products.map((product, index) => (
+              <Item key={index} product={product} />
+            ))}
           </TabPanel>
-        ))}
-      </TabsBody> */}
+
+        ) : (
+          "No products available."
+        )}
+      </TabsBody>
+
     </Tabs>
-  );
+  )
 }

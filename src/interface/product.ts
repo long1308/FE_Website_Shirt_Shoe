@@ -4,7 +4,7 @@ export interface Iproduct {
   price: number;
   priceSale?: number;
   featured: boolean;
-  image: string;
+  image: Array<string>;
   description: string;
   description_short?: string;
   hot_sale?: number;
@@ -14,6 +14,15 @@ export interface Iproduct {
   category: string;
   inventoryStatus: string;
   rating: number;
+  colorSizes: Array<Colors>;
+}
+interface Colors {
+  color: string;
+  sizes: Array<Sizes>;
+}
+interface Sizes {
+  size: string;
+  quantity: number;
 }
 export interface ProductState {
   products: Iproduct[];

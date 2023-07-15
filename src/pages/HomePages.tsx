@@ -4,8 +4,8 @@ const HomePages = () => {
 
     return (
         <div>
-            <BannerHome></BannerHome>
-            <BannerCategory></BannerCategory>
+            {/* <BannerHome></BannerHome>
+            <BannerCategory></BannerCategory> */}
             <Container />
             <BannerCaption></BannerCaption>
         </div>

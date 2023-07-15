@@ -39,7 +39,7 @@ const categoryReducer: Reducer<CategoryState, CategoryActionTypes> = (
     case "CATEGORY_ONE_SUCCESS":
       return {
         ...state,
-        categorys: [...state.categorys, action.payload],
+        category: action.payload,
         isLoading: false,
         error: null,
       };
