@@ -25,9 +25,7 @@ export const getOneCategory = (id: string) => {
   return async (dispatch: Dispatch<CategoryActionTypes>) => {
     try {
       dispatch({ type: "CATEGORY_ONE_REQUEST" });
-
       const categorys = await categoryService.getOneCategory(id);
-
       dispatch({
         type: "CATEGORY_ONE_SUCCESS",
         payload: categorys,

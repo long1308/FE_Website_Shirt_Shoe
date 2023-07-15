@@ -1,9 +1,11 @@
 export interface Icategory {
+  products: [];
   _id?: string;
   name: string;
 }
 export interface CategoryState {
   categorys: Icategory[];
+  category?: Icategory;
   isLoading: boolean;
   error: string | null;
 }
