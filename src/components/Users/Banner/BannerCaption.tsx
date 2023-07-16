@@ -3,7 +3,7 @@ import React from 'react'
 const BannerCaption = () => {
     return (
       <div
-      className="relative bg-cover bg-center bg-no-repeat p-10 m-[-10px] w-screen"
+      className="relative bg-cover bg-center bg-no-repeat p-10 m-[-10px] w-screen mb-10"
       style={{
         backgroundImage: "url('https://big-skins.com/frontend/foxic-html-demo/images/skins/fashion/banner-fashion2-full-m.webp')",
         backgroundPosition: " top",

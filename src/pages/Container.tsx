@@ -1,12 +1,11 @@
 import React from 'react'
-import { HeaderHomeInfo, ListProducts } from '../components'
+import { ListProducts } from '../components'
 type Props = object
 
 const Container = (props: Props) => {
     return (
         <div>
-            <ListProducts />
-            <HeaderHomeInfo />
+            <ListProducts />       
         </div>
     )
 }
