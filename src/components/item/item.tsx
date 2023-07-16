@@ -3,32 +3,41 @@ import { Link } from "react-router-dom";
 import Image from "../Image/Image";
 import Icon from "../Icon/icon";
 import { Tooltip } from "antd";
+import { Iproduct } from "../../interface/product";
+import FormatterPrice from "../FormatterPrice/FormatterPrice";
 // type Props = ReactNode;
 type Props = {
-    icon: string;
     buttonAdd?: string;
+    product?: Iproduct
 }
-const Item = ({ icon, buttonAdd }: Props) => {
-    const colors = [
-        { name: "Red", className: "bg-red-500", color: "#ff0000" },
-        { name: "Blue", className: "bg-blue-500", color: "#0000ff" },
-        { name: "Orange", className: "bg-orange-500", color: "#ff8800" },
-    ];
+const Item = ({ buttonAdd, product }: Props) => {
+    if (!product) {
+        return null
+    }
     return (
         <div className="w-64 m-auto content border-2  overflow-hidden">
             <div className="w-full">
                 <div className="w-full relative overflow-hidden ">
                     <Link to={""} className="image-big">
                         <Image
-                            src="https://big-skins.com/frontend/foxic-html-demo/images/skins/fashion/products/product-03-1.webp"
+                            src={product.image}
                             alt="Leather Pegged Pants"
                             className="w-full transition duration-700 ease-in-out "
                         />
                     </Link>
                     <div className="prd-sale absolute top-2 left-1 bg-pink-600">
-                        <span className=" m-2 block  rounded-full text-center text-sm font-medium text-white">
-                            10% SALE
-                        </span>
+                        {
+                            product.hot_sale && product.hot_sale > 0 ? <span className=" m-2 block  rounded-full text-center text-sm font-medium text-white">
+                                {product.hot_sale}% SALE
+                            </span> : null
+                        }
+                    </div>
+                    <div className="prd-sale absolute top-14 left-1 bg-[#33c7fd]">
+                        {
+                            product.featured ? <span className=" m-2 block  rounded-full text-center text-sm font-medium text-white">
+                                New
+                            </span> : null
+                        }
                     </div>
                     <div className="prd-circle-labels absolute flex flex-col top-1 right-1 ">
                         <span className="eye bg-white flex justify-center items-center rounded-full shadow-md mt-2  cursor-pointer">
@@ -59,10 +68,10 @@ const Item = ({ icon, buttonAdd }: Props) => {
                             </i>
                             <div className="list-color">
                                 <ul className="flex flex-col gap-3">
-                                    {colors.map((color, index) => (
+                                    {product.colorSizes.map(({ color }, index) => (
                                         <li key={index}>
-                                            <Tooltip title={color.name} placement="left">
-                                                <div className={`${color.className} p-3 rounded-full`}></div>
+                                            <Tooltip title={color} placement="left">
+                                                <div className={`bg-${color}-500 p-3 rounded-full`}></div>
                                             </Tooltip>
                                         </li>
                                     ))}
@@ -71,27 +80,16 @@ const Item = ({ icon, buttonAdd }: Props) => {
                         </div>
                     </div>
                     <ul className="list-options color-swatch absolute bottom-1 left-1 ">
-                        <li className="w-10 h-10 mt-1 rounded-full hover:outline-1 hover:outline outline outline-1 overflow-hidden">
-                            <img
-                                src="https://big-skins.com/frontend/foxic-html-demo/images/skins/fashion/products/product-03-1.webp"
-                                className="w-full h-full object-contain p-1"
-                                alt="Color Name"
-                            />
-                        </li>
-                        <li className="w-10 h-10 mt-1  rounded-full  hover:outline-1 hover:outline">
-                            <img
-                                src="https://gfx2.tatuum.com/media/res/products/564/24564/520x780/aDKGhv_1.jpg"
-                                className="w-full h-full object-contain p-1"
-                                alt="Color Name"
-                            />
-                        </li>
-                        <li className="w-10 h-10 mt-1  rounded-full  hover:outline-1 hover:outline">
-                            <img
-                                src="https://gfx2.tatuum.com/media/res/products/564/24564/520x780/aDKGhv_1.jpg"
-                                className="w-full h-full object-contain p-1"
-                                alt="Color Name"
-                            />
-                        </li>
+                        {
+                            product.image.map((image, index) =>
+                                <li key={index} className="w-10 h-10 mt-1 rounded-full hover:outline-1 hover:outline outline outline-1 overflow-hidden">
+                                    <img
+                                        src={image}
+                                        className="w-full h-full object-contain p-1"
+                                        alt="Color Name"
+                                    />
+                                </li>)
+                        }
                     </ul>
                 </div>
                 <div className="prd-info">
@@ -99,7 +97,7 @@ const Item = ({ icon, buttonAdd }: Props) => {
                         <div className="prd-rating text-center mt-5 cursor-pointer">
                             <Rating
                                 name="half-rating-read"
-                                defaultValue={2.5}
+                                defaultValue={product.rating}
                                 precision={0.5}
                                 readOnly
                             />
@@ -111,7 +109,7 @@ const Item = ({ icon, buttonAdd }: Props) => {
                         </div>
                         <h2 className="prd-title text-center mt-1 cursor-pointer">
                             <span className="text-[#282828] font-medium text-base hover:text-[#17c6aa]">
-                                Leather Pegged Pants
+                                {product.name}
                             </span>
                         </h2>
                         <div className="prd-description hidden">
@@ -120,12 +118,20 @@ const Item = ({ icon, buttonAdd }: Props) => {
                             himenaeos. Nam nec ante sed lacinia.
                         </div>
                         <h2 className=" price  flex justify-center gap-5 text-center mt-1 cursor-pointer">
-                            <span className="text-[#666565]  text-base line-through  ">
-                                $ 180
-                            </span>
-                            <span className="text-[#282828] font-medium text-base  ">
-                                $ 110
-                            </span>
+
+                            {product.hot_sale && product.hot_sale > 0 ? (
+                                <div className="flex gap-2">
+                                    <span className="text-[#666565]  text-base line-through  ">
+                                        {FormatterPrice(product.price)}
+                                    </span>
+                                    <span className="text-[#282828] font-medium text-base">
+                                        {FormatterPrice(product.priceSale!)}
+                                    </span>
+                                </div>
+
+                            ) : <span className="text-[#282828] font-medium text-base">
+                                {FormatterPrice(product.priceSale!)}
+                            </span>}
                         </h2>
                         <div className="mt-1 prd-action text-center btn-add  ">
                             <form action="#">

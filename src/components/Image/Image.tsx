@@ -1,4 +1,4 @@
-const Image = ({ src, alt, ...pros }: any) => {
-  return <img src={src} {...pros} alt={alt} />;
+const Image = ({ src, alt, className, ...pros }: any) => {
+  return <img className={className} src={src} {...pros} alt={alt} />;
 };
 export default Image;

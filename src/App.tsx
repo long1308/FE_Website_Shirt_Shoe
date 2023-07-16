@@ -8,17 +8,18 @@ import { RootState } from "./store/store";
 import ListMenuAccount from './pages/account/ListMenuAccount';
 import ProductAdd from './components/Admin/ProductAdd';
 import Customers from './pages/Admin/Custo/Customers'
+import ProductEdit from './components/Admin/ProductEdit';
 function App() {
-  const dispatch = useDispatch();
-  const [isProductsLoaded, setProductsLoaded] = useState(false);
-  const products = useSelector((state: RootState) => state.products.products);
+  // const dispatch = useDispatch();
+  // const [isProductsLoaded, setProductsLoaded] = useState(false);
+  // const products = useSelector((state: RootState) => state.products.products);
 
-  useEffect(() => {
-    if (!isProductsLoaded) {
-      dispatch(getProducts() as never);
-      setProductsLoaded(true);
-    }
-  }, [dispatch, isProductsLoaded]);
+  // useEffect(() => {
+  //   if (!isProductsLoaded) {
+  //     dispatch(getProducts() as never);
+  //     setProductsLoaded(true);
+  //   }
+  // }, [dispatch, isProductsLoaded]);
   return (
     <div className="App">
       <Routes>
@@ -27,7 +28,7 @@ function App() {
         <Route path="signin" element={<Signin />} />
         <Route path="signup" element={<Signup />} />
         <Route path="/" element={<BaseLayout />}>
-          <Route index element={<HomePages products={products} />} />
+          <Route index element={<HomePages />} />
           <Route path="order" element={<Order />} />
           <Route path="products/:id" element={<Detail_Product />} />
           <Route path="/cart" element={<Cart />} />
@@ -45,6 +46,7 @@ function App() {
         <Route path="/admin" element={ <AdminLayout />}>
           <Route index element={<DashBoardPage />} />
           <Route path="products/add" element={<ProductAdd />} />
+          <Route path="products/:id" element={<ProductEdit />} />
           <Route path="customers" element={<Customers />} />
           <Route path="products" element={<ListProduct />} />
 
