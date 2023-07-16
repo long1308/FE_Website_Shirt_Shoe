@@ -9,7 +9,7 @@ const CategoryList = () => {
     <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-2">
       <h2 className="font-bold text-xl mt-5">Categorys</h2>
       <div className="ml-auto mb-5 mt-5">
-        <Link to={'/admin/products/colors/add'} className="my-2 border rounded p-2 bg-blue-500 hover:bg-red-700 font-bold py-2 px-4 text-white w-full lg:w-40 ">Add Category</Link>
+        <Link to={'/admin/categorys/add'} className="my-2 border rounded p-2 bg-blue-500 hover:bg-red-700 font-bold py-2 px-4 text-white w-full lg:w-40 ">Add Category</Link>
       </div>
     </div>
     <div className="overflow-x-auto">
@@ -36,7 +36,7 @@ const CategoryList = () => {
             </td>          
             <td className="whitespace-nowrap ">
             <div className="flex ">
-                  <Link to={`/admin/products/colors/1`} className="px-2 py-2 text-xl"> <EditOutlined /></Link>
+                  <Link to={`/admin/categorys/1`} className="px-2 py-2 text-xl"> <EditOutlined /></Link>
                   <p className="px-2 py-4 text-xl"><BsFillTrash3Fill/></p>
                 </div>        
             </td>
