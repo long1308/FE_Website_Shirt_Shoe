@@ -11,6 +11,7 @@ import OrderHistory from "./account/page/OrderHistory";
 import Account from "./account/page/Account";
 import Address from "./account/page/Address";
 import SigninAdmin from "./Admin/Signup/SigninAdmin";
+import ListProduct from "./Admin/ListProduct/ListProduct";
 export {
   Container,
   HomePages,
@@ -25,4 +26,5 @@ export {
   Account,
   Address,
   SigninAdmin,
+  ListProduct
 };

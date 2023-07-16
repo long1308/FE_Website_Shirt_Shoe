@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Routes, Route } from "react-router-dom";
 import { AdminLayout, BaseLayout, Cart, DashBoardPage } from "./components";
-import { HomePages, NotFound, Order, Signin, Signup, Detail_Product, Account, Address, Wishlist, OrderHistory, SigninAdmin } from "./pages";
+import { HomePages, NotFound, Order, Signin, Signup, Detail_Product, Account, Address, Wishlist, OrderHistory, SigninAdmin, ListProduct } from "./pages";
 import { getProducts, addProduct, updateProduct, deleteProduct } from "./store/actions/actionProduct";
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from "./store/store";
@@ -46,6 +46,7 @@ function App() {
           <Route index element={<DashBoardPage />} />
           <Route path="products/add" element={<ProductAdd />} />
           <Route path="customers" element={<Customers />} />
+          <Route path="products" element={<ListProduct />} />
 
 
           {/* <Route
