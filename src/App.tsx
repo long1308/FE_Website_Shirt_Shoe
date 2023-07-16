@@ -14,6 +14,7 @@ import ColorList from './components/Admin/Color/ColorList';
 import ColorEdit from './components/Admin/Color/ColorEdit';
 import CategoryList from './components/Admin/Category/CategoryList';
 import CategoryAdd from './components/Admin/Category/CategoryAdd';
+import CategoryEdit from './components/Admin/Category/CategoryEdit';
 function App() {
   // const dispatch = useDispatch();
   // const [isProductsLoaded, setProductsLoaded] = useState(false);
@@ -62,6 +63,7 @@ function App() {
 
           <Route path="categorys" element={<CategoryList />} />
           <Route path="categorys/add" element={<CategoryAdd />} />
+          <Route path="categorys/:id" element={<CategoryEdit />} />
           {/* <Route
             path="products"
             element={
