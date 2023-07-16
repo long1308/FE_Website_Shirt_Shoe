@@ -10,8 +10,6 @@ import ProductAdd from './components/Admin/ProductAdd';
 import Customers from './pages/Admin/Custo/Customers'
 import ProductEdit from './components/Admin/ProductEdit';
 import ColorAdd from './components/Admin/Color/ColorAdd';
-import ColorEdit from './components/Admin/Color/ColorEdit';
-import ColorList from './components/Admin/Color/ColorList';
 function App() {
   // const dispatch = useDispatch();
   // const [isProductsLoaded, setProductsLoaded] = useState(false);
@@ -53,8 +51,6 @@ function App() {
           <Route path="customers" element={<Customers />} />
           <Route path="products" element={<ListProduct />} />
           <Route path="products/colors/add" element={<ColorAdd />} />
-          <Route path="products/colors/:id" element={<ColorEdit />} />
-          <Route path="products/colors" element={<ColorList />} />
           {/* <Route
             path="products"
             element={
