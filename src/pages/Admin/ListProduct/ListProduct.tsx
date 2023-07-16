@@ -1,6 +1,7 @@
 import { CaretDownOutlined, CaretUpOutlined, EditOutlined } from "@ant-design/icons"
 import { Pagination } from "antd"
 import { BsFillTrash3Fill } from "react-icons/bs"
+import { Link } from "react-router-dom"
 
 const ListProduct = () => {
   return <>
@@ -13,7 +14,7 @@ const ListProduct = () => {
           type="search"
           placeholder="Search website..."
         />
-        <button className="my-2 border rounded p-2 bg-blue-500 hover:bg-red-700 font-bold py-2 px-4 text-white w-full lg:w-40 ">Add Product</button>
+        <Link to={'/admin/products/add'} className="my-2 border rounded p-2 bg-blue-500 hover:bg-red-700 font-bold py-2 px-4 text-white w-full lg:w-40 ">Add Product</Link>
       </div>
     </div>
     <div className="overflow-x-auto">
@@ -147,7 +148,7 @@ const ListProduct = () => {
             </td>
             <td className="whitespace-nowrap ">
             <div className="flex ">
-                  <p className="px-2 py-2 text-xl"> <EditOutlined /></p>
+                  <Link to={`/admin/products/1`} className="px-2 py-2 text-xl"> <EditOutlined /></Link>
                   <p className="px-2 py-4 text-xl"><BsFillTrash3Fill/></p>
                 </div>
            
