@@ -11,6 +11,7 @@ import Customers from './pages/Admin/Custo/Customers'
 import ProductEdit from './components/Admin/ProductEdit';
 import ColorAdd from './components/Admin/Color/ColorAdd';
 import ColorList from './components/Admin/Color/ColorList';
+import ColorEdit from './components/Admin/Color/ColorEdit';
 function App() {
   // const dispatch = useDispatch();
   // const [isProductsLoaded, setProductsLoaded] = useState(false);
@@ -49,10 +50,13 @@ function App() {
           <Route index element={<DashBoardPage />} />
           <Route path="products/add" element={<ProductAdd />} />
           <Route path="products/:id" element={<ProductEdit />} />
-          <Route path="customers" element={<Customers />} />
           <Route path="products" element={<ListProduct />} />
+
+          <Route path="customers" element={<Customers />} />
+
           <Route path="products/colors/add" element={<ColorAdd />} />
           <Route path="products/colors" element={<ColorList />} />
+          <Route path="products/colors/:id" element={<ColorEdit />} />
           {/* <Route
             path="products"
             element={
