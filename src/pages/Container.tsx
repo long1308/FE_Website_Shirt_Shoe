@@ -1,11 +1,15 @@
-import React from 'react'
+import { BannerHome, BannerCaption, BannerCategory, HeaderHomeInfo } from "../components";
 import { ListProducts } from '../components'
 type Props = object
 
 const Container = (props: Props) => {
     return (
         <div>
-            <ListProducts />       
+            <BannerHome />
+            <BannerCategory />
+            <ListProducts />
+            <BannerCaption />
+            <HeaderHomeInfo />
         </div>
     )
 }
