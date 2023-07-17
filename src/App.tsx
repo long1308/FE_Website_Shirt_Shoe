@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Routes, Route } from "react-router-dom";
-import { AdminLayout, BaseLayout, Cart, DashBoardPage } from "./components";
+import { AdminLayout, BaseLayout, Cart, DashBoardPage, SizeAdd, SizeEdit, SizeList } from "./components";
 import { HomePages, NotFound, Order, Signin, Signup, Detail_Product, Account, Address, Wishlist, OrderHistory, SigninAdmin, ListProduct } from "./pages";
 import { getProducts, addProduct, updateProduct, deleteProduct } from "./store/actions/actionProduct";
 import { useDispatch, useSelector } from 'react-redux';
@@ -9,6 +9,12 @@ import ListMenuAccount from './pages/account/ListMenuAccount';
 import ProductAdd from './components/Admin/ProductAdd';
 import Customers from './pages/Admin/Custo/Customers'
 import ProductEdit from './components/Admin/ProductEdit';
+import ColorAdd from './components/Admin/Color/ColorAdd';
+import ColorList from './components/Admin/Color/ColorList';
+import ColorEdit from './components/Admin/Color/ColorEdit';
+import CategoryList from './components/Admin/Category/CategoryList';
+import CategoryAdd from './components/Admin/Category/CategoryAdd';
+import CategoryEdit from './components/Admin/Category/CategoryEdit';
 function App() {
   // const dispatch = useDispatch();
   // const [isProductsLoaded, setProductsLoaded] = useState(false);
@@ -47,10 +53,21 @@ function App() {
           <Route index element={<DashBoardPage />} />
           <Route path="products/add" element={<ProductAdd />} />
           <Route path="products/:id" element={<ProductEdit />} />
-          <Route path="customers" element={<Customers />} />
           <Route path="products" element={<ListProduct />} />
 
+          <Route path="customers" element={<Customers />} />
 
+          <Route path="products/colors/add" element={<ColorAdd />} />
+          <Route path="products/colors" element={<ColorList />} />
+          <Route path="products/colors/:id" element={<ColorEdit />} />
+
+          <Route path="products/sizes/add" element={<SizeAdd/>} />
+          <Route path="products/sizes" element={<SizeList />} />
+          <Route path="products/sizes/:id" element={<SizeEdit />} />
+
+          <Route path="categorys" element={<CategoryList />} />
+          <Route path="categorys/add" element={<CategoryAdd />} />
+          <Route path="categorys/:id" element={<CategoryEdit />} />
           {/* <Route
             path="products"
             element={

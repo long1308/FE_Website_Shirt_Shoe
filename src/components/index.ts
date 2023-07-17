@@ -10,6 +10,9 @@ import ListProductNew from "./Users/ListProducts/ListProductNew";
 import BannerCaption from "./Users/Banner/BannerCaption";
 import BannerCategory from "./Users/Banner/BannerCategory";
 import Cart from "./cart/cart";
+import SizeList from "./Admin/size/sizeList";
+import SizeAdd from "./Admin/size/sizeAdd";
+import SizeEdit from "./Admin/size/sizeEdit";
 export {
   DashBoardPage,
   AdminLayout,
@@ -23,4 +26,7 @@ export {
   BannerCaption,
   BannerCategory,
   Cart,
+  SizeList,
+  SizeEdit,
+  SizeAdd,
 };
