@@ -28,5 +28,5 @@ export {
   Cart,
   SizeList,
   SizeEdit,
-
+  SizeAdd,
 };
