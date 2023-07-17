@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Routes, Route } from "react-router-dom";
-import { AdminLayout, BaseLayout, Cart, DashBoardPage } from "./components";
+import { AdminLayout, BaseLayout, Cart, DashBoardPage, SizeList } from "./components";
 import { HomePages, NotFound, Order, Signin, Signup, Detail_Product, Account, Address, Wishlist, OrderHistory, SigninAdmin, ListProduct } from "./pages";
 import { getProducts, addProduct, updateProduct, deleteProduct } from "./store/actions/actionProduct";
 import { useDispatch, useSelector } from 'react-redux';
@@ -60,6 +60,8 @@ function App() {
           <Route path="products/colors/add" element={<ColorAdd />} />
           <Route path="products/colors" element={<ColorList />} />
           <Route path="products/colors/:id" element={<ColorEdit />} />
+
+          <Route path="products/sizes" element={<SizeList/>} /> 
 
           <Route path="categorys" element={<CategoryList />} />
           <Route path="categorys/add" element={<CategoryAdd />} />
