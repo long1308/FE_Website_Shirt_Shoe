@@ -6,17 +6,17 @@ import { TbTruckDelivery } from "react-icons/tb";
 import { FcConferenceCall } from "react-icons/fc";
 import { FiArrowRightCircle, FiArrowLeftCircle } from "react-icons/fi";
 import Icon from "../../../components/Icon/icon";
-import { Item } from "../../../components";
 import Comment from "../../../components/Comment/Comment";
 import Rating_star from "../../../components/Rating/Rating_star";
 import Image from "../../../components/Image/Image";
-import { Image as AntdImage, Spin, Tooltip } from "antd";
+import { Image as AntdImage, Tooltip } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../store/store";
 import { getProduct } from "../../../store/actions/actionProduct";
 import { useEffect, useState } from "react";
 import { getCategorys } from "../../../store/actions/actionCategory";
 import FormatterPrice from "../../../components/FormatterPrice/FormatterPrice";
+import Loading from "../../../components/Loading/Loading";
 
 const Detail_Product = () => {
 
@@ -52,9 +52,7 @@ const Detail_Product = () => {
     <>
       {
         isLoading ? (
-          <Spin tip="Loading" size="large">
-            <div className="content" />
-          </Spin>
+          <Loading />
         ) : error ? (
           <div className="error min-h-[300px] h-1/2 w-screen flex items-center">
             <h1 className="text-3xl font-medium italic text-center w-full">Something went wrong</h1>

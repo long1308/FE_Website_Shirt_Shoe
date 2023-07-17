@@ -35,7 +35,7 @@ export default function CustomTabs() {
     <Tabs value={"Women"}>
       <TabsHeader className="w-3/5 mx-auto">
         {isLoading ? (
-          <Skeleton />
+          <Loading />
         ) : error ? (
           "Error"
         ) : categorys ? (
@@ -52,7 +52,7 @@ export default function CustomTabs() {
       </TabsHeader>
       <TabsBody>
         {isLoading ? (
-          <Skeleton />
+          <Loading />
         ) : error ? (
           "Error....."
         ) : category && category.products && category.products.length > 0 ? (

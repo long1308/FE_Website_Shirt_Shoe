@@ -1,5 +1,5 @@
+import { Spin } from "antd";
 import { useState, useEffect } from "react";
-import { Spinner } from "@material-tailwind/react";
 
 export default function Loading() {
   const [showSpinner, setShowSpinner] = useState(true);
@@ -20,8 +20,8 @@ export default function Loading() {
   };
 
   return showSpinner ? (
-    <div style={loadingContainerStyle}>
-      <Spinner className="h-12 w-12" />
-    </div>
+    <Spin tip="Loading"  size="large">
+      <div className="content" />
+    </Spin>
   ) : null;
 }
