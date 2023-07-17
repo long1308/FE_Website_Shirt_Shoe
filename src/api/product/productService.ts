@@ -9,6 +9,14 @@ const productService = {
       throw new Error("Error retrieving products");
     }
   },
+  getProduct: async (id: string | number): Promise<Iproduct> => {
+    try {
+      const response = await insntance.get("/products/" + id);
+      return response.data.product;
+    } catch (error) {
+      throw new Error("Error retrieving products");
+    }
+  },
   addProduct: async (product: Iproduct): Promise<Iproduct> => {
     try {
       const response = await insntance.post("/products", product);

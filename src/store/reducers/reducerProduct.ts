@@ -15,19 +15,38 @@ const productReducer: Reducer<ProductState, ProductActionTypes> = (
     case "PRODUCT_LIST_REQUEST":
       return {
         ...state,
-        loading: true,
+        isLoading: true,
         error: null,
       };
     case "PRODUCT_LIST_SUCCESS":
       return {
         ...state,
-        loading: false,
+        isLoading: false,
         products: action.payload,
       };
     case "PRODUCT_LIST_FAIL":
       return {
         ...state,
-        loading: false,
+        isLoading: false,
+        error: action.payload,
+      };
+    case "PRODUCT_ONE_REQUEST":
+      return {
+        ...state,
+        isLoading: true,
+        error: null,
+      };
+    case "PRODUCT_ONE_SUCCESS":
+      return {
+        ...state,
+        isLoading: false,
+        product: action.payload,
+
+      };
+    case "PRODUCT_ONE_FAIL":
+      return {
+        ...state,
+        isLoading: false,
         error: action.payload,
       };
     case "ADD_PRODUCT":
