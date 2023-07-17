@@ -8,13 +8,12 @@ export interface Iproduct {
   description: string;
   description_short?: string;
   hot_sale?: number;
-  size: Array<string>;
-  color: Array<string>;
   quantity: number;
-  category: string;
+  categoryId: string;
   inventoryStatus: string;
   rating: number;
   colorSizes: Array<Colors>;
+  totalComments: number;
 }
 interface Colors {
   color: string;
@@ -26,6 +25,7 @@ interface Sizes {
 }
 export interface ProductState {
   products: Iproduct[];
+  product?: Iproduct;
   isLoading: boolean;
   error: null | string;
 }
@@ -44,6 +44,8 @@ export interface ProductListFailAction {
 //get one
 export interface ProductOneRequestAction {
   type: "PRODUCT_ONE_REQUEST";
+
+
 }
 export interface ProductOneSuccessAction {
   type: "PRODUCT_ONE_SUCCESS";

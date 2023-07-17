@@ -18,9 +18,9 @@ const Item = ({ buttonAdd, product }: Props) => {
         <div className="w-64 m-auto content border-2  overflow-hidden">
             <div className="w-full">
                 <div className="w-full relative overflow-hidden ">
-                    <Link to={""} className="image-big">
+                    <Link to={`products/${product._id}`} className="image-big">
                         <Image
-                            src={product.image}
+                            src={product.image[0]}
                             alt="Leather Pegged Pants"
                             className="w-full transition duration-700 ease-in-out "
                         />

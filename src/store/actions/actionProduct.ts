@@ -21,6 +21,27 @@ export const getProducts = () => {
     }
   };
 };
+export const getProduct = (id: string) => {
+  return async (dispatch: Dispatch<ProductActionTypes>) => {
+    try {
+      dispatch({ type: "PRODUCT_ONE_REQUEST" });
+      const product = await productService.getProduct(id)
+
+      dispatch({
+        type: "PRODUCT_ONE_SUCCESS",
+        payload: product
+      })
+
+    } catch (error: any) {
+      dispatch({
+        type: "PRODUCT_ONE_FAIL",
+        payload: error.message,
+      });
+    }
+  }
+
+
+}
 export const addProduct = (product: Iproduct) => {
   return (dispatch: Dispatch<ProductActionTypes>) => {
     dispatch({
