@@ -16,7 +16,7 @@ import { getProduct } from "../../../store/actions/actionProduct";
 import { useEffect, useState } from "react";
 import { getCategorys } from "../../../store/actions/actionCategory";
 import FormatterPrice from "../../../components/FormatterPrice/FormatterPrice";
-import Loading from "../../../components/Loading/Loading";
+import Loading from "../../../components/Action/Loading/Loading";
 
 const Detail_Product = () => {
 

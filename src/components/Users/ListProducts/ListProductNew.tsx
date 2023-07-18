@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from "../../../store/store";
 import { useEffect } from "react";
 import { Item } from '../..';
-import Loading from "../../Loading/Loading";
+import Loading from "../../Action/Loading/Loading";
 
 const ListProductNew = () => {
     const dispatch = useDispatch();

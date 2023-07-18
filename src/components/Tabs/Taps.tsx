@@ -10,8 +10,7 @@ import {
 import { Item } from "..";
 import { RootState } from "../../store/store";
 import { useEffect } from "react";
-import { Skeleton } from "antd";
-import Loading from "../Loading/Loading";
+import Loading from "../Action/Loading/Loading";
 
 export default function CustomTabs() {
   const dispatch = useDispatch();

@@ -4,11 +4,12 @@ import {
   PieChartOutlined,
   TeamOutlined,
   UserOutlined,
+  ShoppingCartOutlined,
+  CommentOutlined
 } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
 import { Breadcrumb, Layout, Menu, theme } from 'antd';
 import { Link } from 'react-router-dom';
-import { AiOutlineComment, AiOutlineShoppingCart } from 'react-icons/ai';
 import { Outlet } from 'react-router-dom';
 const { Header, Content, Footer, Sider } = Layout;
 type MenuItem = Required<MenuProps>['items'][number];
@@ -86,7 +87,7 @@ const items: MenuItem[] = [
     key: '6',
     label: (
       <Link to={"/admin/carts"} className="flex items-center">
-        <AiOutlineShoppingCart className="mr-3" />
+        <ShoppingCartOutlined  className="mr-3" />
         <span>Cart</span>
       </Link>
     ),
@@ -104,7 +105,7 @@ const items: MenuItem[] = [
     key: '8',
     label: (
       <Link to={"/admin/comments"} className="flex items-center">
-        <AiOutlineComment className="mr-2" />
+        <CommentOutlined className="mr-2" />
         <span>Comments</span>
       </Link>
     ),

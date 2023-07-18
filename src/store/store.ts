@@ -7,10 +7,12 @@ import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk";
 import productReducer from "./reducers/reducerProduct";
 import categoryReducer from "./reducers/reducerCategory";
+import colorReducer from "./reducers/reducerColor";
 
 const rootReducer = combineReducers({
   products: productReducer,
   categorys: categoryReducer,
+  colors: colorReducer,
   // Các reducers khác
 });
 
