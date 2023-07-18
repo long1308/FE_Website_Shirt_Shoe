@@ -25,21 +25,28 @@ const Detail_Product = () => {
   const dataCategorys = useSelector((state: RootState) => state.categorys);
   const { id } = useParams()
   const { product, isLoading, error } = dataProducts;
-
-
   const { categorys } = dataCategorys
-
-
   useEffect(() => {
     dispatch(getCategorys() as never);
     dispatch(getProduct(id!) as never);
-
   }, [id, dispatch]);
   const [actionImage, setActionImage] = useState("")
   const [selectColor, setSelectColor] = useState("")
   const [selectSize, setSelectSize] = useState("")
-  console.log(selectSize);
+  const [orderQuantity, setOrderQuantity] = useState(1)
+  const handlQuantity = (name: string, maxQuantity?: number) => {
 
+    if (name === "plus") {
+      if (maxQuantity) {
+        if (orderQuantity < maxQuantity) {
+          setOrderQuantity(orderQuantity + 1)
+        }
+      }
+    }
+    else if (name === "minus" && orderQuantity > 1) {
+      setOrderQuantity(orderQuantity - 1)
+    }
+  }
   const handleClickThumbnail = (image: string, color: string) => {
     setActionImage(image);
     setSelectColor(color)
@@ -47,7 +54,15 @@ const Detail_Product = () => {
   const handleClickSize = (size: string, color: string) => {
     setSelectSize(size)
     setSelectColor(color)
+    setOrderQuantity(1)
   }
+  useEffect(() => {
+    if (product && product.image.length > 0) {
+      setActionImage(product.image[0]);
+      setSelectColor(product.colorSizes[0]?.color || "");
+      setSelectSize(product.colorSizes[0]?.sizes[0].size || "");
+    }
+  }, [product]);
   return (
     <>
       {
@@ -65,7 +80,7 @@ const Detail_Product = () => {
                   {/* menu */}
                   <div className="breadcrumbs">
                     <ul className="flex items-center gap-2">
-                      <Link to={""}>
+                      <Link to={"/"}>
                         <li className="underline underline-offset-4 hover:text-[#17c6aa] ">
                           Home
                         </li>
@@ -100,13 +115,13 @@ const Detail_Product = () => {
                     </div>
                   </div>
                   {/* Slide và content */}
-                  <div className="slider-text-content min-w-full flex flex-col gap-5 mt-8 md:mt-10 md:flex-row">
+                  <div className="slider-text-content min-w-full  flex flex-col gap-5 mt-8 md:mt-10 md:flex-row justify-between  ">
                     {/* slider */}
-                    <div className="slider w-full   md:w-2/5 relative overflow-hidden">
+                    <div className="slider w-full md:w-2/5 relative overflow-hidden ">
                       <Carousel
                         loop={true}
                         transition={{ duration: 1 }}
-                        className="rounded-xl"
+                        className="rounded-xl w-full"
                         prevArrow={({ handlePrev }) => (
                           <IconButton
                             variant="text"
@@ -146,8 +161,11 @@ const Detail_Product = () => {
                             key={index}
                             preview={{ mask: false }}
                             src={actionImage || item}
-
-                            className="w-full h-full object-contain"
+                            style={{
+                              width: "100%",
+                              objectFit: "cover",
+                            }}
+                            className="cursor-pointer md:max-h-[670px] min-h-[500px] md:min-h-[670px]  w-full object-cover "
 
                           />
                         ))}
@@ -156,17 +174,28 @@ const Detail_Product = () => {
 
                       </Carousel>
                       {/* sale */}
-                      {product?.hot_sale && product?.hot_sale > 0 ?
-                        (<div className="prd-sale absolute top-2 left-1 bg-pink-600">
-                          <span className=" m-2 block  rounded-full text-center text-sm font-medium text-white">
-                            {product?.hot_sale}% SALE
-                          </span>
-                        </div>
-                        ) : (
-                          null
-                        )
+                      <div className="prd-sale absolute top-2 left-1 min-w-[75px]">
+                        {product?.hot_sale && product?.hot_sale > 0 ?
+                          (
+                            <div className=" py-[2px] bg-pink-600 my-1">
+                              <span className=" m-2 block  rounded-full text-center text-sm font-medium text-white">
+                                {product?.hot_sale}% SALE
+                              </span>
+                            </div>
+                          ) : (
+                            null
+                          )
+                        }
+                        {product.featured ?
+                          (
+                            <div className="prd-sale py-[2px] bg-blue-300">
+                              <span className=" m-2 block  rounded-full text-center text-sm font-medium text-white">
+                                NEW
+                              </span>
+                            </div>) : (null)
+                        }
 
-                      }
+                      </div>
 
                     </div>
                     {/* content */}
@@ -207,19 +236,17 @@ const Detail_Product = () => {
                               Tax Info: <span>Tax included.</span>
                             </p>
                             <p>
-                              Collection:<span>Women</span>
+                              Collection:<span> {categorys.map((cate) =>
+                                cate._id === product?.categoryId ? cate.name : null
+                              )
+                              }</span>
                             </p>
                           </div>
                           <div className="box2">
                             <p>
-                              Availability: <span>In Stock</span>
+                              Sectors: <span>{product.featured ? "New arrival | Limited stock" : "Limited stock"}</span>
                             </p>
-                            <p>
-                              Tax Info: <span>Tax included.</span>
-                            </p>
-                            <p>
-                              Collection:<span>Women</span>
-                            </p>
+
                           </div>
                         </div>
                       </div>
@@ -280,15 +307,32 @@ const Detail_Product = () => {
                                   return (
                                     <div className="quantity flex items-center gap-5">
                                       <h2 className="text-lg font-medium">Quantity:</h2>
-                                      <div className="input-number flex items-center gap-5">
-                                        <button className="btn-minus">-</button>
+                                      <div className="input-number flex items-center  border-2 ">
+                                        <button onClick={() => handlQuantity("minus")} className="btn-minus flex w-full px-2">-</button>
                                         <input
-                                          type="number"
-                                          className="w-12 text-center"
-                                          defaultValue={sizeQuantity.quantity}
+                                          type="text"
+                                          className="w-12 text-center border-x-2"
+                                          value={orderQuantity}
+                                          defaultValue={1}
+                                          onChange={(e) => {
+                                            if (parseInt(e.target.value) < 1) {
+                                              setOrderQuantity(1)
+                                            }
+                                            else if (isNaN(parseInt(e.target.value))) {
+                                              setOrderQuantity(1)
+                                            }
+                                            else if (parseInt(e.target.value) >= sizeQuantity.quantity) {
+                                              setOrderQuantity(sizeQuantity.quantity)
+                                            }
+                                            else {
+                                              setOrderQuantity(parseInt(e.target.value))
+                                            }
+
+                                          }}
                                         />
-                                        <button className="btn-plus">+</button>
+                                        <button onClick={() => handlQuantity("plus", sizeQuantity.quantity)} className="btn-plus px-2">+</button>
                                       </div>
+                                      <span className="text-sm">{sizeQuantity.quantity} products are available </span>
                                     </div>
                                   )
                                 }
@@ -351,19 +395,21 @@ const Detail_Product = () => {
                         <p className="mb-5 w-2/3 text-base leading-7 indent-8">
                           {product?.description}
                         </p>
-                        <div className="list-images border-2 p-5 rounded-lg md:w-1/3">
+                        <div className="list-images border-2 p-5 rounded-lg md:w-1/3 ">
                           <ImageList variant="masonry" cols={3} gap={8}>
 
                             {
                               product?.image && product?.image.length > 0 ? (
                                 product?.image.slice(0, 6).map((item, index) => (
-                                  <ImageListItem key={item}>
-                                    <img
-                                      key={index}
-                                      src={`${item}?w=248&fit=crop&auto=format`}
-                                      srcSet={`${item}?w=248&fit=crop&auto=format&dpr=2 2x`}
-                                      loading="lazy"
-                                    />
+                                  <ImageListItem className="w-full" key={item}>
+                                    <AntdImage key={index}
+                                      src={`${item}`}
+                                      className="w-full h-full object-cover"
+                                      height={150}
+                                      // srcSet={`${item}?w=248&fit=crop&auto=format&dpr=2 2x`}
+                                      loading="lazy">
+                                    </AntdImage>
+
                                   </ImageListItem>
                                 )
 

@@ -31,46 +31,63 @@ export default function CustomTabs() {
   };
 
   return (
-    <Tabs value={"Women"}>
-      <TabsHeader className="w-3/5 mx-auto">
-        {isLoading ? (
-          <Loading />
-        ) : error ? (
-          "Error"
-        ) : categorys ? (
-          categorys.map((cate) => (
-            <Tab
-              onClick={() => handleTabChange(cate._id || "")}
-              key={cate._id}
-              value={cate.name}
-            >
-              {cate.name}
-            </Tab>
-          ))
-        ) : null}
-      </TabsHeader>
-      <TabsBody>
-        {isLoading ? (
-          <Loading />
-        ) : error ? (
-          "Error....."
-        ) : category && category.products && category.products.length > 0 ? (
+    <>
+      {isLoading ? <Loading /> :
+        categorys && categorys.length > 0 ? (
 
-          <TabPanel
-            key={category._id}
-            value={category.name}
-            className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5  gap-4 px-4 mt-5"
-          >
-            {category.products.map((product, index) => (
-              <Item key={index} product={product} />
-            ))}
-          </TabPanel>
+          <Tabs value={categorys[0]?.name}>
+            <TabsHeader className=" w-3/5 mx-auto">
+              {isLoading ? (
+                <Loading />
+              ) : error ? (
+                <div className="error min-h-[300px] h-1/2 w-screen flex items-center">
+                  <h1 className="text-3xl font-medium italic text-center w-full">Something went wrong !</h1>
+                </div>
+              ) : categorys ? (
+                categorys.map((cate) => (
+                  <Tab
+                    defaultValue={categorys[0]?.name}
+                    onClick={() => handleTabChange(cate._id || "")}
+                    key={cate._id}
+                    value={cate.name}
 
-        ) : (
-          "No products available."
-        )}
-      </TabsBody>
+                  >
+                    {cate.name}
+                  </Tab>
+                ))
+              ) : null}
+            </TabsHeader>
+            <TabsBody >
+              {isLoading ? (
+                <Loading />
+              ) : error ? (
+                <div className="error min-h-[300px] h-1/2 w-screen flex items-center">
+                  <h1 className="text-3xl font-medium italic text-center w-full">Something went wrong</h1>
+                </div>
+              ) : category && category.products && category.products.length > 0 ? (
 
-    </Tabs>
+                <TabPanel
+                  key={category._id}
+                  value={category.name}
+                  className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4  xl:grid-cols-5 gap-10 md:gap-1 px-10 md:px-0 mt-5"
+                >
+                  {category.products.map((product, index) => (
+                    <Item key={index} product={product} />
+                  ))}
+                </TabPanel>
+
+              ) : (
+                <div className="error min-h-[300px] h-1/2 w-screen flex items-center">
+                  <h1 className="text-xl font-medium italic text-center w-full">No products available.</h1>
+                </div>
+              )}
+            </TabsBody>
+
+          </Tabs>
+        ) : <div className="error min-h-[300px] h-1/2 w-screen flex items-center">
+          <h1 className="text-xl font-medium italic text-center w-full">No products available.</h1>
+        </div>
+      }
+    </>
   )
 }
