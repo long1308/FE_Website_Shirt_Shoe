@@ -35,7 +35,8 @@ const ColorEdit = () => {
     <div className='m-5'>
       <span className='text-2xl mt-[-10px] font-bold'>Edit New Color</span>
       <div className='gap-6'>
-        <form onSubmit={handleSubmit(onSubmit)}></form>
+        <form onSubmit={handleSubmit(onSubmit)}>
+
           <label className='block text-gray-700 text-sm font-bold my-2' htmlFor='username'>
             Name
           </label>
