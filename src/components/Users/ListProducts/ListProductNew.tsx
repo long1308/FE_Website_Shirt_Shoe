@@ -22,7 +22,9 @@ const ListProductNew = () => {
             {isLoading ? (
                 <Loading />
             ) : error ? (
-                "Error"
+                <div className="error min-h-[300px] h-1/2 w-screen flex items-center">
+                    <h1 className="text-3xl font-medium italic text-center w-full">Something went wrong</h1>
+                </div>
             ) : featuredProducts && featuredProducts.length > 0 ? (
                 featuredProducts.map((product, index) => <Item key={index} product={product} />)
             ) : null}
