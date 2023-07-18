@@ -15,25 +15,25 @@ const categoryReducer: Reducer<CategoryState, CategoryActionTypes> = (
     case "CATEGORY_LIST_REQUEST":
       return {
         ...state,
-        loading: true,
+        isLoading: true,
         error: null,
       };
     case "CATEGORY_LIST_SUCCESS":
       return {
         ...state,
-        loading: false,
+        isLoading: false,
         categorys: action.payload,
       };
     case "CATEGORY_LIST_FAIL":
       return {
         ...state,
-        loading: false,
+        isLoading: false,
         error: action.payload,
       };
     case "CATEGORY_ONE_REQUEST":
       return {
         ...state,
-        loading: true,
+        isLoading: true,
         error: null,
       };
     case "CATEGORY_ONE_SUCCESS":

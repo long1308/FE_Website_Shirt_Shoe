@@ -10,8 +10,7 @@ import {
 import { Item } from "..";
 import { RootState } from "../../store/store";
 import { useEffect } from "react";
-import { Skeleton } from "antd";
-import Loading from "../Loading/Loading";
+import Loading from "../Action/Loading/Loading";
 
 export default function CustomTabs() {
   const dispatch = useDispatch();
@@ -39,7 +38,7 @@ export default function CustomTabs() {
           <Tabs value={categorys[0]?.name}>
             <TabsHeader className=" w-3/5 mx-auto">
               {isLoading ? (
-                <Skeleton />
+                <Loading />
               ) : error ? (
                 <div className="error min-h-[300px] h-1/2 w-screen flex items-center">
                   <h1 className="text-3xl font-medium italic text-center w-full">Something went wrong !</h1>
@@ -60,7 +59,7 @@ export default function CustomTabs() {
             </TabsHeader>
             <TabsBody >
               {isLoading ? (
-                <Skeleton />
+                <Loading />
               ) : error ? (
                 <div className="error min-h-[300px] h-1/2 w-screen flex items-center">
                   <h1 className="text-3xl font-medium italic text-center w-full">Something went wrong</h1>
