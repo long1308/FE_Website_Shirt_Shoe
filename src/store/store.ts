@@ -8,11 +8,13 @@ import thunk from "redux-thunk";
 import productReducer from "./reducers/reducerProduct";
 import categoryReducer from "./reducers/reducerCategory";
 import colorReducer from "./reducers/reducerColor";
+import sizeReducer from "./reducers/reducerSize";
 
 const rootReducer = combineReducers({
   products: productReducer,
   categorys: categoryReducer,
   colors: colorReducer,
+  sizes:sizeReducer,
   // Các reducers khác
 });
 
