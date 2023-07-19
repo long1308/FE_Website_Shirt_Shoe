@@ -25,10 +25,10 @@ const categoryService = {
       throw new Error("Error adding category");
     }
   },
-  updateCategory: async (category: Icategory): Promise<Icategory> => {
+  updateCategory: async (category: Icategory,id: string): Promise<Icategory> => {
     try {
       const response = await insntance.put(
-        `/products/${category._id}`,
+        `/categorys/${id}`,
         category
       );
       return response.data;
@@ -38,7 +38,7 @@ const categoryService = {
   },
   deleteCategory: async (categoryId: string): Promise<void> => {
     try {
-      await insntance.delete(`/products/${categoryId}`);
+      await insntance.delete(`/categorys/${categoryId}`);
     } catch (error) {
       throw new Error("Error deleting category");
     }
