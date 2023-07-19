@@ -35,7 +35,7 @@ const categoryService = {
     } catch (error) {
       throw new Error("Error updating category");
     }
-  },
+  },  
   deleteCategory: async (categoryId: string): Promise<void> => {
     try {
       await insntance.delete(`/categorys/${categoryId}`);
