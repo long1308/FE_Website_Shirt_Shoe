@@ -17,6 +17,7 @@ import { useEffect, useState } from "react";
 import { getCategorys } from "../../../store/actions/actionCategory";
 import FormatterPrice from "../../../components/FormatterPrice/FormatterPrice";
 import Loading from "../../../components/Action/Loading/Loading";
+import { Iproduct } from "../../../interface/product";
 
 const Detail_Product = () => {
 
@@ -63,6 +64,12 @@ const Detail_Product = () => {
       setSelectSize(product.colorSizes[0]?.sizes[0].size || "");
     }
   }, [product]);
+  //addToCart
+  const handleAddToCart = (product: Iproduct) => {
+
+    console.log(product);
+
+  }
   return (
     <>
       {
@@ -115,6 +122,8 @@ const Detail_Product = () => {
                     </div>
                   </div>
                   {/* Slide và content */}
+
+
                   <div className="slider-text-content min-w-full  flex flex-col gap-5 mt-8 md:mt-10 md:flex-row justify-between  ">
                     {/* slider */}
                     <div className="slider w-full md:w-2/5 relative overflow-hidden ">
@@ -305,7 +314,7 @@ const Detail_Product = () => {
                               colorSize?.sizes?.map((sizeQuantity, idx) => {
                                 if (sizeQuantity.size === selectSize && colorSize.color === selectColor) {
                                   return (
-                                    <div className="quantity flex items-center gap-5">
+                                    <div key={index} className="quantity flex items-center gap-5">
                                       <h2 className="text-lg font-medium">Quantity:</h2>
                                       <div className="input-number flex items-center  border-2 ">
                                         <button onClick={() => handlQuantity("minus")} className="btn-minus flex w-full px-2">-</button>
@@ -354,7 +363,7 @@ const Detail_Product = () => {
                           </div>
                           {/* button */}
                           <div className="button flex items-center gap-4 mt-5">
-                            <button className="btn-addtocart flex-1 bg-[#17c6aa] text-white hover:bg-black py-4 rounded-md">
+                            <button onClick={() => handleAddToCart(product)} className="btn-addtocart flex-1 bg-[#17c6aa] text-white hover:bg-black py-4 rounded-md">
                               Add to cart
                             </button>
                             <button className="btn-wishlist">
@@ -367,6 +376,7 @@ const Detail_Product = () => {
                       </div>
                     </div>
                   </div>
+
                   {/* mô tả và support */}
                   <div className="desc-support">
                     <div className="info-support flex flex-col gap-10 md:flex-row justify-between items-center bg-gray-100 py-2 px-1 mt-8 md:mt-20">
