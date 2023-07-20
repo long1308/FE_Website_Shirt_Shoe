@@ -2,6 +2,7 @@ import { CaretDownOutlined, CaretUpOutlined, EditOutlined } from "@ant-design/ic
 import { Pagination } from "antd"
 import { BsFillTrash3Fill } from "react-icons/bs"
 import { Link } from "react-router-dom"
+import { UpDow } from "../../../components/Icon/iconProject"
 
 const ListProduct = () => {
   return <>
@@ -25,19 +26,7 @@ const ListProduct = () => {
               <div className="flex items-center">
                 <div className="mr-2">NAME</div>
                 <div className="inline-flex">
-                <svg
-                  stroke="currentColor"
-                  fill="currentColor"
-                  strokeWidth="0"
-                  viewBox="0 0 320 512"
-                  height="1em"
-                  width="1em"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M41 288h238c21.4 0 32.1 25.9 17 41L177 448c-9.4 9.4-24.6 9.4-33.9 0L24 329c-15.1-15.1-4.4-41 17-41zm255-105L177 64c-9.4-9.4-24.6-9.4-33.9 0L24 183c-15.1 15.1-4.4 41 17 41h238c21.4 0 32.1-25.9 17-41z"
-                  ></path>
-                </svg>
+              <UpDow></UpDow>
               </div>
               </div>
             </th>
@@ -45,19 +34,7 @@ const ListProduct = () => {
               <div className="flex items-center">
                 <div className="mr-2">CATEGORY</div>
                 <div className="inline-flex">
-                <svg
-                  stroke="currentColor"
-                  fill="currentColor"
-                  strokeWidth="0"
-                  viewBox="0 0 320 512"
-                  height="1em"
-                  width="1em"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M41 288h238c21.4 0 32.1 25.9 17 41L177 448c-9.4 9.4-24.6 9.4-33.9 0L24 329c-15.1-15.1-4.4-41 17-41zm255-105L177 64c-9.4-9.4-24.6-9.4-33.9 0L24 183c-15.1 15.1-4.4 41 17 41h238c21.4 0 32.1-25.9 17-41z"
-                  ></path>
-                </svg>
+                <UpDow></UpDow>
               </div>
               </div>
             </th>
@@ -65,19 +42,7 @@ const ListProduct = () => {
               <div className="flex items-center">
                 <div className="mr-2">QUANTITY</div>
                 <div className="inline-flex">
-                <svg
-                  stroke="currentColor"
-                  fill="currentColor"
-                  strokeWidth="0"
-                  viewBox="0 0 320 512"
-                  height="1em"
-                  width="1em"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M41 288h238c21.4 0 32.1 25.9 17 41L177 448c-9.4 9.4-24.6 9.4-33.9 0L24 329c-15.1-15.1-4.4-41 17-41zm255-105L177 64c-9.4-9.4-24.6-9.4-33.9 0L24 183c-15.1 15.1-4.4 41 17 41h238c21.4 0 32.1-25.9 17-41z"
-                  ></path>
-                </svg>
+                <UpDow></UpDow>
               </div>
               </div>
             </th>
@@ -85,19 +50,7 @@ const ListProduct = () => {
               <div className="flex items-center">
                 <div className="mr-2">STATUS</div>
                 <div className="inline-flex">
-                <svg
-                  stroke="currentColor"
-                  fill="currentColor"
-                  strokeWidth="0"
-                  viewBox="0 0 320 512"
-                  height="1em"
-                  width="1em"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M41 288h238c21.4 0 32.1 25.9 17 41L177 448c-9.4 9.4-24.6 9.4-33.9 0L24 329c-15.1-15.1-4.4-41 17-41zm255-105L177 64c-9.4-9.4-24.6-9.4-33.9 0L24 183c-15.1 15.1-4.4 41 17 41h238c21.4 0 32.1-25.9 17-41z"
-                  ></path>
-                </svg>
+                <UpDow></UpDow>
               </div>
               </div>
             </th>
@@ -105,19 +58,7 @@ const ListProduct = () => {
               <div className="flex items-center">
                 <div className="mr-2">PRICE</div>
                 <div className="inline-flex">
-                <svg
-                  stroke="currentColor"
-                  fill="currentColor"
-                  strokeWidth="0"
-                  viewBox="0 0 320 512"
-                  height="1em"
-                  width="1em"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M41 288h238c21.4 0 32.1 25.9 17 41L177 448c-9.4 9.4-24.6 9.4-33.9 0L24 329c-15.1-15.1-4.4-41 17-41zm255-105L177 64c-9.4-9.4-24.6-9.4-33.9 0L24 183c-15.1 15.1-4.4 41 17 41h238c21.4 0 32.1-25.9 17-41z"
-                  ></path>
-                </svg>
+                <UpDow></UpDow>
               </div>
               </div>
             </th>
