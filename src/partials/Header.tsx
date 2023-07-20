@@ -1,6 +1,7 @@
 import React from 'react'
 import { BsFillBagCheckFill, BsHeart } from "react-icons/bs";
 import { Link } from 'react-router-dom';
+import { CurrentColor, Search } from '../components/Icon/iconProject';
 type Props = object
 const Header = (props: Props) => {
     return (
@@ -14,9 +15,7 @@ const Header = (props: Props) => {
                             </a>
                             <div className="md:hidden relative">
                                 <button className="flex items-center px-3 py-2 border rounded text-gray-500 border-gray-500 hover:text-green-300 hover:border-green-300">
-                                    <svg className="h-4 w-4" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                        <path fill="currentColor" d="M0 3.75C0 3.33579 0.335786 3 0.75 3H19.25C19.6642 3 20 3.33579 20 3.75C20 4.16421 19.6642 4.5 19.25 4.5H0.75C0.335786 4.5 0 4.16421 0 3.75ZM0.75 8.25C0.335786 8.25 0 8.58579 0 9C0 9.41421 0.335786 9.75 0.75 9.75H19.25C19.6642 9.75 20 9.41421 20 9C20 8.58579 19.6642 8.25 19.25 8.25H0.75ZM0.75 14.25C0.335786 14.25 0 14.5858 0 15C0 15.4142 0.335786 15.75 0.75 15.75H19.25C19.6642 15.75 20 15.4142 20 15C20 14.5858 19.6642 14.25 19.25 14.25H0.75Z" />
-                                    </svg>
+                                  <CurrentColor></CurrentColor>
                                 </button>
                                 <div className="hidden absolute top-0 right-0 mt-12 w-48 bg-white rounded shadow-lg">
                                     <ul className="py-2">
@@ -94,20 +93,7 @@ const Header = (props: Props) => {
                                 type="button"
                                 className="absolute end-1 top-1/2 -translate-y-1/2 rounded-full bg-gray-50 p-2 text-gray-600 transition hover:text-gray-700"
                             >
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    className="h-4 w-4"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    stroke="currentColor"
-                                    strokeWidth="2"
-                                >
-                                    <path
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                                    />
-                                </svg>
+                               <Search></Search>
                             </button>
                         </div>
                     </div>
