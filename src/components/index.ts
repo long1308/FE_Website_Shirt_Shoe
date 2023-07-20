@@ -1,6 +1,6 @@
 import DashBoardPage from "./Admin/DashBoardPage";
-import AdminLayout from "./layouts/AdminLayout";
-import BaseLayout from "./layouts/BaseLayout";
+import AdminLayout from "./ProductRow/layouts/AdminLayout";
+import BaseLayout from "./ProductRow/layouts/BaseLayout";
 import BannerHome from "./Users/Banner/BannerHome";
 import HeaderHomeInfo from "./Users/Banner/HeaderHomeInfo";
 import ListProducts from "./Users/ListProducts/ListProducts";
@@ -19,9 +19,11 @@ import CategoryList from "./Admin/Category/CategoryList";
 import ColorEdit from "./Admin/Color/ColorEdit";
 import ColorList from "./Admin/Color/ColorList";
 import ColorAdd from "./Admin/Color/ColorAdd";
-import ProductEdit from "./Admin/ProductEdit";
+import ProductEdit from "./Admin/ListProducts/ProductEdit";
 import Customers from "../pages/Admin/Custo/Customers";
-import ProductAdd from "./Admin/ProductAdd";
+import ProductAdd from "./Admin/ListProducts/ProductAdd";
+import ProductRow from "./ProductRow/ProductRow";
+import ImagePriview from "./Image/ImagePriview";
 export {
   CategoryAdd,
   ColorAdd,
@@ -47,4 +49,6 @@ export {
   SizeList,
   SizeEdit,
   SizeAdd,
+  ProductRow,
+  ImagePriview,
 };

@@ -17,7 +17,6 @@ const ColorAdd = () => {
     } catch (error) {
       Message("error", "Thêm màu thất bại, đã có màu này rồi")
     }
-
   }
   return (
     <div className='m-5'>
