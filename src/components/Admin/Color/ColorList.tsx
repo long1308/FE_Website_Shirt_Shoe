@@ -84,7 +84,7 @@ const ColorList = () => {
                             <Popconfirm
                               placement="topRight"
                               title={`Delete the color "${color.name}"?`}
-                              onConfirm={() => handleRemove(color._id!)}
+                              onConfirm={() => handleRemove(color._id as string)}
                               okText="Yes"
                               cancelText="No"
                               okButtonProps={{ style: { background: "red" } }}
