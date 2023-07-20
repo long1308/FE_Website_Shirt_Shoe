@@ -3,17 +3,19 @@ export interface Iproduct {
   name: string;
   price: number;
   priceSale?: number;
-  featured: boolean;
+  featured?: boolean;
   image: Array<string>;
   description: string;
   description_short?: string;
   hot_sale?: number;
-  quantity: number;
-  categoryId: string;
-  inventoryStatus: string;
-  rating: number;
+  quantity?: number;
+  categoryId: {
+    name?: string;
+  };
+  inventoryStatus?: string;
+  rating?: number;
   colorSizes: Array<Colors>;
-  totalComments: number;
+  totalComments?: number;
 }
 interface Colors {
   color: string;
@@ -44,8 +46,6 @@ export interface ProductListFailAction {
 //get one
 export interface ProductOneRequestAction {
   type: "PRODUCT_ONE_REQUEST";
-
-
 }
 export interface ProductOneSuccessAction {
   type: "PRODUCT_ONE_SUCCESS";

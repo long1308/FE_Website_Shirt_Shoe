@@ -25,46 +25,58 @@ export const getProduct = (id: string) => {
   return async (dispatch: Dispatch<ProductActionTypes>) => {
     try {
       dispatch({ type: "PRODUCT_ONE_REQUEST" });
-      const product = await productService.getProduct(id)
+      const product = await productService.getProduct(id);
 
       dispatch({
         type: "PRODUCT_ONE_SUCCESS",
-        payload: product
-      })
-
+        payload: product,
+      });
     } catch (error: any) {
       dispatch({
         type: "PRODUCT_ONE_FAIL",
         payload: error.message,
       });
     }
-  }
-
-
-}
+  };
+};
 export const addProduct = (product: Iproduct) => {
-  return (dispatch: Dispatch<ProductActionTypes>) => {
-    dispatch({
-      type: "ADD_PRODUCT",
-      payload: product,
-    });
+  return async (dispatch: Dispatch<ProductActionTypes>) => {
+    try {
+      await productService.addProduct(product);
+      dispatch({
+        type: "ADD_PRODUCT",
+        payload: product,
+      });
+    } catch (erorr: any) {
+      console.log(erorr.message);
+    }
   };
 };
 
 export const updateProduct = (product: Iproduct) => {
-  return (dispatch: Dispatch<ProductActionTypes>) => {
-    dispatch({
-      type: "UPDATE_PRODUCT",
-      payload: product,
-    });
+  return async (dispatch: Dispatch<ProductActionTypes>) => {
+    try {
+      await productService.updateProduct(product);
+      dispatch({
+        type: "UPDATE_PRODUCT",
+        payload: product,
+      });
+    } catch (erorr: any) {
+      console.log(erorr.message);
+    }
   };
 };
 
 export const deleteProduct = (productId: string) => {
-  return (dispatch: Dispatch<ProductActionTypes>) => {
-    dispatch({
-      type: "DELETE_PRODUCT",
-      payload: productId,
-    });
+  return async (dispatch: Dispatch<ProductActionTypes>) => {
+    await productService.deleteProduct(productId);
+    try {
+      dispatch({
+        type: "DELETE_PRODUCT",
+        payload: productId,
+      });
+    } catch (error: any) {
+      console.log(error.message);
+    }
   };
 };
