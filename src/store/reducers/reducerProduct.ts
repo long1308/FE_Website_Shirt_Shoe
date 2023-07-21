@@ -23,6 +23,7 @@ const productReducer: Reducer<ProductState, ProductActionTypes> = (
         ...state,
         isLoading: false,
         products: action.payload,
+
       };
     case "PRODUCT_LIST_FAIL":
       return {
