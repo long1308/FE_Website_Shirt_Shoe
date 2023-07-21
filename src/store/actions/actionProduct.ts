@@ -2,12 +2,27 @@ import { Dispatch } from "redux";
 import { ProductActionTypes, Iproduct } from "../../interface/product";
 import productService from "../../api/product/productService";
 
-export const getProducts = () => {
+export const getProducts = (order?: string, keyword?: string, size?: string, color?: string, category?: string) => {
   return async (dispatch: Dispatch<ProductActionTypes>) => {
     try {
       dispatch({ type: "PRODUCT_LIST_REQUEST" });
+      let products;
 
-      const products = await productService.getAllProducts();
+      if (size) {
+        // Handle request with 'size' parameter
+        products = await productService.getAllProducts(undefined, undefined, size);
+
+      }
+      else if (color) {
+        products = await productService.getAllProducts(undefined, undefined, undefined, color);
+      }
+      else if (category) {
+        products = await productService.getAllProducts(undefined, undefined, undefined, undefined, category);
+      }
+      else {
+
+        products = await productService.getAllProducts(order, keyword);
+      }
 
       dispatch({
         type: "PRODUCT_LIST_SUCCESS",

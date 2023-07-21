@@ -17,6 +17,9 @@ const Comment = () => {
             <div className=" shadow-content-comment content min-h-[200px] w-full rounded-lg p-5">
 
                 <div className="comment-user">
+                    <div className="inp-question-user">
+                        <Comment_Rely />
+                    </div>
                     {/* user comemt 1 */}
                     <div className="user-image mt-5">
                         <div className="flex items-center gap-3 relative">
