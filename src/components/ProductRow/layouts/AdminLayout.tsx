@@ -1,6 +1,6 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
-import Sidebar from "../../partials/Admin/Sidebar";
+import Sidebar from "../../../partials/Admin/Sidebar";
 
 
 type Props = object;

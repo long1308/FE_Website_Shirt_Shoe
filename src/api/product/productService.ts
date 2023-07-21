@@ -56,6 +56,6 @@ const productService = {
       throw new Error("Error deleting product");
     }
   },
-};
+};  
 
 export default productService;

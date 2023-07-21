@@ -9,10 +9,7 @@ const ListProductNew = () => {
     const dispatch = useDispatch();
     const dataProducts = useSelector((state: RootState) => state.products);
     const { products, isLoading, error } = dataProducts;
-
     const featuredProducts = products.filter((product) => product.featured);
-    console.log(featuredProducts);
-
     useEffect(() => {
         dispatch(getProducts() as never);
     }, [dispatch]);

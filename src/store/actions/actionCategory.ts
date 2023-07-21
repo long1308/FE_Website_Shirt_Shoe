@@ -39,25 +39,36 @@ export const getOneCategory = (id: string) => {
   };
 };
 export const addCategory = (category: Icategory) => {
-  return (dispatch: Dispatch<CategoryActionTypes>) => {
-    dispatch({
-      type: "ADD_CATEGORY",
-      payload: category,
-    });
+  return async (dispatch: Dispatch<CategoryActionTypes>) => {
+    await categoryService.addCategory(category);
+    try {
+      dispatch({
+        type: "ADD_CATEGORY",
+        payload: category,
+      });
+    } catch (erorr: any) {
+      console.log(erorr.message);
+    }
   };
 };
 
-export const updateCategory = (category: Icategory) => {
-  return (dispatch: Dispatch<CategoryActionTypes>) => {
-    dispatch({
-      type: "UPDATE_CATEGORY",
-      payload: category,
-    });
+export const updateCategory = (category: Icategory, id: string) => {
+  return async (dispatch: Dispatch<CategoryActionTypes>) => {
+    await categoryService.updateCategory(category, id);
+    try {
+      dispatch({
+        type: "UPDATE_CATEGORY",
+        payload: category,
+      });
+    } catch (erorr: any) {
+      console.log(erorr.message);
+    }
   };
 };
 
 export const deleteCategory = (categoryId: string) => {
   return (dispatch: Dispatch<CategoryActionTypes>) => {
+    categoryService.deleteCategory(categoryId);
     dispatch({
       type: "DELETE_CATEGORY",
       payload: categoryId,
