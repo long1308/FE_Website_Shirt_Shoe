@@ -10,8 +10,9 @@ import { useState } from "react";
 type Props = {
     buttonAdd?: string;
     product?: Iproduct
+    icon?: string;
 }
-const Item = ({ buttonAdd, product }: Props) => {
+const Item = ({ buttonAdd, product, icon }: Props) => {
     const [imageHover, setImage] = useState(product?.image[0]);
     const handleClickThumbnail = (image: string) => {
         setImage(image);
@@ -57,7 +58,7 @@ const Item = ({ buttonAdd, product }: Props) => {
                             <i className="icon-eye text-2xl p-1 ">
                                 <Tooltip title={"ADD TO WISHLIST"} placement="left">
                                     <span>
-                                        <Icon name={"BsHeart"} />
+                                        <Icon name={icon ? icon : "BsHeart"} />
                                     </span>
                                 </Tooltip>
                             </i>
