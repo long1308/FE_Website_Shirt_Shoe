@@ -1,9 +1,25 @@
 import { Iproduct } from "../../interface/product";
 import insntance from "../config";
 const productService = {
-  getAllProducts: async (): Promise<Iproduct[]> => {
+  getAllProducts: async (order?: string, keyword?: string, size?: string, color?: string, category?: string): Promise<Iproduct[]> => {
     try {
-      const response = await insntance.get("/products");
+      let url = '/products';
+
+      if (order && keyword) {
+        // Handle request with 'order' and 'keyword'
+        url += `?order=${order}&keyword=${keyword}`;
+      } else if (size) {
+        // Handle request with 'size'
+        url += `?size=${size}`;
+      }
+      else if (color) {
+        url += `?color=${color}`;
+      }
+      else if (category) {
+        url += `?category=${category}`;
+      }
+
+      const response = await insntance.get(url);
       return response.data.product.docs;
     } catch (error) {
       throw new Error("Error retrieving products");

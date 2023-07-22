@@ -11,8 +11,10 @@ type Props = {
     buttonAdd?: string;
     product?: Iproduct
     icon?: string;
+    infoProduct?: boolean
 }
-const Item = ({ buttonAdd, product, icon }: Props) => {
+
+const Item = ({ buttonAdd, product, icon, infoProduct = true }: Props) => {
     const [imageHover, setImage] = useState(product?.image[0]);
     const handleClickThumbnail = (image: string) => {
         setImage(image);
@@ -22,14 +24,14 @@ const Item = ({ buttonAdd, product, icon }: Props) => {
     }
 
     return (
-        <div className="w-full md:w-64 m-auto content border-2  overflow-hidden">
+        <div className="w-full md:w-64 m-auto content shadow-2xl rounded-lg overflow-hidden">
             <div className="w-full">
                 <div className="w-full relative overflow-hidden ">
-                    <Link to={`products/${product._id}`} className="image-big ">
+                    <Link to={`/products/${product._id}`} className="image-big ">
                         <Image
                             src={imageHover || product.image[0]}
                             alt="Leather Pegged Pants"
-                            className="w-full transition duration-700 ease-in-out object-cover  max-h-[200px]   md:max-h-[250px]  min-h-[350px] "
+                            className="w-full transition duration-700 ease-in-out object-cover  max-h-[200px]   md:max-h-[250px] min-h-[320px]  md:min-h-[280px] "
                         />
                     </Link>
                     <div className="prd-sale absolute top-2 left-1 min-w-[60px]">
@@ -108,56 +110,59 @@ const Item = ({ buttonAdd, product, icon }: Props) => {
                         }
                     </ul>
                 </div>
-                <div className="prd-info">
-                    <div className="prd-info-wrap ">
-                        <div className="prd-rating text-center mt-5 cursor-pointer">
-                            <Rating
-                                name="half-rating-read"
-                                defaultValue={product.rating}
-                                precision={0.5}
-                                readOnly
-                            />
-                        </div>
-                        <div className="text-center mt-1 cursor-pointer">
-                            <span className="text-[#9e9e9e] font-normal text-sm">
-                                FOXic
-                            </span>
-                        </div>
-                        <h2 className="prd-title text-center mt-1 cursor-pointer min-h-[80px] flex items-center justify-center">
-                            <span className="text-[#282828] font-medium text-base hover:text-[#17c6aa] ">
-                                {product.name}
-                            </span>
-                        </h2>
-                        <div className="prd-description hidden">
-                            Quisque volutpat condimentum velit. Class aptent taciti
-                            sociosqu ad litora torquent per conubia nostra, per inceptos
-                            himenaeos. Nam nec ante sed lacinia.
-                        </div>
-                        <h2 className=" price  flex justify-center gap-5 text-center mt-1 cursor-pointer">
+                {infoProduct ? <div className="prd-tag ">
+                    <div className="prd-info">
+                        <div className="prd-info-wrap bg-white">
+                            <div className="prd-rating text-center pt-5 cursor-pointer">
+                                <Rating
+                                    name="half-rating-read"
+                                    defaultValue={product.rating}
+                                    precision={0.5}
+                                    readOnly
+                                />
+                            </div>
+                            <div className="text-center mt-1 cursor-pointer">
+                                <span className="text-[#9e9e9e] font-normal text-sm">
+                                    FOXic
+                                </span>
+                            </div>
+                            <h2 className="prd-title text-center mt-1 cursor-pointer min-h-[80px] flex items-center justify-center">
+                                <span className="text-[#282828] font-medium text-base hover:text-[#17c6aa] ">
+                                    {product.name}
+                                </span>
+                            </h2>
+                            <div className="prd-description hidden">
+                                Quisque volutpat condimentum velit. Class aptent taciti
+                                sociosqu ad litora torquent per conubia nostra, per inceptos
+                                himenaeos. Nam nec ante sed lacinia.
+                            </div>
+                            <h2 className=" price  flex justify-center gap-5 text-center mt-1 cursor-pointer">
 
-                            {product.hot_sale && product.hot_sale > 0 ? (
-                                <div className="flex gap-2">
-                                    <span className="text-[#666565]  text-base line-through  ">
-                                        {FormatterPrice(product.price)}
-                                    </span>
-                                    <span className="text-[#282828] font-medium text-base">
-                                        {FormatterPrice(product.priceSale || 0)}
-                                    </span>
-                                </div>
+                                {product.hot_sale && product.hot_sale > 0 ? (
+                                    <div className="flex gap-2">
+                                        <span className="text-[#666565]  text-base line-through  ">
+                                            {FormatterPrice(product.price)}
+                                        </span>
+                                        <span className="text-[#282828] font-medium text-base">
+                                            {FormatterPrice(product.priceSale || 0)}
+                                        </span>
+                                    </div>
 
-                            ) : <span className="text-[#282828] font-medium text-base">
-                                {FormatterPrice(product.priceSale!)}
-                            </span>}
-                        </h2>
-                        <div className="mt-1 prd-action text-center btn-add  ">
-                            <form action="#">
-                                <button className="btn js-prd-addtocart text-white bg-[#17c6aa] hover:bg-[#1b1a1a] rounded-sm px-4 py-2 font-semibold ">
-                                    {buttonAdd ? buttonAdd : "ADD TO CART"}
-                                </button>
-                            </form>
+                                ) : <span className="text-[#282828] font-medium text-base">
+                                    {FormatterPrice(product.priceSale!)}
+                                </span>}
+                            </h2>
+                            <div className="mt-1 prd-action text-center btn-add  ">
+                                <form action="#">
+                                    <button className="btn js-prd-addtocart text-white bg-[#17c6aa] hover:bg-[#1b1a1a] rounded-sm px-4 py-2 font-semibold ">
+                                        {buttonAdd ? buttonAdd : "ADD TO CART"}
+                                    </button>
+                                </form>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </div> : null}
+
             </div>
         </div>
     )
