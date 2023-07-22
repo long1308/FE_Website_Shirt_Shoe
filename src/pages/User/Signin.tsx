@@ -3,22 +3,32 @@ import { Link } from 'react-router-dom'
 import { signin } from '../../interface/user/signin';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { IconA, Password } from '../../components/Icon/iconProject';
-type Props = object
-
-const Signin = (props: Props) => {
+import { useDispatch } from "react-redux";
+import { signIn } from "../../store/actions/actionUser";
+import Message from "../../components/Action/Message/Message";
+import { useNavigate } from 'react-router-dom';
+const Signin = () => {
   const {
     handleSubmit,
     control,
     formState: { errors },
   } = useForm<signin>();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const onSubmit: SubmitHandler<signin> = async (data: any) => {
+    try {
+      // Gọi hàm signUp và sử dụng await để đợi kết quả trả về
+      await dispatch(signIn(data) as never);
+      Message('success', 'Đăng nhập thành công !');
+      navigate('/');
+    } catch (error) {
+      Message('error', 'Đăng nhập thất bại !');
+    }
 
-  const onSubmit: SubmitHandler<signin> = (data) => {
-    console.log(data);
-  };
+  }
   return (
     <div className="h-screen flex flex-col md:flex-row">
       <div className="hidden sm:flex w-1/2 ">
-
         <img
           src="https://i.pinimg.com/564x/75/2a/8a/752a8a4e2702a55d979f1073d490023b.jpg"
           alt="Logo"
@@ -34,7 +44,7 @@ const Signin = (props: Props) => {
             className="mb-7 ml-32"
           />
           <div className="flex items-center border-2 py-2 px-3 rounded-2xl mb-8">
-           <IconA></IconA>
+            <IconA></IconA>
             <Controller
               name="email"
               control={control}
@@ -54,13 +64,13 @@ const Signin = (props: Props) => {
                   placeholder="Email Address"
                 />
               )}
-            />   
+            />
 
-            </div>
-            {errors.email && <p className="text-red-500">{errors.email.message}</p>}
+          </div>
+          {errors.email && <p className="text-red-500">{errors.email.message}</p>}
 
           <div className="flex items-center border-2 py-2 px-3 rounded-2xl">
-          <Password></Password>
+            <Password></Password>
             <Controller
               name="password"
               control={control}

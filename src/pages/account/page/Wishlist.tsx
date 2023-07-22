@@ -1,24 +1,22 @@
 import React from 'react';
 import ListGroup from '../ListMenuAccount';
 import { Item } from '../../../components';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../../store/store';
+
 const Wishlist = () => {
+  const userInfor = useSelector((state: RootState) => state.users);
+  const { isLoading, user, error } = userInfor
   return (
     <div className="flex">
       <div className="w-full ">
-          <h1 className="text-3xl normal-case font-semibold mb-5">My Wishlist</h1>
+        <h1 className="text-3xl normal-case font-semibold mb-5">My Wishlist</h1>
         <main className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 ">
-          <Item icon={'RiDeleteBin6Line'} buttonAdd={"VIEW FULL INFO"} />
-          <Item icon={'RiDeleteBin6Line'} buttonAdd={"VIEW FULL INFO"} />
-          <Item icon={'RiDeleteBin6Line'} buttonAdd={"VIEW FULL INFO"} />
-          <Item icon={'RiDeleteBin6Line'} buttonAdd={"VIEW FULL INFO"} />
-          <Item icon={'RiDeleteBin6Line'} buttonAdd={"VIEW FULL INFO"} />
-          <Item icon={'RiDeleteBin6Line'} buttonAdd={"VIEW FULL INFO"} />
-          <Item icon={'RiDeleteBin6Line'} buttonAdd={"VIEW FULL INFO"} />
-          <Item icon={'RiDeleteBin6Line'} buttonAdd={"VIEW FULL INFO"} />
-          <Item icon={'RiDeleteBin6Line'} buttonAdd={"VIEW FULL INFO"} />
-          <Item icon={'RiDeleteBin6Line'} buttonAdd={"VIEW FULL INFO"} />
-          <Item icon={'RiDeleteBin6Line'} buttonAdd={"VIEW FULL INFO"} />
-          <Item icon={'RiDeleteBin6Line'} buttonAdd={"VIEW FULL INFO"} />
+          {
+            isLoading ? "Loading" : error ? "Error" : user && user.favoriteProduct && user.favoriteProduct.length > 0 ?
+              user.favoriteProduct.map((item: any, index: number) => <Item key={index} product={item} icon="RiDeleteBin6Line" />) : "error"
+          }
+          <Item buttonAdd={"VIEW FULL INFO"} />
         </main>
       </div>
     </div>
