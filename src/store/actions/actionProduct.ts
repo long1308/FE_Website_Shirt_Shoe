@@ -68,10 +68,10 @@ export const addProduct = (product: Iproduct) => {
   };
 };
 
-export const updateProduct = (product: Iproduct) => {
+export const updateProduct = (product: Iproduct,id: string) => {
   return async (dispatch: Dispatch<ProductActionTypes>) => {
     try {
-      await productService.updateProduct(product);
+      await productService.updateProduct(product,id);
       dispatch({
         type: "UPDATE_PRODUCT",
         payload: product,

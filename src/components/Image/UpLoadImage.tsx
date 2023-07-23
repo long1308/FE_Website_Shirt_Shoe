@@ -9,10 +9,14 @@ const CLOUD_NAME = 'dpsl2xj1j';
 const UPLOAD_PRESET = 'react_upload';
 const FOLDER_name = 'react_upload';
 const cloudinaryAPI = 'https://api.cloudinary.com/v1_1/' + CLOUD_NAME + '/image/upload';
-
+type ImageUploadFile = UploadFile & {
+    url?: string;
+    preview?: string;
+};
 type Props = {
     onImageUpLoad: (imageUrl: string) => void;
     onImageRemove: (imageUrl: string) => void;
+    img?: Array<string>
 }
 const getBase64 = (file: RcFile): Promise<string> =>
     new Promise((resolve, reject) => {
@@ -22,11 +26,18 @@ const getBase64 = (file: RcFile): Promise<string> =>
         reader.onerror = (error) => reject(error);
     });
 
-const UpLoand = ({ onImageUpLoad, onImageRemove }: Props) => {
+const UpLoand = ({ onImageUpLoad, onImageRemove, img }: Props) => {
+    console.log(img);
+
+    const fileLists: ImageUploadFile[] = (img ? img : []).map((imageUrl, index) => ({
+        uid: index.toString(),
+        url: imageUrl,
+        name: `image-${index}.png`, // Tên giả định cho hình ảnh (có thể thay đổi tuỳ ý)
+    }));
     const [previewOpen, setPreviewOpen] = useState(false);
     const [previewImage, setPreviewImage] = useState('');
     const [previewTitle, setPreviewTitle] = useState('');
-    const [fileList, setFileList] = useState<UploadFile[]>([]);
+    const [fileList, setFileList] = useState<UploadFile[]>(fileLists);
     const handleRemove = (file: UploadFile) => {
         // Xóa ảnh khỏi danh sách hiển thị và truyền thông báo xóa ảnh ra bên ngoài
         setFileList((prevFileList) => {
