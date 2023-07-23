@@ -41,9 +41,9 @@ const productService = {
       throw new Error("Error adding product");
     }
   },
-  updateProduct: async (product: Iproduct): Promise<Iproduct> => {
+  updateProduct: async (product: Iproduct  , id : string): Promise<Iproduct> => {
     try {
-      const response = await insntance.put(`/products/${product._id}`, product);
+      const response = await insntance.put(`/products/${id}`, product);
       return response.data;
     } catch (error) {
       throw new Error("Error updating product");
