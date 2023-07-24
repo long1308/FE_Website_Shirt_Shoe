@@ -36,7 +36,7 @@ const userReducer: Reducer<any, UserActionTypes> = (
     case "LOGOUT":
       return {
         ...state,
-        user: undefined,
+        user: null,
       };
     case "USER_LIST_REQUEST":
       return {

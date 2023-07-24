@@ -15,7 +15,7 @@ const Account = () => {
   return (
     <div className="flex flex-col lg:flex-row">
       <div className="w-full lg:w-3/4">
-        <h1 className="text-3xl normal-case font-semibold mb-5">Account Details</h1>
+        <h1 className="text-3xl normal-case font-semibold mb-5 mt-5 md:mt-0">Account Details</h1>
         {
           isLoading ? <Skeleton /> : error ? "Error" : user ?
             (
