@@ -10,7 +10,7 @@ const Wishlist = () => {
   return (
     <div className="flex">
       <div className="w-full ">
-        <h1 className="text-3xl normal-case font-semibold mb-5">My Wishlist</h1>
+        <h1 className="text-3xl normal-case font-semibold mb-5 mt-5 md:mt-0">My Wishlist</h1>
         <main className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 ">
           {
             isLoading ? "Loading" : error ? "Error" : user && user.favoriteProduct && user.favoriteProduct.length > 0 ?
