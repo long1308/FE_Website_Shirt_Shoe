@@ -7,22 +7,14 @@ const Account_Edit = () => {
         <h3 className="text-xl font-medium mb-3">Update Account Details</h3>
         <div className="flex flex-col md:flex-row mb-6">
           <div className="w-full md:w-2/4 md:mr-4">
-            <label htmlFor="">FIRST NAME:</label>
-            <Input size="large" placeholder="First name" />
-          </div>
-          <div className="w-full md:w-2/4">
-            <label htmlFor="">LAST NAME:</label>
-            <Input size="large" placeholder="Last name" />
+            <label htmlFor="">NAME:</label>
+            <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="price" type="text" placeholder="Name..."></input>
           </div>
         </div>
         <div className="flex flex-col md:flex-row">
           <div className="w-full md:w-2/4 md:mr-4">
             <label htmlFor="">E-MAIL:</label>
-            <Input size="large" placeholder="Email" />
-          </div>
-          <div className="w-full md:w-2/4">
-            <label htmlFor="">PHONE:</label>
-            <Input size="large" placeholder="Phone" />
+            <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="price" type="email" placeholder="Email..."></input>
           </div>
         </div>
         <div className="flex flex-col-reverse md:flex-row md:justify-end mt-5 gap-3">

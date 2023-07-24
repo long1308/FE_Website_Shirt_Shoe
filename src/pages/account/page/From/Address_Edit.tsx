@@ -9,35 +9,35 @@ const Addresses_Edit = () => {
         <div className="flex flex-col md:flex-row mb-6">
           <div className="w-full md:w-2/4 md:mr-4">
             <label htmlFor="">NAME:</label>
-            <Input size="large" placeholder="Name" />
+            <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="price" type="text" placeholder="Name..."></input>
           </div>
           <div className="w-full md:w-2/4">
             <label htmlFor="">PHONE:</label>
-            <Input size="large" placeholder="Phone" />
+            <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="price" type="text" placeholder="Phone..."></input>
           </div>
         </div>
         <div className="flex flex-col md:flex-row mb-6">
           <div className="w-full md:w-2/4 md:mr-4">
             {/* thành phố, tỉnh */}
             <label htmlFor="">PROVINCE/CITY</label>
-            <Input size="large" placeholder="Province/City" />
+            <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="price" type="text" placeholder="Province/City..."></input>
           </div>
           <div className="w-full md:w-2/4">
             {/* huyện */}
             <label htmlFor="">DISTRICT/TOWN:</label>
-            <Input size="large" placeholder="Town/District" />
+            <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="price" type="text" placeholder="Town/District..."></input>
           </div>
         </div>
         <div className="flex flex-col md:flex-row">
           <div className="w-full md:w-2/4 md:mr-4">
             {/* phường, xã */}
             <label htmlFor="">SUB-DISTRICT/VILLAGE</label>
-            <Input size="large" placeholder="Sub-district/Village" />
+            <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="price" type="text" placeholder="Sub-district/Village..."></input>
           </div>
           <div className="w-full md:w-2/4">
             {/* số nhà-ngách-ngõ */}
             <label htmlFor="">APARTMENT/ALLEY/LANE:</label>
-            <Input size="large" placeholder="Apartment/Alley/Lane" />
+            <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="price" type="text" placeholder="Apartment/Alley/Lane..."></input>
           </div>
         </div>
         <div className="flex justify-end mt-5">
