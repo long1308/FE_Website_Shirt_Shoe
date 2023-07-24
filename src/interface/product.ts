@@ -27,6 +27,7 @@ interface Sizes {
 }
 export interface ProductState {
   products: Iproduct[];
+  productSearch: Iproduct[];
   product?: Iproduct;
   isLoading: boolean;
   error: null | string;
@@ -43,6 +44,19 @@ export interface ProductListFailAction {
   type: "PRODUCT_LIST_FAIL";
   payload: string;
 }
+// get search
+export interface ProductSearchListRequestAction {
+  type: "PRODUCT_SEARCH_LIST_REQUEST";
+}
+export interface ProductSearchListSuccessAction {
+  type: "PRODUCT_SEARCH_LIST_SUCCESS";
+  payload: Iproduct[];
+}
+export interface ProductSearchListFailAction {
+  type: "PRODUCT_SEARCH_LIST_FAIL";
+  payload: string;
+}
+
 //get one
 export interface ProductOneRequestAction {
   type: "PRODUCT_ONE_REQUEST";
@@ -80,4 +94,8 @@ export type ProductActionTypes =
   | ProductListFailAction
   | ProductOneFailAction
   | ProductOneSuccessAction
-  | ProductOneRequestAction;
+  | ProductOneRequestAction
+  | ProductSearchListRequestAction
+  | ProductSearchListSuccessAction
+  | ProductSearchListFailAction
+  ;

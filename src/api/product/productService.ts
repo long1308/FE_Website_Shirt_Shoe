@@ -1,7 +1,7 @@
 import { Iproduct } from "../../interface/product";
 import insntance from "../config";
 const productService = {
-  getAllProducts: async (order?: string, keyword?: string, size?: string, color?: string, category?: string): Promise<Iproduct[]> => {
+  getAllProducts: async (order?: string, keyword?: string, size?: string, color?: string, category?: string, search?: string): Promise<Iproduct[]> => {
     try {
       let url = '/products';
 
@@ -18,6 +18,9 @@ const productService = {
       else if (category) {
         url += `?category=${category}`;
       }
+      else if (search) {
+        url += `?search=${search}`;
+      }
 
       const response = await insntance.get(url);
       return response.data.product.docs;
@@ -25,6 +28,22 @@ const productService = {
       throw new Error("Error retrieving products");
     }
   },
+  getProductsSearch: async (search?: string): Promise<Iproduct[]> => {
+    try {
+      let url = '/searchProducts';
+
+      if (search) {
+        url += `?search=${search}`;
+      }
+
+      const response = await insntance.get(url);
+      return response.data.product.docs;
+    } catch (error) {
+      throw new Error("Error retrieving products");
+    }
+  },
+
+
   getProduct: async (id: string | number): Promise<Iproduct> => {
     try {
       const response = await insntance.get("/products/" + id);
@@ -56,6 +75,6 @@ const productService = {
       throw new Error("Error deleting product");
     }
   },
-};  
+};
 
 export default productService;

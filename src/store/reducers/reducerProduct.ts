@@ -3,6 +3,7 @@ import { Reducer } from "redux";
 import { ProductActionTypes, ProductState } from "../../interface/product";
 const initialState: ProductState = {
   products: [],
+  productSearch: [],
   isLoading: false,
   error: null,
 };
@@ -23,9 +24,25 @@ const productReducer: Reducer<ProductState, ProductActionTypes> = (
         ...state,
         isLoading: false,
         products: action.payload,
-
       };
     case "PRODUCT_LIST_FAIL":
+      return {
+        ...state,
+        isLoading: false,
+        error: action.payload,
+      };
+    case "PRODUCT_SEARCH_LIST_REQUEST":
+      return {
+        ...state,
+        error: null,
+      };
+    case "PRODUCT_SEARCH_LIST_SUCCESS":
+      return {
+        ...state,
+        isLoading: false,
+        productSearch: action.payload,
+      };
+    case "PRODUCT_SEARCH_LIST_FAIL":
       return {
         ...state,
         isLoading: false,
