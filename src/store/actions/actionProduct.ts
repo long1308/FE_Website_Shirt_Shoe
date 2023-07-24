@@ -13,12 +13,14 @@ export const getProducts = (order?: string, keyword?: string, size?: string, col
         products = await productService.getAllProducts(undefined, undefined, size);
 
       }
+
       else if (color) {
         products = await productService.getAllProducts(undefined, undefined, undefined, color);
       }
       else if (category) {
         products = await productService.getAllProducts(undefined, undefined, undefined, undefined, category);
       }
+
       else {
 
         products = await productService.getAllProducts(order, keyword);
@@ -36,6 +38,27 @@ export const getProducts = (order?: string, keyword?: string, size?: string, col
     }
   };
 };
+export const getProductsSearch = (search?: string) => {
+  return async (dispatch: Dispatch<ProductActionTypes>) => {
+    try {
+      if (search) {
+        dispatch({ type: "PRODUCT_SEARCH_LIST_REQUEST" });
+        const productsSearch = await productService.getProductsSearch(search);
+
+        dispatch({
+          type: "PRODUCT_SEARCH_LIST_SUCCESS",
+          payload: productsSearch,
+        });
+      }
+
+    } catch (error: any) {
+      dispatch({
+        type: "PRODUCT_SEARCH_LIST_FAIL",
+        payload: error.message,
+      });
+    }
+  };
+}
 export const getProduct = (id: string) => {
   return async (dispatch: Dispatch<ProductActionTypes>) => {
     try {

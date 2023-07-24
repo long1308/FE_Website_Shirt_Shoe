@@ -74,9 +74,9 @@ const Shop_Products = () => {
                 isLoadingMore ?
                     (<Loading />) :
                     isLoading ? (
-                        <Loading />
+                        <div className="pt-20"> <Loading /></div>
                     ) : error ? (
-                        <div className="error min-h-[300px] h-1/2 w-screen flex items-center">
+                        <div className="error min-h-[300px] h-1/2 w-screen flex items-center ">
                             <h1 className="text-3xl font-medium italic text-center w-full">Something went wrong</h1>
                         </div>
                     ) :

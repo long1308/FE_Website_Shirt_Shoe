@@ -7,10 +7,10 @@ type Props = object
 const BaseLayout = (props: Props) => {
   return (
     <div>
-      <header>
+      <header className=''>
         <Header />
       </header>
-      <main>
+      <main className='pt-[120px] md:pt-[84px]'>
         <Outlet />
       </main>
       <footer>
