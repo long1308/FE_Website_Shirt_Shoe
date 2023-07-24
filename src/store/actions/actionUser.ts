@@ -104,3 +104,15 @@ export const deleteUser = (userId: string) => {
     }
   };
 };
+export const logoutUser = () => {
+  return async (dispatch: Dispatch<UserActionTypes>) => {
+    try {
+      localStorage.removeItem("user");
+      dispatch({
+        type: "LOGOUT",
+      });
+    } catch (error: any) {
+      console.log(error);
+    }
+  };
+};

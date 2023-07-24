@@ -2,7 +2,7 @@ const OrderHistory = () => {
   return (
     <div className="flex">
       <div className="w-full">
-        <h1 className="text-3xl normal-case font-semibold mb-5">Order History</h1>
+        <h1 className="text-3xl normal-case font-semibold mb-5 mt-5 md:mt-0">Order History</h1>
         <div className="overflow-x-auto">
           <table className="min-w-full max-w-full divide-y-2 divide-gray-200 bg-white text-sm mt-5 border-2 border-sky-500">
             <thead className="ltr:text-left rtl:text-right">

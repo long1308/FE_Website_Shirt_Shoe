@@ -14,7 +14,7 @@ const Address = () => {
   return (
     <div className="flex flex-col md:flex-row">
       <div className="w-full md:w-3/4">
-        <h1 className="text-3xl normal-case font-semibold mb-5 ">My Addresses</h1>
+        <h1 className="text-3xl normal-case font-semibold mb-5 mt-5 md:mt-0">My Addresses</h1>
         <div className="flex flex-col md:flex-row justify-between">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {
@@ -50,7 +50,7 @@ const Address = () => {
           </div>
 
 
-          <div className="flex gap-1 ml-10 mt-6 md:mt-0">
+          <div className="flex gap-1 md:ml-10 mt-5">
             <Icon name={"AiOutlinePlus"} className={"text-2xl cursor-pointer"} />
             <span className="cursor-pointer">New</span>
           </div>

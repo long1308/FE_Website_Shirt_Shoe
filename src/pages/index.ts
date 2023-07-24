@@ -12,6 +12,9 @@ import Account from "./account/page/Account";
 import Address from "./account/page/Address";
 import SigninAdmin from "./Admin/Signup/SigninAdmin";
 import ListProduct from "../components/Admin/ListProducts/ListProduct";
+import Contact from "./User/Contact/Contact";
+import About from "./User/About/About";
+import Blog from "./User/Blog/Blog";
 export {
   Container,
   HomePages,
@@ -27,4 +30,7 @@ export {
   Address,
   SigninAdmin,
   ListProduct,
+  Contact,
+  About,
+  Blog,
 };
