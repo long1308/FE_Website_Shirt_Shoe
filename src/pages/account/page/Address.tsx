@@ -4,10 +4,21 @@ import Icon from "../../../components/Icon/icon";
 import { RootState } from "../../../store/store";
 import { useSelector } from "react-redux";
 import { Skeleton } from "antd";
+import Add_Addressses from "./From/Add_Addressses";
 const Address = () => {
   const [displayText, setDisplayText] = useState(false);
-  const handleClick = () => {
-    setDisplayText(!displayText);
+  const [showAddAddresses, setShowAddAddresses] = useState(false);
+  const [showEditAddresses, setShowEditAddresses] = useState(false);
+  const handleShowAddAddresses = () => {
+    setDisplayText(!showAddAddresses); // Toggle the display
+    setShowAddAddresses(!showAddAddresses);
+    setShowEditAddresses(false);
+  };
+
+  const handleShowEditAddresses = () => {
+    setDisplayText(!showEditAddresses); // Toggle the display
+    setShowEditAddresses(!showEditAddresses);
+    setShowAddAddresses(false);
   };
   const userInfor = useSelector((state: RootState) => state.users);
   const { isLoading, user, error } = userInfor
@@ -37,7 +48,7 @@ const Address = () => {
                         </div>
 
                         <div className="flex justify-between items-end">
-                          <button onClick={handleClick} className="mt-5 flex gap-1 cursor-pointer">
+                          <button onClick={handleShowEditAddresses} className="mt-5 flex gap-1 cursor-pointer">
                             <Icon name={'AiFillEdit'} className={"text-2xl"} />
                             <span>Edit</span>
                           </button>
@@ -50,12 +61,22 @@ const Address = () => {
           </div>
 
 
-          <div className="flex gap-1 md:ml-10 mt-5">
-            <Icon name={"AiOutlinePlus"} className={"text-2xl cursor-pointer"} />
-            <span className="cursor-pointer">New</span>
+          <div className="flex gap-1 ml-10 mt-6 md:mt-0">
+            <Icon
+              name={"AiOutlinePlus"}
+              className={"text-2xl cursor-pointer"}
+            />
+            <span
+              className="cursor-pointer"
+              onClick={handleShowAddAddresses}
+            >
+              New
+            </span>
           </div>
         </div>
-        {displayText && <Addresses_Edit />}
+        {displayText && showAddAddresses && <Add_Addressses />}
+        {displayText && showEditAddresses && <Addresses_Edit />}
+
       </div>
     </div>
   );

@@ -16,6 +16,16 @@ export interface UserState {
   isLoading: boolean;
   error: null | string;
 }
+export interface Address {
+  _id?: string;
+  phone : string;
+  name : string;
+  cityLeeched : string;
+  districtLeech : string;
+  communeAddress : string;
+  apartmentNumber : string;
+  _customerId? : string;
+}
 //signup
 export interface SignUpRequestAction {
   type: "SIGNUP_REQUEST";
