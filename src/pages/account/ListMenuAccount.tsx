@@ -3,18 +3,18 @@ import { Link, Outlet } from "react-router-dom";
 
 const ListMenuAccount = () => {
   const [activeLink, setActiveLink] = useState("/account");
-  const handleClick = (link:string) => {
+  const handleClick = (link: string) => {
     setActiveLink(link);
   };
 
   return (
-    <div className="flex flex-col md:flex-row px-5 md:px-20">
-      <div className="md:w-2/12 mr-7">
+    <div className="flex flex-col md:flex-row px-5 md:px-20 mt-5">
+      <div className="md:w-2/12 mr-7 w-full">
         <nav className="border">
           <ul>
             <Link to="/account">
               <li
-                className={`p-4 border-b ${activeLink === "/account" ? "active" : ""}`}
+                className={` p-4 border-b ${activeLink === "/account" ? "active" : ""}`}
                 onClick={() => handleClick("/account")}
               >
                 Account Details
