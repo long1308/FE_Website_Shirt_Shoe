@@ -21,11 +21,12 @@ const Shop_Products = () => {
     const navigate = useNavigate()
     const dataProducts = useSelector((state: RootState) => state.products)
     const dataCategorys = useSelector((state: RootState) => state.categorys)
-    // const dataSizes = useSelector((state: RootState) => state.sizes)
+    const dataSizes = useSelector((state: RootState) => state.sizes)
     const dataColors = useSelector((state: RootState) => state.colors)
     const { categorys } = dataCategorys
     const { products, error, isLoading } = dataProducts
     const { colors } = dataColors
+    const { sizes } = dataSizes
     const [isLoadingMore, setIsLoadingMore] = useState(false);
     const [viewMore, setViewMore] = useState(8)
     const [selectedOption, setSelectedOption] = useState("");
@@ -66,7 +67,7 @@ const Shop_Products = () => {
         setSelectedOption(option!);
     }
 
-    const tableSize = ["XS", "S", "M", "L", "XL", "XXL"]
+
 
     return (
         <>
@@ -84,7 +85,7 @@ const Shop_Products = () => {
                             (
                                 <div className="box-container">
                                     <div className="box-content mt-10">
-                                        <div className="big-content w-full px-2 md:w-4/5  mx-auto">
+                                        <div className="big-content w-full px-2 md:w-11/12  mx-auto">
                                             {/* menu */}
                                             <div className="breadcrumbs">
                                                 <ul className="flex items-center gap-2">
@@ -151,13 +152,28 @@ const Shop_Products = () => {
                                                             <Tooltip placement="bottomRight" trigger={"click"} color="white"
                                                                 title={
                                                                     <div className="list-size-option">
-                                                                        <ul className="grid grid-cols-3 p-1">
-                                                                            {tableSize.map((item, index) => (
-                                                                                <li onClick={() => hanldBySize(item, "Size")} key={index} className="bg-teal-500 m-1 cursor-pointer flex  items-center justify-center text-white text-center w-8 h-8 rounded-full">{item}</li>
-                                                                            ))}
+
+                                                                        {
+                                                                            sizes && sizes.length > 0 ?
+                                                                                (
+                                                                                    <ul className="grid grid-cols-3 p-1">
+                                                                                        {
+                                                                                            sizes.map((item, index) => (
+                                                                                                <li onClick={() => hanldBySize(item.name, "Size")} key={index} className="bg-teal-500 m-1 cursor-pointer flex  items-center justify-center text-white text-center w-8 h-8 rounded-full">{item.name}</li>
+                                                                                            ))
+                                                                                        }
+                                                                                    </ul>
+                                                                                )
+
+                                                                                : (
+
+                                                                                    <h1 className="text-black text-center px-5 py-3">No size</h1>
+
+                                                                                )
+                                                                        }
 
 
-                                                                        </ul>
+
                                                                     </div>
                                                                 }
                                                             >

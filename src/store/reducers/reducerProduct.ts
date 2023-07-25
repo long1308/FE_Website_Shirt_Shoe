@@ -5,6 +5,7 @@ const initialState: ProductState = {
   products: [],
   productSearch: [],
   isLoading: false,
+  loadingHeader: false,
   error: null,
 };
 
@@ -42,6 +43,16 @@ const productReducer: Reducer<ProductState, ProductActionTypes> = (
         isLoading: false,
         productSearch: action.payload,
       };
+    case "RESET_PRODUCT_SEARCH":
+      return {
+        ...state,
+        productSearch: action.payload,
+      };
+    case "SET_LOADING":
+      return {
+        ...state,
+        loadingHeader: action.payload,
+      }
     case "PRODUCT_SEARCH_LIST_FAIL":
       return {
         ...state,
