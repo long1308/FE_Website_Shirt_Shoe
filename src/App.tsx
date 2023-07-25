@@ -3,6 +3,7 @@ import { AdminLayout, BaseLayout, Cart, CategoryAdd, CategoryEdit, CategoryList,
 import { HomePages, NotFound, Order, Signin, Signup, Detail_Product, Account, Address, Wishlist, OrderHistory, SigninAdmin, ListProduct, Contact, About, Blog } from "./pages";
 import ListMenuAccount from './pages/account/ListMenuAccount';
 import Shop_Products from "./pages/User/Shop-Products/Shop_Products";
+import ProductsSearch from "./pages/User/Products_Search/ProductsSearch";
 function App() {
   return (
     <div className="App">
@@ -18,6 +19,7 @@ function App() {
           <Route path="/products/:id" element={<Detail_Product />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/list-productsAll" element={<Shop_Products />} />
+          <Route path="/result" element={<ProductsSearch />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/about" element={<About />} />
           <Route path="/blog" element={<Blog />} />

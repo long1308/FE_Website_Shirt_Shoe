@@ -49,8 +49,13 @@ export const getProductsSearch = (search?: string) => {
           type: "PRODUCT_SEARCH_LIST_SUCCESS",
           payload: productsSearch,
         });
-      }
 
+        // dispatch({
+        //   type: "RESET_PRODUCT_SEARCH",
+        //   payload: [],
+        // });
+
+      }
     } catch (error: any) {
       dispatch({
         type: "PRODUCT_SEARCH_LIST_FAIL",
@@ -59,6 +64,12 @@ export const getProductsSearch = (search?: string) => {
     }
   };
 }
+export const setLoading = (loadingHeader: boolean) => {
+  return {
+    type: "SET_LOADING",
+    payload: loadingHeader,
+  };
+};
 export const getProduct = (id: string) => {
   return async (dispatch: Dispatch<ProductActionTypes>) => {
     try {
@@ -91,10 +102,10 @@ export const addProduct = (product: Iproduct) => {
   };
 };
 
-export const updateProduct = (product: Iproduct,id: string) => {
+export const updateProduct = (product: Iproduct, id: string) => {
   return async (dispatch: Dispatch<ProductActionTypes>) => {
     try {
-      await productService.updateProduct(product,id);
+      await productService.updateProduct(product, id);
       dispatch({
         type: "UPDATE_PRODUCT",
         payload: product,

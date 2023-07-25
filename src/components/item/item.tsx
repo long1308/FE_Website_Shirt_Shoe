@@ -77,7 +77,7 @@ const Item = ({ buttonAdd, product, icon, infoProduct = true }: Props) => {
                         <div className="color-palette bg-white flex flex-col justify-center items-center w-8 rounded-full shadow-md mt-2 cursor-pointer">
                             <i className="icon-palette  ">
                                 <img
-                                    src="colorfiter.webp"
+                                    src={`${"colorfiter.webp" || "https://play-lh.googleusercontent.com/fn03mcSzK10OdPq_eio_Buh7BXiN8TNOGZPHHCnjtPyynK9kJhkdlbqDd0o_vZrIIw=w240-h480-rw"}`}
                                     className="w-full rounded-full"
                                     alt=""
                                 />

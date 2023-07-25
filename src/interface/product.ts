@@ -30,6 +30,7 @@ export interface ProductState {
   productSearch: Iproduct[];
   product?: Iproduct;
   isLoading: boolean;
+  loadingHeader: boolean;
   error: null | string;
 }
 // get all
@@ -51,6 +52,14 @@ export interface ProductSearchListRequestAction {
 export interface ProductSearchListSuccessAction {
   type: "PRODUCT_SEARCH_LIST_SUCCESS";
   payload: Iproduct[];
+}
+export interface ResetProductSearchAction {
+  type: "RESET_PRODUCT_SEARCH";
+  payload: Iproduct[];
+}
+export interface SetLoadingAction {
+  type: "SET_LOADING";
+  payload: boolean;
 }
 export interface ProductSearchListFailAction {
   type: "PRODUCT_SEARCH_LIST_FAIL";
@@ -98,4 +107,6 @@ export type ProductActionTypes =
   | ProductSearchListRequestAction
   | ProductSearchListSuccessAction
   | ProductSearchListFailAction
+  | ResetProductSearchAction
+  | SetLoadingAction
   ;
