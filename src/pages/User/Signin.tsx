@@ -30,11 +30,10 @@ const Signin = () => {
     <div className="h-screen flex flex-col md:flex-row">
       <div className="hidden sm:flex w-1/2 ">
         <img
-          src="https://i.pinimg.com/564x/75/2a/8a/752a8a4e2702a55d979f1073d490023b.jpg"
+          src="https://images.unsplash.com/photo-1472851294608-062f824d29cc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80"
           alt="Logo"
-          className="w-max object-cover"
+          className="w-max  object-cover"
         />
-
       </div>
       <div className="flex w-full sm:w-1/2 justify-center items-center bg-white">
         <form onSubmit={handleSubmit(onSubmit)} className="bg-white">

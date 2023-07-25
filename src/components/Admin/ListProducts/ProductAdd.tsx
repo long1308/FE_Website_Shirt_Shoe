@@ -138,7 +138,7 @@ const ProductAdd = () => {
       </div>
     ));
   };
-  const onSubmit: SubmitHandler<any> = async ({ description, name, price, hot_sale, categoryId, ...formData }: any) => {
+  const onSubmit: SubmitHandler<any> = async ({ description, name, price, hot_sale, categoryId, description_short, ...formData }: any) => {
     const colorsAndSizes = additionalDivs.map((div) => ({
       color: formData[`color_${div.id}`],
       sizes: div.content.map((size) => ({
@@ -150,6 +150,7 @@ const ProductAdd = () => {
       name: name,
       price: price,
       hot_sale: hot_sale,
+      description_short: description_short,
       image: img,
       description: description,
       categoryId: categoryId,
@@ -176,7 +177,7 @@ const ProductAdd = () => {
               </label>
               <input  {...register('name', { required: true })} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="name" type="text" placeholder="Name..."></input>
               <p className='text-red-600 text-[20px]'>
-                {errors.name?.type === 'required' && <small className="form-text text-muted">Trường Name là bắt buộc</small>}
+                {errors.name?.type === 'required' && <small className="form-text text-muted">Name field is required</small>}
               </p>
             </div>
             <div className='mb-2'>
@@ -185,7 +186,7 @@ const ProductAdd = () => {
               </label>
               <input  {...register('price', { required: true })} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="price" type="text" placeholder="Price..."></input>
               <p className='text-red-600 text-[20px]'>
-                {errors.price?.type === 'required' && <small className="form-text text-muted">Trường Price là bắt buộc</small>}
+                {errors.price?.type === 'required' && <small className="form-text text-muted">Price field is required</small>}
               </p>
             </div>
             <div className='mb-2' >
@@ -200,7 +201,14 @@ const ProductAdd = () => {
               <label htmlFor="">Description:</label>
               <textarea {...register('description', { required: true })} id="message" className=" h-40 block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Description.."></textarea>
               <p className='text-red-600 text-[20px]'>
-                {errors.description?.type === 'required' && <small className="form-text text-muted">Trường Description là bắt buộc</small>}
+                {errors.description?.type === 'required' && <small className="form-text text-muted">Description field is required</small>}
+              </p>
+            </div>
+            <div className='mb-2'>
+              <label htmlFor="">Description Short:</label>
+              <textarea {...register('description_short', { required: true })} id="message" className=" h-40 block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Description.."></textarea>
+              <p className='text-red-600 text-[20px]'>
+                {errors.description_short?.type === 'required' && <small className="form-text text-muted">Description Short field is required</small>}
               </p>
             </div>
             <div>
@@ -214,7 +222,7 @@ const ProductAdd = () => {
                 }
               </select>
               <p className='text-red-600 text-[20px]'>
-                {errors.categoryId?.type === 'required' && <small className="form-text text-muted">Trường Category là bắt buộc</small>}
+                {errors.categoryId?.type === 'required' && <small className="form-text text-muted">Category field is required</small>}
               </p>
             </div>
           </div>

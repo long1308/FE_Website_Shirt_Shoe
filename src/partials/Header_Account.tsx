@@ -3,14 +3,25 @@ import { Link } from "react-router-dom"
 import Image from "../components/Image/Image"
 import { BiLogOut } from "react-icons/bi"
 import { RiAccountCircleLine } from "react-icons/ri"
-
+import { useDispatch } from "react-redux"
+import Message from "../components/Action/Message/Message"
+import { logoutUser } from "../store/actions/actionUser"
 const UserAccount = () => {
-    const UserAccount = localStorage.getItem("user")
+    const UserAccount = JSON.parse(localStorage.getItem("user") as string)
+    const dispatch = useDispatch()
     const account = [
         { title: "Detail Account", icon: <RiAccountCircleLine />, path: "/account" },
         { title: "Logout", icon: <BiLogOut />, path: "/", logout: true }
     ]
+    const handleLogout = async () => {
+        try {
+            await dispatch(logoutUser() as never)
+            Message("success", "Logout success")
+        } catch (err) {
+            Message("error", "Logout failed")
+        }
 
+    }
 
     return (
         <>
@@ -28,7 +39,7 @@ const UserAccount = () => {
                                     <ul className="p-1 w-full">
                                         {account.map((item, index) => (
                                             <Link key={index} to={item.path}>
-                                                <li className="hover:bg-gray-100 flex items-center gap-1  pl-1 pr-10 py-1 rounded-md">
+                                                <li onClick={() => item.logout ? handleLogout() : null} className="hover:bg-gray-100 flex items-center gap-1  pl-1 pr-10 py-1 rounded-md">
                                                     <i className="text-xl text-teal-400">
                                                         {item.icon}
                                                     </i>
@@ -43,7 +54,7 @@ const UserAccount = () => {
                             }
 
                         >
-                            <Image className={"w-full h-full object-cover rounded-full cursor-pointer"} src={"https://i.pinimg.com/736x/33/28/0b/33280ba2ba4abd31695983a35c92b6da.jpg"} />
+                            <Image className={"w-full h-full object-cover rounded-full cursor-pointer"} src={UserAccount.user.image_url} />
                         </Tooltip>
 
                     </div>

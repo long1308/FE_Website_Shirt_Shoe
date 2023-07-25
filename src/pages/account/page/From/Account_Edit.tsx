@@ -1,21 +1,21 @@
-
 import { useForm, Controller } from "react-hook-form";
 import { User } from "../../../../interface/user/user";
 
 const Account_Edit = () => {
-
- 
   const {
     handleSubmit,
     control,
     formState: { errors },
-  } = useForm <User>();
+  } = useForm<User>();
+  
   const onSubmit = (data: any) => {
     console.log(data);
   };
+  
   const handleCancel = () => {
-    window.location.reload(); 
+    window.location.reload();
   };
+
   return (
     <div className="border mt-6 p-3 rounded-lg">
       <form onSubmit={handleSubmit(onSubmit)}>
@@ -45,7 +45,7 @@ const Account_Edit = () => {
             />
           </div>
         </div>
-        <div className="flex flex-col md:flex-row">
+        <div className="flex flex-col md:flex-row mb-6">
           <div className="w-full md:w-2/4 md:mr-4">
             <label htmlFor="">E-MAIL:</label>
             <Controller
@@ -76,12 +76,35 @@ const Account_Edit = () => {
             />
           </div>
         </div>
+        <div className="flex flex-col md:flex-row mb-6">
+          <div className="w-full md:w-2/4 md:mr-4">
+            <label htmlFor="">PASSWORD:</label>
+            <Controller
+              name="password"
+              control={control}
+              rules={{ required: "Password is required" }}
+              render={({ field }) => (
+                <>
+                  <input
+                    {...field}
+                    className={`shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline ${
+                      errors.password ? "border-red-500" : ""
+                    }`}
+                    type="password"
+                    placeholder="Password..."
+                  />
+                  {errors.password && (
+                    <p className="text-red-500 mt-1">{errors.password.message}</p>
+                  )}
+                </>
+              )}
+            />
+          </div>
+        </div>
         <div className="flex flex-col-reverse md:flex-row md:justify-end mt-5 gap-3">
           <button
             type="button"
-            
             onClick={handleCancel}
-
             className="btn js-prd-autocrat text-white bg-[#17c6aa] hover:bg-[#1b1a1a] rounded-md font-medium px-8 py-2 md:mt-0 md:mr-5"
           >
             CANCEL
