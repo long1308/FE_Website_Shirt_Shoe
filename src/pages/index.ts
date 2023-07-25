@@ -10,7 +10,7 @@ import Wishlist from "./account/page/Wishlist";
 import OrderHistory from "./account/page/OrderHistory";
 import Account from "./account/page/Account";
 import Address from "./account/page/Address";
-import SigninAdmin from "./Admin/Signup/SigninAdmin";
+import SigninAdmin from "./Admin/Signin/SigninAdmin";
 import ListProduct from "../components/Admin/ListProducts/ListProduct";
 import Contact from "./User/Contact/Contact";
 import About from "./User/About/About";

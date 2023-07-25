@@ -5,6 +5,7 @@ import Icon from "../../../components/Icon/icon";
 import { RootState } from "../../../store/store";
 import { useSelector } from "react-redux";
 import { Skeleton } from "antd";
+import moment from "moment";
 const Account = () => {
   const [displayText, setDisplayText] = useState(false);
   const handleClick = () => {
@@ -19,8 +20,8 @@ const Account = () => {
         {
           isLoading ? <Skeleton /> : error ? "Error" : user ?
             (
-              <>
-                <div className="bg-white border p-3 rounded-lg">
+              <div className="flex border justify-between flex-row-reverse">
+                <div className="bg-white  p-3 rounded-lg w-4/5 ml-3">
                   <h3 className="text-xl font-medium mb-3">Personal Info</h3>
                   <div>
                     <span className="font-medium text-lg">First Name:</span>
@@ -38,7 +39,12 @@ const Account = () => {
                     <Icon name={"AiFillEdit"} className={"text-2xl"} />
                     <span>Edit</span>
                   </button>
-                </div> </>
+                </div>
+                <div className=" p-2">
+                  <img className="w-48 h-48 border rounded-full" src={user.user.image_url} alt="" />
+                  <p className="text-center mt-3">{moment(user.user.createdAt).format('LL')}</p>
+                </div>
+              </div>
             ) : "error"
         }
 
