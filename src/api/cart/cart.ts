@@ -25,7 +25,7 @@ const cartService = {
       throw new Error("Error adding cart");
     }
   },
-  updateCategory: async (cart: Icart, userId: string): Promise<Icart> => {
+  updateCart: async (cart: Icart, userId: string): Promise<Icart> => {
     try {
       const response = await insntance.put(`/cart/${userId}`, cart);
       return response.data;
@@ -33,9 +33,9 @@ const cartService = {
       throw new Error("Error updating cart");
     }
   },
-  deleteCategory: async (userId: string, productId: string): Promise<void> => {
+  deleteCart: async (userId: string, productId: string): Promise<void> => {
     try {
-      await insntance.delete(`/cart/${userId}/products/${productId}}`);
+      await insntance.delete(`/cart/${userId}/products/${productId}`);
     } catch (error) {
       throw new Error("Error deleting cart");
     }

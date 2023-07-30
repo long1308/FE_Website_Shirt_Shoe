@@ -87,7 +87,7 @@ const items: MenuItem[] = [
     key: '6',
     label: (
       <Link to={"/admin/carts"} className="flex items-center">
-        <ShoppingCartOutlined  className="mr-3" />
+        <ShoppingCartOutlined />
         <span>Cart</span>
       </Link>
     ),

@@ -18,9 +18,11 @@ import { getCategorys } from "../../../store/actions/actionCategory";
 import FormatterPrice from "../../../components/FormatterPrice/FormatterPrice";
 import Loading from "../../../components/Action/Loading/Loading";
 import { Iproduct } from "../../../interface/product";
+import { addCart } from "../../../store/actions/actionCart";
+import Message from "../../../components/Action/Message/Message";
 
 const Detail_Product = () => {
-
+  const user = useSelector((state: RootState) => state.users.user.user);
   const dispatch = useDispatch();
   const dataProducts = useSelector((state: RootState) => state.products);
   const dataCategorys = useSelector((state: RootState) => state.categorys);
@@ -65,9 +67,27 @@ const Detail_Product = () => {
     }
   }, [product]);
   //addToCart
-  const handleAddToCart = (product: Iproduct) => {
+  const handleAddToCart = async (product: Iproduct) => {
+    const data = {
+      userId: user?._id,
+      items: [
+        {
+          productId: product._id,
+          color: [selectColor],
+          size: [selectSize],
+          quantity: orderQuantity,
+          image: [actionImage]
+        }
+      ]
+    }
+    try {
+      await dispatch(addCart(data) as never)
+      Message("success", "Add to cart success")
+    } catch (error) {
+      console.log(error)
+      Message("error", "Add to cart fail")
+    }
 
-    console.log(product);
 
   }
   return (
@@ -178,9 +198,6 @@ const Detail_Product = () => {
 
                           />
                         ))}
-
-
-
                       </Carousel>
                       {/* sale */}
                       <div className="prd-sale absolute top-2 left-1 min-w-[75px]">
@@ -273,6 +290,7 @@ const Detail_Product = () => {
                                       src={item}
                                       alt={item}
                                       className={`w-full h-full object-contain `}
+
                                       onClick={() => handleClickThumbnail(item, product?.colorSizes[index]?.color)}
                                     />
                                   </div>
