@@ -22,7 +22,7 @@ const cartReducer: Reducer<CartState, CartActionTypes> = (
       return {
         ...state,
         isLoading: false,
-        colors: action.payload,
+        carts: action.payload,
       };
     case "CART_LIST_FAIL":
       return {
@@ -46,19 +46,31 @@ const cartReducer: Reducer<CartState, CartActionTypes> = (
     case "CART_ONE_FAIL":
       return {
         ...state,
-        isLoading: false,
+        isLoading: true,
         error: action.payload,
       };
-    case "ADD_CART":
+    case "ADD_CART_REQUEST":
+      return {
+        ...state,
+        isLoading: true,
+        error: null,
+      };
+    case "ADD_CART_SUCCESS":
       return {
         ...state,
         colors: [...state.carts, action.payload],
+      };
+    case "ADD_CART_FAIL":
+      return {
+        ...state,
+        isLoading: false,
+        error: action.payload,
       };
     case "UPDATE_CART":
       return {
         ...state,
         carts: state.carts.map((cart) =>
-        cart._id === action.payload._id ? action.payload : cart
+          cart._id === action.payload._id ? action.payload : cart
         ),
       };
     case "DELETE_CART":

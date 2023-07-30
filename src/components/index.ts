@@ -24,6 +24,7 @@ import Customers from "../pages/Admin/Custo/Customers";
 import ProductAdd from "./Admin/ListProducts/ProductAdd";
 import ProductRow from "./ProductRow/ProductRow";
 import ImagePriview from "./Image/ImagePriview";
+import CartAdmin from "./Admin/cart/CartAdmin";
 export {
   CategoryAdd,
   ColorAdd,
@@ -51,4 +52,5 @@ export {
   SizeAdd,
   ProductRow,
   ImagePriview,
+  CartAdmin,
 };
