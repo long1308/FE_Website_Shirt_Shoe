@@ -26,8 +26,6 @@ const Header = () => {
         { name: "Contact", path: "/contact" },
 
     ]
-
-
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const dataProducts = useSelector((state: RootState) => state.products)
@@ -38,15 +36,11 @@ const Header = () => {
     const [openMenu, setOpenMenu] = useState(false);
     const inputRef = useRef(null as any);
     const debounced = useDebounced(valueSearch, 500)
-    console.log(loadingHeader);
-
-
 
     const hanldClear = () => {
         setValueSearch("")
         inputRef.current.focus();
     }
-
     const fetchProducts = () => {
 
         try {
@@ -116,7 +110,7 @@ const Header = () => {
 
                         <div className="logo-header flex items-center justify-between px-6 w-full md:w-auto">
                             <Link to={"/"}>
-                                <Image src={`${"./logo.webp" || "https://big-skins.com/frontend/foxic-html-demo/images/logo-footer.webp"}`} />
+                                <img src="./logo.webp" alt="" />
                             </Link>
                             <div className="action-cart-heart flex items-center gap-10 md:hidden ">
                                 <div className="heart-header">

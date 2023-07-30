@@ -65,7 +65,7 @@ const userReducer: Reducer<any, UserActionTypes> = (
     case "USER_ONE_SUCCESS":
       return {
         ...state,
-        size: action.payload,
+        user: action.payload,
         isLoading: false,
         error: null,
       };

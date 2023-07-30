@@ -11,6 +11,7 @@ import colorReducer from "./reducers/reducerColor";
 import sizeReducer from "./reducers/reducerSize";
 import cartReducer from "./reducers/reducerCart";
 import userReducer from "./reducers/reducerUser";
+import addressReducer from "./reducers/reducerAddress";
 
 const rootReducer = combineReducers({
   products: productReducer,
@@ -19,17 +20,20 @@ const rootReducer = combineReducers({
   sizes: sizeReducer,
   carts: cartReducer,
   users: userReducer,
+  addresss: addressReducer
   // Các reducers khác
 });
 const userLocalStorage = localStorage.getItem("user")
   ? JSON.parse(localStorage.getItem("user")!)
   : null;
-  console.log("userLocalStorage",userLocalStorage);
-  
+console.log("userLocalStorage", userLocalStorage);
+
 const initialState = {
   users: {
     user: userLocalStorage,
   },
+
+
 };
 export type RootState = ReturnType<typeof rootReducer>;
 

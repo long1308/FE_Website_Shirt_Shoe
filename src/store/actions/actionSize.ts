@@ -6,7 +6,6 @@ export const getSizes = () => {
   return async (dispatch: Dispatch<SizeActionTypes>) => {
     try {
       dispatch({ type: "SIZE_LIST_REQUEST" });
-
       const sizes = await sizeService.getAllSizes();
       dispatch({
         type: "SIZE_LIST_SUCCESS",
