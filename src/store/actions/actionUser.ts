@@ -62,7 +62,6 @@ export const signIn = (userSignin: User) => {
   return async (dispatch: Dispatch<UserActionTypes>) => {
     dispatch({ type: "SIGNIN_REQUEST" });
     const data = await userService.signIn(userSignin);
-    console.log(data);
     const user = await userService.getOneUser(data.user._id);
     saveLoginInfoToLocalStorage(user);
     try {
@@ -81,10 +80,12 @@ export const signIn = (userSignin: User) => {
 export const updateUser = (user: User, id: string) => {
   return async (dispatch: Dispatch<UserActionTypes>) => {
     await userService.updateUser(user, id);
+    const data = await userService.getOneUser(id);
+    saveLoginInfoToLocalStorage(data);
     try {
       dispatch({
         type: "UPDATE_USER",
-        payload: user,
+        payload: data,
       });
     } catch (erorr: any) {
       console.log(erorr.message);

@@ -1,12 +1,25 @@
 import Icon from "../../../components/Icon/icon";
 import { RootState } from "../../../store/store";
-import { useSelector } from "react-redux";
-import { Skeleton } from "antd";
+import { useDispatch, useSelector } from "react-redux";
+import { Button, Popconfirm, Skeleton } from "antd";
 import { Link } from "react-router-dom";
 import { Address as IAddress } from "../../../interface/user/user";
+import Message from "../../../components/Action/Message/Message";
+import { deleteAddress } from "../../../store/actions/actionAddress";
 const Address = () => {
+  const dispatch = useDispatch();
   const userInfor = useSelector((state: RootState) => state.users);
   const { isLoading, user } = userInfor
+  const handleRemove = async (id: string) => {
+    try {
+      await dispatch(deleteAddress(id, user.user._id) as never);
+      Message('success', 'Delete address information successfully');
+      document.location.href = "/account/address"
+    } catch (error) {
+      Message('error', 'Address information correction failed');
+      console.log(error);
+    }
+  }
   return (
     <div className="flex flex-col md:flex-row">
       <div className="w-full md:w-3/4">
@@ -39,7 +52,18 @@ const Address = () => {
                               <span>Edit</span>
                             </button>
                           </Link>
-                          <a className="hover:text-red-300" href="/">Delete</a>
+                          <Popconfirm
+                            placement="topRight"
+                            title={`Delete the address "${address.name}"?`}
+                            onConfirm={() => handleRemove(address._id as string)}
+                            cancelText="No"
+                            okButtonProps={{ style: { background: "red" } }}
+                          >
+                            <Button>
+                              Delete
+                            </Button>
+                          </Popconfirm>
+                          {/* <button onClick={() => handleRemove(address._id)} className="hover:text-red-300">Delete</button> */}
                         </div>
                       </div>
                     </div>)
