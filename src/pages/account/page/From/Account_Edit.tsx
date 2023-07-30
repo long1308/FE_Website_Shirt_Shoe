@@ -44,9 +44,7 @@ const Account_Edit = ({ handleCancel }: Props) => {
       await dispatch(updateUser(userData2, user.user._id) as never);
       setModal2Open(false);
       Message('success', 'Edit user information successfully');
-      setTimeout(() => {
-        window.location.reload()
-      }, 300)
+      document.location.href = "/account"
     } catch (error) {
       Message('error', 'User information correction failed');
     }

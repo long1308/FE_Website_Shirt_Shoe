@@ -41,7 +41,7 @@ const Addresses_Edit = () => {
         await dispatch(updateAddress(userData, id) as never);
       }
       setModal2Open(false);
-      navigate("/account/address")
+      document.location.href = "/account/address"
       Message('success', 'Edit address information successfully');
 
     } catch (error) {
@@ -184,15 +184,15 @@ const Addresses_Edit = () => {
             )}
           </div>
         </div>
-        <div className="w-full">
+        <div className="w-full mt-4">
           <div className="w-full ">
-            <label htmlFor="subDistrict">detailAddress:</label>
+            <label htmlFor="subDistrict">DETAIL/ADDRESS:</label>
             <textarea className="shadow min-h-[100px] max-h-52 appearance-none border border-teal-500 italic rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
 
               placeholder="detailAddress"
               {...register("detailAddress", {
                 required: "This field is required.",
-              })} name="" id="" >
+              })}  >
 
             </textarea>
             {errors.detailAddress && (

@@ -28,9 +28,8 @@ const Add_Addressses = () => {
     try {
       await dispatch(addAddress({ ...userData, customerId: user._id }) as never);
       setModal2Open(false);
-      navigate("/account/address")
       Message('success', 'Add address information successfully');
-
+      document.location.href = "/account/address"
     } catch (error) {
       Message('error', 'Address information correction failed');
     }
