@@ -108,5 +108,4 @@ export type ProductActionTypes =
   | ProductSearchListSuccessAction
   | ProductSearchListFailAction
   | ResetProductSearchAction
-  | SetLoadingAction
-  ;
+  | SetLoadingAction;

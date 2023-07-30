@@ -38,12 +38,31 @@ export const getOneCart = (id: string) => {
     }
   };
 };
-export const addCategory = (cart: Icart) => {
+export const addCart = (cart: Icart) => {
   return async (dispatch: Dispatch<CartActionTypes>) => {
+    dispatch({ type: "ADD_CART_REQUEST" });
     await cartService.addCart(cart);
     try {
       dispatch({
-        type: "ADD_CART",
+        type: "ADD_CART_SUCCESS",
+        payload: cart,
+      });
+    } catch (error: any) {
+      dispatch({
+        type: "ADD_CART_FAIL",
+        payload: error.message,
+      });
+      console.log(error.message);
+    }
+  };
+};
+
+export const updateCart = (cart: Icart, idUser: string) => {
+  return async (dispatch: Dispatch<CartActionTypes>) => {
+    await cartService.updateCart(cart, idUser);
+    try {
+      dispatch({
+        type: "UPDATE_CART",
         payload: cart,
       });
     } catch (error: any) {
@@ -52,20 +71,12 @@ export const addCategory = (cart: Icart) => {
   };
 };
 
-export const updateCategory = (cart: Icart) => {
-  return (dispatch: Dispatch<CartActionTypes>) => {
-    dispatch({
-      type: "UPDATE_CART",
-      payload: cart,
-    });
-  };
-};
-
-export const deleteCategory = (cart: string) => {
-  return (dispatch: Dispatch<CartActionTypes>) => {
+export const deleteCart = (userId: string, productId: string) => {
+  return async (dispatch: Dispatch<CartActionTypes>) => {
+    await cartService.deleteCart(userId, productId);
     dispatch({
       type: "DELETE_CART",
-      payload: cart,
+      payload: productId,
     });
   };
 };

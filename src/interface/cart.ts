@@ -1,10 +1,15 @@
+import { User } from "./user/user";
+
 export interface Icart {
   _id?: string;
-  userId: string;
+  userId: User;
   items: Array<Item>;
+  totalQuantity?: number;
+  totalpriceSale?: number;
 }
 interface Item {
-  productId: string;
+  _id?: string;
+  productId: string | number | undefined;
   size: Array<string>;
   color: Array<string>;
   image: Array<string>;
@@ -41,9 +46,16 @@ export interface CartOneFailAction {
   payload: string;
 }
 //add
-export interface AddCartAction {
-  type: "ADD_CART";
+export interface AddCartRequestAction {
+  type: "ADD_CART_REQUEST";
+}
+export interface AddCartSuccessAction {
+  type: "ADD_CART_SUCCESS";
   payload: Icart;
+}
+export interface AddCartFailAction {
+  type: "ADD_CART_FAIL";
+  payload: string;
 }
 //update cart
 export interface UpdateCartAction {
@@ -56,7 +68,9 @@ export interface DeleteCartAction {
   payload: string;
 }
 export type CartActionTypes =
-  | AddCartAction
+  | AddCartRequestAction
+  | AddCartSuccessAction
+  | AddCartFailAction
   | UpdateCartAction
   | DeleteCartAction
   | CartListRequestAction

@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import { AdminLayout, BaseLayout, Cart, CategoryAdd, CategoryEdit, CategoryList, ColorAdd, ColorEdit, ColorList, Customers, DashBoardPage, ProductAdd, ProductEdit, SizeAdd, SizeEdit, SizeList } from "./components";
+import { AdminLayout, BaseLayout, Cart, CartAdmin, CategoryAdd, CategoryEdit, CategoryList, ColorAdd, ColorEdit, ColorList, Customers, DashBoardPage, ProductAdd, ProductEdit, SizeAdd, SizeEdit, SizeList } from "./components";
 import { HomePages, NotFound, Order, Signin, Signup, Detail_Product, Account, Address, Wishlist, OrderHistory, SigninAdmin, ListProduct, Contact, About, Blog } from "./pages";
 import ListMenuAccount from './pages/account/ListMenuAccount';
 import Shop_Products from "./pages/User/Shop-Products/Shop_Products";
@@ -43,6 +43,7 @@ function App() {
           <Route path="products/add" element={<ProductAdd />} />
           <Route path="products/:id" element={<ProductEdit />} />
           <Route path="products" element={<ListProduct />} />
+          <Route path="carts" element={<CartAdmin />} />
           <Route path="customers" element={<Customers />} />
           <Route path="products/colors/add" element={<ColorAdd />} />
           <Route path="products/colors" element={<ColorList />} />
