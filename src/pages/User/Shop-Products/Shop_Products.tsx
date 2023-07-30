@@ -16,6 +16,7 @@ import Loading from "../../../components/Action/Loading/Loading"
 import { getCategorys } from "../../../store/actions/actionCategory"
 import { getColors } from "../../../store/actions/actionColor"
 import Comment from "../../../components/Comment/Comment"
+import { getSizes } from "../../../store/actions/actionSize"
 const Shop_Products = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
@@ -30,12 +31,11 @@ const Shop_Products = () => {
     const [isLoadingMore, setIsLoadingMore] = useState(false);
     const [viewMore, setViewMore] = useState(8)
     const [selectedOption, setSelectedOption] = useState("");
-
     useEffect(() => {
         dispatch(getProducts() as never)
         dispatch(getCategorys() as never)
         dispatch(getColors() as never)
-
+        dispatch(getSizes() as never)
     }, [dispatch])
     const hanldViewMore = () => {
         setIsLoadingMore(true);

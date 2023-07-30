@@ -4,6 +4,8 @@ import { HomePages, NotFound, Order, Signin, Signup, Detail_Product, Account, Ad
 import ListMenuAccount from './pages/account/ListMenuAccount';
 import Shop_Products from "./pages/User/Shop-Products/Shop_Products";
 import ProductsSearch from "./pages/User/Products_Search/ProductsSearch";
+import Addresses_Edit from "./pages/account/page/From/Address_Edit";
+import Add_Addressses from "./pages/account/page/From/Add_Addressses";
 function App() {
   return (
     <div className="App">
@@ -29,6 +31,8 @@ function App() {
             <Route path="address" element={<Address />} />
             <Route path="wishlist" element={<Wishlist />} />
             <Route path="history" element={<OrderHistory />} />
+            <Route path="edit/:id" element={<Addresses_Edit />} />
+            <Route path="add" element={<Add_Addressses />} />
           </Route>
 
         </Route>

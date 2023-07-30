@@ -14,17 +14,18 @@ export interface UserState {
   users: User[];
   user?: User;
   isLoading: boolean;
-  error: null | string;
+  error: string | null;
 }
 export interface Address {
   _id?: string;
-  phone : string;
-  name : string;
-  cityLeeched : string;
-  districtLeech : string;
-  communeAddress : string;
-  apartmentNumber : string;
-  _customerId? : string;
+  phone: string;
+  name: string;
+  cityLeeched: string;
+  districtLeech: string;
+  communeAddress: string;
+  apartmentNumber: string;
+  detailAddress: string;
+  customerId?: string;
 }
 //signup
 export interface SignUpRequestAction {
@@ -93,6 +94,7 @@ export interface DeleteUserAction {
   type: "DELETE_USER";
   payload: string;
 }
+
 export type UserActionTypes =
   | UserListRequestAction
   | UserListSuccessAction
@@ -109,4 +111,5 @@ export type UserActionTypes =
   | SignInRequestAction
   | SignInSuccessAction
   | SignInFailAction
-  | LogoutAction;
+  | LogoutAction
+
