@@ -46,7 +46,7 @@ const userService = {
   },
   deleteUser: async (userId: string): Promise<void> => {
     try {
-      await insntance.delete(`/size/${userId}`);
+      await insntance.delete(`/user/${userId}`);
     } catch (error) {
       throw new Error("Error deleting user");
     }
