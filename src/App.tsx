@@ -6,6 +6,7 @@ import Shop_Products from "./pages/User/Shop-Products/Shop_Products";
 import ProductsSearch from "./pages/User/Products_Search/ProductsSearch";
 import Addresses_Edit from "./pages/account/page/From/Address_Edit";
 import Add_Addressses from "./pages/account/page/From/Add_Addressses";
+import ListOrder from "./components/Admin/order/ListOrder";
 function App() {
   return (
     <div className="App">
@@ -44,6 +45,7 @@ function App() {
           <Route path="products/:id" element={<ProductEdit />} />
           <Route path="products" element={<ListProduct />} />
           <Route path="carts" element={<CartAdmin />} />
+          <Route path="orders" element={<ListOrder />} />
           <Route path="customers" element={<Customers />} />
           <Route path="products/colors/add" element={<ColorAdd />} />
           <Route path="products/colors" element={<ColorList />} />
