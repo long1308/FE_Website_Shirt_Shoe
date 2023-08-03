@@ -26,40 +26,40 @@ export const addAddress =
   };
 export const updateAddress =
   (address: Address, idAddress: string) =>
-  async (dispatch: Dispatch<AddressActionTypes>) => {
-    try {
-      await addressService.updateAddress(address, idAddress);
-      const user = await userService.getOneUser(address.customerId!);
-      saveLoginInfoToLocalStorage(user);
-      dispatch({
-        type: "UPDATE_ADDRESS",
-        payload: address,
-      });
-    } catch (error: any) {
-      dispatch({
-        type: "ADDRESS_ONE_FAIL",
-        payload: error.message,
-      });
-    }
-  };
+    async (dispatch: Dispatch<AddressActionTypes>) => {
+      try {
+        await addressService.updateAddress(address, idAddress);
+        const user = await userService.getOneUser(address.customerId!);
+        saveLoginInfoToLocalStorage(user);
+        dispatch({
+          type: "UPDATE_ADDRESS",
+          payload: address,
+        });
+      } catch (error: any) {
+        dispatch({
+          type: "ADDRESS_ONE_FAIL",
+          payload: error.message,
+        });
+      }
+    };
 export const deleteAddress =
   (id: string, userId: string) =>
-  async (dispatch: Dispatch<AddressActionTypes>) => {
-    try {
-      await addressService.deleteAddress(id);
+    async (dispatch: Dispatch<AddressActionTypes>) => {
+      try {
+        await addressService.deleteAddress(id);
         const user = await userService.getOneUser(userId);
         saveLoginInfoToLocalStorage(user);
-      dispatch({
-        type: "DELETE_ADDRESS",
-        payload: id,
-      });
-    } catch (error: any) {
-      dispatch({
-        type: "ADDRESS_ONE_FAIL",
-        payload: error.message,
-      });
-    }
-  };
+        dispatch({
+          type: "DELETE_ADDRESS",
+          payload: id,
+        });
+      } catch (error: any) {
+        dispatch({
+          type: "ADDRESS_ONE_FAIL",
+          payload: error.message,
+        });
+      }
+    };
 // export const getOneAddress = (id: string) => async (dispatch: Dispatch<AddressActionTypes>) => {
 //     try {
 //         dispatch({
