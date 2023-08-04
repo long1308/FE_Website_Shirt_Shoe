@@ -2,11 +2,12 @@ import { BsFillTrash3Fill } from "react-icons/bs";
 import { useState, useEffect } from "react";
 import { InputNumber } from "antd";
 import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../../store/store";
-import { deleteCart, getOneCart, updateCart } from "../../store/actions/actionCart";
-import Loading from "../Action/Loading/Loading";
-import FormatterPrice from "../FormatterPrice/FormatterPrice";
-import Message from "../Action/Message/Message";
+import { RootState } from "../../../store/store";
+import { deleteCart, getOneCart, updateCart } from "../../../store/actions/actionCart";
+import Loading from "../../../components/Action/Loading/Loading";
+import FormatterPrice from "../../../components/FormatterPrice/FormatterPrice";
+import Message from "../../../components/Action/Message/Message";
+import { Link } from "react-router-dom";
 const Cart = () => {
   const [isIconHovered, setIsIconHovered] = useState(false);
   const dispatch = useDispatch();
@@ -128,7 +129,7 @@ const Cart = () => {
                   <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 animate-spin" viewBox="0 0 20 20" fill="currentColor">
                     <path fillRule="evenodd"
                       d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z"
-                      />
+                    />
                   </svg>
                   <span className="p-2 text-xs lg:text-xl md:text-xl">Refresh...</span>
                 </button>
@@ -137,9 +138,9 @@ const Cart = () => {
                   <span className="font-bold text-2xl">Total</span>
                   <span className="text-2xl ml-auto">{FormatterPrice(cart?.totalpriceSale || 0)}</span>
                 </div>
-                <button className="text-xl mb-2 bg-[#17c6aa] text-white h-[60px] w-full flex items-center justify-center font-sans hover:bg-black hover:text-white">
+                <Link to={'/order'} className="text-xl mb-2 bg-[#17c6aa] text-white h-[60px] w-full flex items-center justify-center font-sans hover:bg-black hover:text-white">
                   Checkout
-                </button>
+                </Link>
                 <div>
                   <div className="text-right">
                     <span className="font-bold"> Standart shipping</span><br />

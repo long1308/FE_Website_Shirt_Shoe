@@ -9,7 +9,7 @@ import CustomTabs from "./Tabs/Taps";
 import ListProductNew from "./Users/ListProducts/ListProductNew";
 import BannerCaption from "./Users/Banner/BannerCaption";
 import BannerCategory from "./Users/Banner/BannerCategory";
-import Cart from "./cart/cart";
+import Cart from "../pages/User/cart/cart";
 import SizeList from "./Admin/size/sizeList";
 import SizeAdd from "./Admin/size/sizeAdd";
 import SizeEdit from "./Admin/size/sizeEdit";
