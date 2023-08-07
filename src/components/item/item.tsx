@@ -2,10 +2,14 @@ import { Rating } from "@mui/material";
 import { Link } from "react-router-dom";
 import Image from "../Image/Image";
 import Icon from "../Icon/icon";
-import { Tooltip } from "antd";
+import { Tooltip, message } from "antd";
 import { Iproduct } from "../../interface/product";
 import FormatterPrice from "../FormatterPrice/FormatterPrice";
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../../store/store";
+import { addWishlist } from "../../store/actions/actionUser";
+import Message from "../Action/Message/Message";
 // type Props = ReactNode;
 type Props = {
     buttonAdd?: string;
@@ -15,13 +19,38 @@ type Props = {
 }
 
 const Item = ({ buttonAdd, product, icon, infoProduct = true }: Props) => {
+    
+    const dispatch = useDispatch()
     const [imageHover, setImage] = useState(product?.image[0]);
+    // const [wishlist, setWishlist] = useState<Iproduct[]>([]);
+    
+    const {user} = useSelector((state: RootState) => state.users.user);
+    console.log(user);
+    
+
+    
     const handleClickThumbnail = (image: string) => {
-        setImage(image);
+      setImage(image);
     };
+  
     if (!product) {
-        return null
+      return null;
     }
+  
+    const handleAddToWishlist = async (productTym:any) => {
+      if (product) {
+        // const updatedWishlist = [...wishlist];
+     productTym = {
+        customerId: user._id,
+        productId: product._id
+     }
+     console.log(productTym.customerId);
+     Message("success", "add to wishlist ");
+
+     
+        await dispatch((addWishlist(productTym)as never))
+      }
+    };
 
     return (
         <div className="w-full md:w-64 m-auto content shadow-2xl rounded-lg overflow-hidden">
@@ -59,7 +88,7 @@ const Item = ({ buttonAdd, product, icon, infoProduct = true }: Props) => {
                         <span className="eye bg-white flex justify-center items-center rounded-full shadow-md mt-2  cursor-pointer">
                             <i className="icon-eye text-2xl p-1 ">
                                 <Tooltip title={"ADD TO WISHLIST"} placement="left">
-                                    <span>
+                                    <span onClick={handleAddToWishlist}>
                                         <Icon name={icon ? icon : "BsHeart"} />
                                     </span>
                                 </Tooltip>

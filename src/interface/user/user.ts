@@ -1,3 +1,5 @@
+import { Iproduct } from "../product";
+
 export interface User {
   accessToken?: string;
   user?: any;
@@ -14,18 +16,17 @@ export interface UserState {
   users: User[];
   user?: User;
   isLoading: boolean;
-  error: string | null;
+  error: null | string;
 }
 export interface Address {
   _id?: string;
-  phone: string;
-  name: string;
-  cityLeeched: string;
-  districtLeech: string;
-  communeAddress: string;
-  apartmentNumber: string;
-  detailAddress: string;
-  customerId?: string;
+  phone : string;
+  name : string;
+  cityLeeched : string;
+  districtLeech : string;
+  communeAddress : string;
+  apartmentNumber : string;
+  _customerId? : string;
 }
 //signup
 export interface SignUpRequestAction {
@@ -94,6 +95,28 @@ export interface DeleteUserAction {
   type: "DELETE_USER";
   payload: string;
 }
+export interface AddToWishlistAction {
+  type: "ADD_WISHLIST";
+  payload: string;
+}
+//get all wishlist
+export interface wishlistRequestAction {
+  type: "WISHLIST_REQUEST";
+}
+export interface wishlistSuccessAction {
+  type: "WISHLIST_SUCCESS";
+  payload: User[];
+}
+export interface wishlistFailAction {
+  type: "WISHLIST_FAIL";
+  payload: string;
+}
+// 
+export interface deleteWhislts {
+  type: "DELETE_WHILTS";
+  payload: string;
+}
+
 
 export type UserActionTypes =
   | UserListRequestAction
@@ -112,4 +135,12 @@ export type UserActionTypes =
   | SignInSuccessAction
   | SignInFailAction
   | LogoutAction
+  |AddToWishlistAction
+  |wishlistRequestAction
+  |wishlistSuccessAction
+  |wishlistFailAction
+  |deleteWhislts;
+  
+  
+  ;
 

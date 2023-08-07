@@ -116,4 +116,76 @@ export const logoutUser = () => {
       console.log(error);
     }
   };
+   
 };
+export const addWishlist = (productTym:any) => {
+  return async (dispatch: Dispatch<UserActionTypes>) => {
+    try {
+      await userService.addWishlist(productTym);
+      const users = await userService.getOneUser(productTym.customerId);
+      saveLoginInfoToLocalStorage(users)
+      
+      dispatch({
+        type: "ADD_WISHLIST",
+        payload: productTym,
+      });
+    } catch (erorr: any) {
+      console.log(erorr.message);
+    }
+  };
+  };
+  // export const deleteWhislts = (productTym:any) => {
+  //   return async (dispatch: Dispatch<UserActionTypes>) => {
+  //     try {
+  //       await userService.deleteWhislts(productTym);
+  //       // const users = await userService.getOneUser(productTym.customerId);
+  //       // saveLoginInfoToLocalStorage(users)
+        
+  //       dispatch({
+  //         type: "DELETE_WHILTS",
+  //         payload: productTym,
+  //       });
+  //     } catch (erorr: any) {
+  //       console.log(erorr.message);
+  //     }
+  //   };
+  //   };
+  // export const deleteWhislts = (productTym:any) => {
+  //   return (dispatch: Dispatch<UserActionTypes>) => {
+  //     try {
+  //       userService.deleteWhislts(productTym);
+  //       dispatch({
+  //         type: "DELETE_WHILTS",
+  //         payload: productTym,
+  //       });
+  //     } catch (error: any) {
+  //       console.log(error);
+  //     }
+  //   };
+  // };
+
+
+
+  // export const getWishlist = (productTym: any) => {
+  //   return async (dispatch: Dispatch<UserActionTypes>) => {
+  //     try {
+  //       dispatch({ type: "WISHLIST_REQUEST" });
+  //       await userService.getWishlist(productTym)
+  //       const users = await userService.getAllUsers();
+
+        
+  //       dispatch({
+  //         type: "WISHLIST_SUCCESS",
+  //         payload: users,
+  //       });
+  //     } catch (error: any) {
+  //       dispatch({
+  //         type: "WISHLIST_FAIL",
+  //         payload: error.message,
+  //       });
+  //     }
+  //   };
+  // };
+
+   
+

@@ -3,10 +3,16 @@ import ListGroup from '../ListMenuAccount';
 import { Item } from '../../../components';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../../store/store';
+// import { deleteWhislts } from '../../../store/actions/actionUser';
+// import Message from '../../../components/Action/Message/Message';
 
 const Wishlist = () => {
   const userInfor = useSelector((state: RootState) => state.users);
   const { isLoading, user, error } = userInfor
+  // const handleDelete = (productTym : any) => {
+  //   dispatch(deleteWhislts() as never);
+  //   Message("success", "Delete item successfully");
+  // }
   return (
     <div className="flex">
       <div className="w-full ">
@@ -24,3 +30,7 @@ const Wishlist = () => {
 };
 
 export default Wishlist;
+function dispatch(arg0: never) {
+  throw new Error('Function not implemented.');
+}
+

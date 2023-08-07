@@ -92,6 +92,40 @@ const userReducer: Reducer<any, UserActionTypes> = (
         ...state,
         users: state.users.filter((user: any) => user._id !== action.payload),
       };
+    case "ADD_WISHLIST":
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          favoriteProduct: [...state.user.favoriteProduct, action.payload],
+        },
+      };
+      case "WISHLIST_REQUEST":
+        return {
+          ...state,
+          isLoading: true,
+          error: null,
+        };
+      case "WISHLIST_SUCCESS":
+        return {
+          ...state,
+          isLoading: false,
+          users: action.payload,
+        };
+      case "WISHLIST_FAIL":
+        return {
+          ...state,
+          isLoading: false,
+          error: action.payload,
+        };
+        case "DELETE_WHILTS":
+          return {
+            ...state,
+            user: {
+              ...state.user,
+              favoriteProduct: [...state.user.favoriteProduct, action.payload],
+            },
+          };
     default:
       return state;
   }
