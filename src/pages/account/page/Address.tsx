@@ -36,7 +36,7 @@ const Address = () => {
                         <h3 className="text-xl font-bold mb-3">Address {index + 1} (Default)</h3>
                         <div className="flex gap-3">
                           <p className="text-base mb-1 border-r-2 pr-3 border-slate-800">{address.name}</p>
-                          <p className="text-base mb-1">+876-432-4323</p>
+                          <p className="text-base mb-1">{address.phone}</p>
                         </div>
                         <p>{address.apartmentNumber}</p>
                         <div className="flex gap-1 flex-wrap">
