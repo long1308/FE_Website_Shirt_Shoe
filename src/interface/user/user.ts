@@ -1,4 +1,3 @@
-import { Iproduct } from "../product";
 
 export interface User {
   accessToken?: string;
