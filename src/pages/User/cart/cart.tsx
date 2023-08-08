@@ -1,14 +1,15 @@
 import React from 'react';
 import { BsFillTrash3Fill } from "react-icons/bs";
 import { InputNumber, Pagination } from "antd";
-import { Delete ,Heart} from '../Icon/iconProject';
+import { Heart } from '../../../components/Icon/iconProject';
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../../store/store";
-import { deleteCart, getOneCart, updateCart } from "../../store/actions/actionCart";
-import Loading from "../Action/Loading/Loading";
-import FormatterPrice from "../FormatterPrice/FormatterPrice";
-import Message from "../Action/Message/Message";
+import { RootState } from "../../../store/store";
+import { deleteCart, getOneCart, updateCart } from "../../../store/actions/actionCart";
+import Loading from "../../../components/Action/Loading/Loading";
+import FormatterPrice from "../../../components/FormatterPrice/FormatterPrice";
+import Message from "../../../components/Action/Message/Message";
+import { Link } from "react-router-dom";
 const Cart = () => {
   const [isIconHovered, setIsIconHovered] = useState(false);
   const dispatch = useDispatch();

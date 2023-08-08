@@ -11,7 +11,7 @@ export const addAddress =
   (address: Address) => async (dispatch: Dispatch<AddressActionTypes>) => {
     try {
       await addressService.addAddress(address);
-      const user = await userService.getOneUser(address.customerId!);
+      const user = await userService.getOneUser(address._customerId!);
       saveLoginInfoToLocalStorage(user);
       dispatch({
         type: "ADD_ADDRESS",
@@ -29,7 +29,7 @@ export const updateAddress =
   async (dispatch: Dispatch<AddressActionTypes>) => {
     try {
       await addressService.updateAddress(address, idAddress);
-      const user = await userService.getOneUser(address.customerId!);
+      const user = await userService.getOneUser(address._customerId!);
       saveLoginInfoToLocalStorage(user);
       dispatch({
         type: "UPDATE_ADDRESS",
