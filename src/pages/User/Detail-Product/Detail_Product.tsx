@@ -20,6 +20,8 @@ import Loading from "../../../components/Action/Loading/Loading";
 import { Iproduct } from "../../../interface/product";
 import { addCart } from "../../../store/actions/actionCart";
 import Message from "../../../components/Action/Message/Message";
+import { Item } from "../../../components";
+
 
 const Detail_Product = () => {
   const user = useSelector((state: RootState) => state.users.user.user);
@@ -27,7 +29,11 @@ const Detail_Product = () => {
   const dataProducts = useSelector((state: RootState) => state.products);
   const dataCategorys = useSelector((state: RootState) => state.categorys);
   const { id } = useParams()
-  const { product, isLoading, error } = dataProducts;
+  const { product, isLoading, error, products } = dataProducts;
+  // Products cùng loại
+
+  const productsSameCategory = products?.filter((item: Iproduct) => item.categoryId?._id === product?.categoryId)
+  const productsSameCategoryID = productsSameCategory?.filter((item: Iproduct) => item._id !== product?._id)
   const { categorys } = dataCategorys
   useEffect(() => {
     dispatch(getCategorys() as never);
@@ -102,7 +108,7 @@ const Detail_Product = () => {
         ) :
           product ?
             (
-              <div className="w-screen min-h-[300px] mt-10">
+              <div className="w-full min-h-[300px] mt-10">
                 <div className="big-content w-full px-2 md:w-4/5  mx-auto">
                   {/* menu */}
                   <div className="breadcrumbs">
@@ -115,7 +121,8 @@ const Detail_Product = () => {
                       <li>/</li>
                       <li className="underline underline-offset-4 hover:text-[#17c6aa] ">
                         {categorys.map((cate) =>
-                          cate._id === product?.categoryId ? cate.name : null
+                          <Link to={"/list-productsAll"}> {cate._id === product?.categoryId ? cate.name : null}</Link>
+
                         )
                         }
                       </li>
@@ -562,7 +569,23 @@ const Detail_Product = () => {
                     <h1 className="text-center text-3xl font-medium my-5">
                       Similar products
                     </h1>
-                    {/* <Item /> */}
+
+                    <div className="list-new-products hot-sale-scroll p-2 overflow-x-auto  ">
+                      <div className="content-list-new-products w-max flex gap-2 ">
+                        {productsSameCategoryID.length > 0
+                          ? productsSameCategoryID.map((item, index) => {
+
+                            return (
+                              <div className=""> {/* Đặt kích thước cho nội dung bên trong */}
+                                <Item product={item} key={index} />
+                              </div>
+                            );
+
+                          })
+                          : null}
+                      </div>
+                    </div>
+
                   </div>
                 </div >
               </div >

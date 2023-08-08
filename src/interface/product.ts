@@ -10,6 +10,7 @@ export interface Iproduct {
   hot_sale?: number;
   quantity?: number;
   categoryId: {
+    _id?: string;
     name?: string;
   };
   inventoryStatus?: string;
