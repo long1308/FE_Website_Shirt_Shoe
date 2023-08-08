@@ -1,6 +1,8 @@
+import React from 'react';
 import { BsFillTrash3Fill } from "react-icons/bs";
+import { InputNumber, Pagination } from "antd";
+import { Heart } from '../../../components/Icon/iconProject';
 import { useState, useEffect } from "react";
-import { InputNumber } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../store/store";
 import { deleteCart, getOneCart, updateCart } from "../../../store/actions/actionCart";
@@ -57,105 +59,123 @@ const Cart = () => {
     <div>
       {isLoading ? <Loading /> :
         <div>
-          <h1 className="text-center font-sans font-bold text-3xl mb-10">
-            Shopping Cart
-          </h1>
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 ">
-            <div className="md:col-span-2 ">
-              <div className="overflow-x-auto mx-10">
-                <table className=" table min-w-full divide-y-2 divide-gray-200 bg-white text-sm ">
-                  <thead className="ltr:text-left rtl:text-right ">
-                    <tr>
-                      <th className="whitespace-nowrap py-4 font-medium text-gray-900 text-left">
-                        Image
-                      </th>
-                      <th className="whitespace-nowrap py-4   font-medium text-gray-900 text-left">
-                        Name
-                      </th>
-                      <th className="whitespace-nowrap py-4 font-medium text-gray-900 text-left">
-                        Qty
-                      </th>
-                      <th className="whitespace-nowrap py-4 font-medium text-gray-900 text-left">
-                        Price
-                      </th>
-                      <th className="whitespace-nowrap py-4 font-medium text-gray-900 text-left">Action</th>
-                    </tr>
-                  </thead>
+          <div className="container mx-auto px-4 py-8 flex flex-col md:flex-row">
+            <div className="w-full md:w-3/4 mb-4 md:mb-0 md:mr-4">
+              <div className="bg-gray-100 rounded-lg shadow-md p-6">
+                <div className="flex items-center mb-6">
 
-                  <tbody className="divide-y divide-gray-200 ">
-                    {cart && cart.items.map((item: any, index) =>
-                      <tr key={index}>
-                        <td className="whitespace-nowrap font-medium text-gray-900 flex text-left py-4">
-                          <div className="relative">
-                            <img className="w-full h-auto lg:w-40 object-cover md:w-40" src={item.image} alt="" />
-                            {
-                              item.productId.hot_sale && item.productId.hot_sale > 0 ? <span className="text-xs absolute top-0 right-0 bg-green-400 p-1 text-white rounded-full hidden sm:block">
-                                {item.productId.hot_sale}% OFF
-                              </span> : null
-                            }
-                          </div>
-                        </td>
-                        <td className="whitespace-nowrap  text-gray-700 py-4 ">
-                          <div className=" items-center ">
-                            <p className="text-xs lg:text-xl md:text-xl">{item.productId.name}</p>
-                            <div className="flex items-center gap-1">
-                              <span className="text-xs lg:text-base md:text-xl ">Color: </span>
-                              <span style={{ backgroundColor: item.color }} className="flex gap-3 rounded-full w-4 h-4 opacity-70"></span></div>
-                          </div>
-                          <span className="  gap-3 text-xs lg:text-base md:text-xl">Size: {item.size}</span>
-                        </td>
-                        <td className="whitespace-nowrap text-gray-700 py-4">
-                          <div className="flex items-center text-xs lg:text-xl">
+                  <h5 className="text-lg font-semibold">Your Cart ({cart?.totalQuantity} items)</h5>
+                  <a href="apps-ecommerce-products.html" className="ml-auto text-primary underline mr-10">Continue Shopping</a>
+                  <button
+                    className="w-48 h-12 inline-flex  items-center justify-center  px-6 py-2 space-x-2 text-sm font-medium text-white transition bg-blue-700 border border-blue-700 rounded appearance-none cursor-pointer select-none hover:border-blue-800 hover:bg-blue-800 focus:border-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-300 disabled:pointer-events-none disabled:opacity-75">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 animate-spin" viewBox="0 0 20 20" fill="currentColor">
+                      <path fillRule="evenodd"
+                        d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z"
+                      />
+                    </svg>
+                    <span className="p-2 text-xs lg:text-xl md:text-xl">Refresh...</span>
+                  </button>
+                </div>
+                <div className="cart mb-3 p-5 bg-white">
+                  {cart && cart.items.map((item: any, index) =>
+                    <div>
+                      <div className="flex items-center mb-6">
+                        <div className="w-32 h-32 bg-light rounded p-1 mr-4">
+                          <img src={item.image} alt="" className="w-full h-full object-cover" />
+                          {
+                            item.productId.hot_sale && item.productId.hot_sale > 0 ? <span className="text-xs absolute top-0 right-0 bg-green-400 p-1 text-white rounded-full hidden sm:block">
+                              {item.productId.hot_sale}% OFF
+                            </span> : null
+                          }
+                        </div>
+                        <div className="flex-1 mb-10">
+                          <h5 className="text-sm font-semibold truncate mb-2">
+                            <a href="ecommerce-product-detail.html" className="text-black">{item.productId.name}</a>
+                          </h5>
+                          <ul className="text-sm text-gray-500">
+                            <li className="inline-block mr-4 mb-2">Color: <span className="font-medium">{item.color}</span></li>
+                            <li className="inline-block">Size: <span className="font-medium">{item.size}</span></li>
+                          </ul>
+                          <div className="flex items-center">
                             <InputNumber min={1} max={getMaxQuantityForSize(item.size[0], item.color[0])} onChange={(newQuantity) => handleQuantityChange(newQuantity, item)} defaultValue={item.quantity} className="text-xs lg:text-xl w-10 lg:w-20" />
-                            <div className="">
+                            <div className="flex flex-col">
                             </div>
                           </div>
-                        </td>
-                        <td className=" whitespace-nowrap  text-gray-700  text-xs lg:text-xl md:text-xl py-4 ">{FormatterPrice(item.price)}</td>
-                        <td onClick={() => handleDelete(item)} className={`whitespace-nowrap cursor-pointer text-gray-700  text-xs lg:text-xl  md:text-xl px-4 py-4 ${isIconHovered ? "hover:text-red-500" : ""}`}>
-                          <BsFillTrash3Fill />
-                        </td>
-                      </tr>)}
+                        </div>
+                        <div className="items-center text-lg-end pb-10">
+                          <p className="text-sm text-gray-500">Item Price:</p>
+                          <h5 className="text-sm text-right">
+                            <span id="ticket_price" className="font-semibold">{FormatterPrice(item.price)}</span>
+                          </h5>
+                        </div>
+                      </div>
 
-                  </tbody>
-                </table>
-              </div>
-            </div >
-            <div className="col-span-1 mx-10 ">
-              <div className="flex flex-col">
-                <button
-                  onClick={handleRefresh}
-                  className="inline-flex  items-center justify-center w-2/3 px-6 py-2 space-x-2 text-sm font-medium text-white transition bg-blue-700 border border-blue-700 rounded appearance-none cursor-pointer select-none hover:border-blue-800 hover:bg-blue-800 focus:border-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-300 disabled:pointer-events-none disabled:opacity-75">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 animate-spin" viewBox="0 0 20 20" fill="currentColor">
-                    <path fillRule="evenodd"
-                      d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z"
-                    />
-                  </svg>
-                  <span className="p-2 text-xs lg:text-xl md:text-xl">Refresh...</span>
-                </button>
-                <div className="font-bold text-2xl mt-5" >Item : {cart?.totalQuantity}</div>
-                <div className="mb-4 mt-5 flex justify-between">
-                  <span className="font-bold text-2xl">Total</span>
-                  <span className="text-2xl ml-auto">{FormatterPrice(cart?.totalpriceSale || 0)}</span>
+                      <hr className='h-1 bg-blue-gray-100 mb-5' />
+                      <div className="flex justify-between">
+                        <div className="flex gap-5">
+                          <button onClick={() => handleDelete(item)} className={`text-start mb-4 flex p-2 bg-blue-gray-50 hover:bg-blue-gray-100 rounded-lg "hover:text-red-500" : ""}`} >
+                            <BsFillTrash3Fill /> <span className='font-semibold text-sm ml-2'>Remove</span>
+                          </button>
+                          <button className="text-start mb-4 flex p-2 bg-blue-gray-50 hover:bg-blue-gray-100 rounded-lg">
+                            <Heart></Heart><span className='font-semibold text-sm ml-2'>Add Wishlist</span>
+                          </button>
+                        </div>
+
+                      </div>
+                    </div>
+                  )}
                 </div>
-                <Link to={'/order'} className="text-xl mb-2 bg-[#17c6aa] text-white h-[60px] w-full flex items-center justify-center font-sans hover:bg-black hover:text-white">
-                  Checkout
-                </Link>
-                <div>
-                  <div className="text-right">
-                    <span className="font-bold"> Standart shipping</span><br />
-                    10 - 11 business days<br />
-                    1 item ships from the U.S. and will be
+              </div>
+            </div>
+
+            {/* Side Content */}
+            <div className="w-full md:w-1/4">
+              <div className="sticky-side-div">
+                <div className="card bg-white rounded-lg shadow-md px-5 py-5">
+                  <div className="card-header border-bottom-dashed mb-3">
+                    <h5 className="card-title mb-8 font-bold">Order Summary</h5>
+                  </div>
+                  <div className="card-header bg-light-subtle border-bottom-dashed">
+                    <div className="text-center mb-4">
+                      <h6 className="mb-2 font-bold text-sm text-[#495057]">Have a <span className="fw-semibold">promo</span> code ?</h6>
+                    </div>
+                    <div className="hstack gap-3  mx-n3 flex mb-5">
+                      <input className="form-control me-auto p-1 border border-gray-400 pl-3 rounded-md font-bold text-sm" type="text" placeholder="Enter coupon code" aria-label="Add Promo Code here..." />
+                      <button type="button" className="btn btn-success w-xs bg-[#13c56b] text-white py-2 px-5 rounded-md text-sm">Apply</button>
+                    </div>
+                  </div>
+                  <div className=" pt-2 pr-4">
+                    <div className=" ">
+                      <div className="">
+                        <div>
+
+                          <div className="text-[#495057] font-bold text-sm flex mt-3 mb-3 bg-blue-gray-100 p-2">
+                            <div className='pr-24'>Total(USD) :</div>
+                            <div className="text-end">
+                              <span className="fw-semibold pl-2" id="cart-total">{FormatterPrice(cart?.totalpriceSale || 0)}</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    {/* end table-responsive */}
+                  </div>
+                </div>
+                <div className="alert border-dashed alert-danger" role="alert">
+                  <div className="d-flex align-items-center">
+                    {/* Content */}
                   </div>
                 </div>
               </div>
             </div>
-          </div >
+          </div>
+          <div className="flex justify-center">
+            <Pagination defaultCurrent={1} total={100} />
+          </div>
         </div>
       }
-
     </div>
-  );
-};
+  )
+}
 
 export default Cart;
