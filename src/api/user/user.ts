@@ -51,5 +51,41 @@ const userService = {
       throw new Error("Error deleting user");
     }
   },
+  getWishlist: async (userId: string): Promise<void> => {
+    try {
+      await insntance.get(`/favoriteProducts/${userId}`);
+    } catch (error) {
+      throw new Error("Error get Wishlist ");
+    }
+  },
+  addWishlist : async (ProductTym:any): Promise<void> => {
+    console.log(ProductTym);
+    
+    try {
+
+      await insntance.post(`/favoriteProducts`,ProductTym);
+    }
+    catch(error){
+      console.log(error);
+      
+    }
+  },
+  deleteWhislts : async (ProductTym:any): Promise<void> => {
+    console.log(ProductTym);
+    
+    try {
+
+      await insntance.delete(`/favoriteProducts`,ProductTym);
+    }
+    catch(error){
+      console.log(error);
+    }
+  },
+ 
+ 
+  
 };
+
+
+
 export default userService;
