@@ -10,6 +10,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../store/store";
 import { addWishlist } from "../../store/actions/actionUser";
 import Message from "../Action/Message/Message";
+import ImageClother from "../Image/ImageClother";
 // type Props = ReactNode;
 type Props = {
     buttonAdd?: string;
@@ -19,45 +20,45 @@ type Props = {
 }
 
 const Item = ({ buttonAdd, product, icon, infoProduct = true }: Props) => {
-    
+
     const dispatch = useDispatch()
-    const [imageHover, setImage] = useState(product?.image[0]);
+    const [imageHover, setImage] = useState("");
     // const [wishlist, setWishlist] = useState<Iproduct[]>([]);
-    
-    const {user} = useSelector((state: RootState) => state.users.user);
+
+    const { user } = useSelector((state: RootState) => state.users.user);
     console.log(user);
-    
 
-    
+
+
     const handleClickThumbnail = (image: string) => {
-      setImage(image);
+        setImage(image);
     };
-  
-    if (!product) {
-      return null;
-    }
-  
-    const handleAddToWishlist = async (productTym:any) => {
-      if (product) {
-        // const updatedWishlist = [...wishlist];
-     productTym = {
-        customerId: user._id,
-        productId: product._id
-     }
-     console.log(productTym.customerId);
-     Message("success", "add to wishlist ");
 
-     
-        await dispatch((addWishlist(productTym)as never))
-      }
+    if (!product) {
+        return null;
+    }
+
+    const handleAddToWishlist = async (productTym: any) => {
+        if (product) {
+            // const updatedWishlist = [...wishlist];
+            productTym = {
+                customerId: user._id,
+                productId: product._id
+            }
+            console.log(productTym.customerId);
+            Message("success", "add to wishlist ");
+
+
+            await dispatch((addWishlist(productTym) as never))
+        }
     };
 
     return (
-        <div className="w-full md:w-64 m-auto content shadow-2xl rounded-lg overflow-hidden">
+        <div className="w-full md:w-auto m-auto content shadow-2xl rounded-lg overflow-hidden">
             <div className="w-full">
                 <div className="w-full relative overflow-hidden ">
                     <Link to={`/products/${product._id}`} className="image-big ">
-                        <Image
+                        <ImageClother
                             src={imageHover || product.image[0]}
                             alt="Leather Pegged Pants"
                             className="w-full transition duration-700 ease-in-out object-cover  max-h-[200px]   md:max-h-[250px] min-h-[320px]  md:min-h-[280px] "
